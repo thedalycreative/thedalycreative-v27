@@ -1,246 +1,448 @@
 <!doctype html>
 <html lang="en" class="scroll-smooth">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Terms of Service | The Daly Creative</title>
 
-		<link
-			href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Space+Grotesk:wght@400;500;600&display=swap"
-			rel="stylesheet"
-		/>
-		<link
-			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-			rel="stylesheet"
-		/>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Terms of Service | The Daly Creative</title>
 
-		<style>
-			:root {
-				--ink: #111;
-				--muted: #666;
-				--line: #e5e5e5;
-				--accent: #ff8a3d;
-				--bg: #fff;
-				--cream: #faf9f7;
-			}
+	<link
+		href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Space+Grotesk:wght@400;500;600&display=swap"
+		rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+	<link rel="stylesheet" href="styles.css" />
+	<link rel="stylesheet"
+		href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css" />
+	<link rel="stylesheet"
+		href="https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css" />
 
-			html {
-				scroll-behavior: smooth;
-			}
+	<style>
+		:root {
+			--ink: #111;
+			--muted: #666;
+			--line: #e5e5e5;
+			--accent: #ff8a3d;
+			--bg: #fff;
+			--cream: #faf9f7;
+		}
 
-			body {
-				font-family: "Space Grotesk", sans-serif;
-				margin: 0;
-				background: var(--bg);
-				color: var(--ink);
-				line-height: 1.7;
-			}
+		html {
+			scroll-behavior: smooth;
+		}
 
-			.container {
-				max-width: 900px;
-				margin: auto;
-				padding: 60px 24px;
-			}
+		body {
+			font-family: "Space Grotesk", sans-serif;
+			margin: 0;
+			background: var(--bg);
+			color: var(--ink);
+			line-height: 1.7;
+		}
 
-			.top-bar {
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				margin-bottom: 40px;
-			}
+		.container {
+			max-width: 900px;
+			margin: auto;
+			padding: 60px 24px;
+		}
 
-			.logo {
-				max-width: 160px;
-			}
+		.top-bar {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 40px;
+		}
 
-			.button {
-				display: inline-flex;
-				align-items: center;
-				gap: 8px;
-				padding: 10px 18px;
-				background: var(--ink);
-				color: #fff;
-				text-decoration: none;
-				border-radius: 6px;
-				font-weight: 500;
-				transition: 0.3s ease;
-				border: none;
-				cursor: pointer;
-			}
+		.logo {
+			max-width: 160px;
+		}
 
-			.button:hover {
-				background: var(--accent);
-			}
+		.button {
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			padding: 10px 18px;
+			background: var(--ink);
+			color: #fff;
+			text-decoration: none;
+			border-radius: 6px;
+			font-weight: 500;
+			transition: 0.3s ease;
+			border: none;
+			cursor: pointer;
+		}
 
-			.button-outline {
-				background: transparent;
-				border: 1px solid var(--ink);
-				color: var(--ink);
-			}
+		.button:hover {
+			background: var(--accent);
+		}
 
-			.button-outline:hover {
-				background: var(--ink);
-				color: #fff;
-			}
+		.button-outline {
+			background: transparent;
+			border: 1px solid var(--ink);
+			color: var(--ink);
+		}
 
-			h1,
-			h2 {
-				font-family: "Fraunces", serif;
-			}
+		.button-outline:hover {
+			background: var(--ink);
+			color: #fff;
+		}
 
-			h2 {
-				margin-top: 40px;
-				font-size: 1.3rem;
-			}
+		h1,
+		h2 {
+			font-family: "Fraunces", serif;
+		}
 
-			.summary {
-				background: var(--cream);
-				padding: 24px;
-				border-left: 4px solid var(--accent);
-				margin-bottom: 40px;
-			}
+		h2 {
+			margin-top: 40px;
+			font-size: 1.3rem;
+		}
 
-			footer {
-				margin-top: 60px;
-				font-size: 0.85rem;
-				color: var(--muted);
-				text-align: center;
-				border-top: 1px solid var(--line);
-				padding-top: 20px;
-			}
+		.summary {
+			background: var(--cream);
+			padding: 24px;
+			border-left: 4px solid var(--accent);
+			margin-bottom: 40px;
+		}
 
-			/* Floating Return to Top */
+		footer {
+			margin-top: 60px;
+			font-size: 0.85rem;
+			color: var(--muted);
+			text-align: center;
+			border-top: 1px solid var(--line);
+			padding-top: 20px;
+		}
+
+		/* Floating Return to Top */
+		#toTop {
+			position: fixed;
+			bottom: 30px;
+			right: 30px;
+			background: var(--ink);
+			color: #fff;
+			border: none;
+			padding: 12px 14px;
+			border-radius: 50%;
+			cursor: pointer;
+			display: none;
+			font-size: 18px;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+			transition: 0.3s ease;
+		}
+
+		#toTop:hover {
+			background: var(--accent);
+		}
+
+		@media print {
+
+			.button,
 			#toTop {
-				position: fixed;
-				bottom: 30px;
-				right: 30px;
-				background: var(--ink);
-				color: #fff;
-				border: none;
-				padding: 12px 14px;
-				border-radius: 50%;
-				cursor: pointer;
 				display: none;
-				font-size: 18px;
-				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-				transition: 0.3s ease;
 			}
+		}
+	</style>
+</head>
 
-			#toTop:hover {
-				background: var(--accent);
-			}
-
-			@media print {
-				.button,
-				#toTop {
-					display: none;
-				}
-			}
-		</style>
-	</head>
-
-	<body id="top">
-		<div class="container">
-			<div class="top-bar">
-				<a href="/" class="button button-outline">
-					<i class="bi bi-arrow-left"></i> Return to Website
+<body id="top">
+	<div class="container">
+		<!-- ===== NAV BAR ===== -->
+		<nav>
+			<div class="nav-container">
+				<a href="index.html" class="logo">
+					<img src="images/icons/logo-1300x507.png" alt="The Daly Creative" height="48" />
 				</a>
+				<input type="checkbox" id="nav-toggle" class="nav-toggle" />
+				<label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle menu">
+					<span></span><span></span><span></span>
+				</label>
+				<ul class="nav-links">
+					<li data-color="teal"><a href="index.html"><i
+								class="fi fi-rr-home nav-icon"></i><span>Home</span></a>
+					</li>
+					<li class="nav-has-dropdown" data-color="amber">
+						<a href="about.html"><i class="fi fi-rr-user nav-icon"></i><span>About</span><i
+								class="fi fi-rr-angle-small-down nav-chevron"></i></a>
+						<div class="nav-dropdown">
+							<div class="nav-dropdown-grid">
+								<a href="about.html#what-drives-us" class="nav-dropdown-card"
+									style="--card-accent: var(--amber);"><i class="fi fi-rr-bulb nav-dropdown-icon"></i>
+									<div><strong>Our Approach</strong><span>The mission & mindset</span></div>
+								</a>
+								<a href="about.html#core-values" class="nav-dropdown-card"
+									style="--card-accent: var(--purple);"><i
+										class="fi fi-rr-users-alt nav-dropdown-icon"></i>
+									<div><strong>Our Mission</strong><span>The Daly Creative Way</span></div>
+								</a>
+								<a href="about.html#the-journey" class="nav-dropdown-card"
+									style="--card-accent: var(--orange);"><i
+										class="fi fi-rr-time-past nav-dropdown-icon"></i>
+									<div><strong>The Journey</strong><span>Experience & expertise</span></div>
+								</a>
+								<a href="about.html#academic-background" class="nav-dropdown-card"
+									style="--card-accent: var(--teal);"><i class="fi fi-rr-book nav-dropdown-icon"></i>
+									<div><strong>Academic</strong><span>Education & foundations</span></div>
+								</a>
+							</div>
+						</div>
+					</li>
+					<li class="nav-has-dropdown" data-color="orange">
+						<a href="services.html"><i class="fi fi-rr-apps nav-icon"></i><span>Services</span><i
+								class="fi fi-rr-angle-small-down nav-chevron"></i></a>
+						<div class="nav-dropdown">
+							<div class="nav-dropdown-grid">
+								<a href="services.html#cat-brand" class="nav-dropdown-card"
+									style="--card-accent: var(--orange);"><i
+										class="fi fi-rr-globe nav-dropdown-icon"></i>
+									<div><strong>Custom Website Development</strong></div>
+								</a>
+								<a href="services.html#cat-brand" class="nav-dropdown-card"
+									style="--card-accent: var(--orange);"><i
+										class="fi fi-rr-paint-brush nav-dropdown-icon"></i>
+									<div><strong>Strategic Branding &amp; Identity</strong></div>
+								</a>
+								<a href="services.html#cat-brand" class="nav-dropdown-card"
+									style="--card-accent: var(--orange);"><i
+										class="fi fi-rr-search nav-dropdown-icon"></i>
+									<div><strong>Localized SEO Visibility</strong></div>
+								</a>
+								<a href="services.html#cat-brand" class="nav-dropdown-card"
+									style="--card-accent: var(--orange);"><i
+										class="fi fi-rr-megaphone nav-dropdown-icon"></i>
+									<div><strong>Managed Ad Campaigns</strong></div>
+								</a>
+								<a href="services.html#cat-ai" class="nav-dropdown-card"
+									style="--card-accent: var(--purple);"><i
+										class="fi fi-rr-brain nav-dropdown-icon"></i>
+									<div><strong>AI Strategy &amp; Navigation</strong></div>
+								</a>
+								<a href="services.html#cat-ai" class="nav-dropdown-card"
+									style="--card-accent: var(--purple);"><i
+										class="fi fi-rr-bolt nav-dropdown-icon"></i>
+									<div><strong>Workflow Automation</strong></div>
+								</a>
+								<a href="services.html#cat-ai" class="nav-dropdown-card"
+									style="--card-accent: var(--purple);"><i
+										class="fi fi-rr-magic-wand nav-dropdown-icon"></i>
+									<div><strong>AI Content Support</strong></div>
+								</a>
+								<a href="services.html#cat-ai" class="nav-dropdown-card"
+									style="--card-accent: var(--purple);"><i
+										class="fi fi-rr-comment-dots nav-dropdown-icon"></i>
+									<div><strong>Smart Chatbots</strong></div>
+								</a>
+								<a href="services.html#cat-growth" class="nav-dropdown-card"
+									style="--card-accent: var(--teal);"><i
+										class="fi fi-rr-chart-line-up nav-dropdown-icon"></i>
+									<div><strong>Data Insights</strong></div>
+								</a>
+								<a href="services.html#cat-growth" class="nav-dropdown-card"
+									style="--card-accent: var(--teal);"><i
+										class="fi fi-rr-handshake nav-dropdown-icon"></i>
+									<div><strong>Grow &amp; Support Plan</strong></div>
+								</a>
+								<a href="services.html#cat-growth" class="nav-dropdown-card"
+									style="--card-accent: var(--teal);"><i class="fi fi-rr-book nav-dropdown-icon"></i>
+									<div><strong>Training &amp; Empowerment</strong></div>
+								</a>
+								<a href="services.html#cat-growth" class="nav-dropdown-card"
+									style="--card-accent: var(--teal);"><i
+										class="fi fi-rr-sparkles nav-dropdown-icon"></i>
+									<div><strong>Future-Proofing</strong></div>
+								</a>
+								<div class="nav-dropdown-divider"></div>
+								<a href="cyber-security.html" class="nav-dropdown-card nav-dropdown-card--dark"
+									style="--card-accent: #c94050; --card-bg: #0c0612;"><i
+										class="bi bi-shield-lock nav-dropdown-icon"></i>
+									<div><strong>Cyber Security</strong><span>Audits, monitoring, response</span></div>
+								</a>
+								<a href="ai-tools.html" class="nav-dropdown-card nav-dropdown-card--dark"
+									style="--card-accent: #0d1b2a; --card-bg: #0a1628;"><i
+										class="fi fi-rr-brain nav-dropdown-icon"></i>
+									<div><strong>AI Tools</strong><span>GPT agents, smart integrations</span></div>
+								</a>
+							</div>
+						</div>
+					</li>
+					<li class="nav-has-dropdown" data-color="blue">
+						<a href="blueprint.html"><i class="fi fi-rr-map nav-icon"></i><span>Process</span><i
+								class="fi fi-rr-angle-small-down nav-chevron"></i></a>
+						<div class="nav-dropdown">
+							<div class="nav-dropdown-grid">
+								<a href="blueprint.html#bp-method" class="nav-dropdown-card"
+									style="--card-accent: var(--orange);"><i
+										class="fi fi-rr-bulb nav-dropdown-icon"></i>
+									<div><strong>Our Method</strong><span>Strategy &amp; mindset</span></div>
+								</a>
+								<a href="blueprint.html#bp-timeline" class="nav-dropdown-card"
+									style="--card-accent: var(--teal);"><i class="fi fi-rr-route nav-dropdown-icon"></i>
+									<div><strong>The Journey</strong><span>Four-phase process</span></div>
+								</a>
+								<a href="blueprint.html#bp-impact" class="nav-dropdown-card"
+									style="--card-accent: var(--purple);"><i
+										class="fi fi-rr-bolt nav-dropdown-icon"></i>
+									<div><strong>Our Impact</strong><span>Real outcomes</span></div>
+								</a>
+								<a href="blueprint.html#bp-grow" class="nav-dropdown-card"
+									style="--card-accent: var(--ocean);"><i
+										class="fi fi-rr-seedling nav-dropdown-icon"></i>
+									<div><strong>Designed to Grow</strong><span>Built for what's next</span></div>
+								</a>
+							</div>
+						</div>
+					</li>
+					<li class="nav-has-dropdown" data-color="coral">
+						<a href="portfolio.html"><i class="fi fi-rr-briefcase nav-icon"></i><span>Work</span><i
+								class="fi fi-rr-angle-small-down nav-chevron"></i></a>
+						<div class="nav-dropdown">
+							<div class="nav-dropdown-grid">
+								<a href="portfolio.html#skywings" class="nav-dropdown-card"
+									style="--card-accent: #4c8cbc;"><i
+										class="fi fi-rr-plane-departure nav-dropdown-icon"></i>
+									<div><strong>SkyWings</strong><span>Aviation &amp; leisure</span></div>
+								</a>
+								<a href="portfolio.html#preservation" class="nav-dropdown-card"
+									style="--card-accent: #8b6914;"><i class="fi fi-rr-picture nav-dropdown-icon"></i>
+									<div><strong>Preservation Framers</strong><span>Art &amp; framing</span></div>
+								</a>
+								<a href="portfolio.html#wcep" class="nav-dropdown-card"
+									style="--card-accent: #2d8a4e;"><i class="fi fi-rr-hammer nav-dropdown-icon"></i>
+									<div><strong>WCE Pros</strong><span>Exterior services</span></div>
+								</a>
+								<a href="portfolio.html#drumplings" class="nav-dropdown-card"
+									style="--card-accent: #e85d3a;"><i class="fi fi-rr-utensils nav-dropdown-icon"></i>
+									<div><strong>Drumplings</strong><span>Hospitality &amp; food</span></div>
+								</a>
+								<a href="portfolio.html#dora-health" class="nav-dropdown-card"
+									style="--card-accent: #e06088;"><i class="fi fi-rr-heart nav-dropdown-icon"></i>
+									<div><strong>Dora Health</strong><span>Health &amp; wellness</span></div>
+								</a>
+								<a href="portfolio.html#pawfection" class="nav-dropdown-card"
+									style="--card-accent: #f5a623;"><i class="fi fi-rr-paw nav-dropdown-icon"></i>
+									<div><strong>Pawfection</strong><span>Pet services</span></div>
+								</a>
+								<div class="nav-dropdown-divider"></div>
+								<a href="portfolio.html#consulting" class="nav-dropdown-card nav-dropdown-card--full"
+									style="--card-accent: var(--teal);"><i
+										class="fi fi-rr-handshake nav-dropdown-icon"></i>
+									<div><strong>Consulting &amp; Advisory</strong><span>Strategy, direction &amp;
+											partnerships</span></div>
+								</a>
+							</div>
+						</div>
+					</li>
+					<li class="nav-mobile-cta-item"><a class="nav-mobile-cta" href="contact.html"><i
+								class="fi fi-rr-calendar nav-icon"></i> Enquire Now</a></li>
+				</ul>
+				<div class="nav-overlay"></div>
+				<a class="nav-cta" href="contact.html"><i class="fi fi-rr-calendar nav-icon"></i> Enquire Now</a>
 			</div>
+		</nav>
+		<script>
+			(function () {
+				const n = document.querySelector('nav');
+				if (!n) return;
+				window.addEventListener('scroll', () => n.classList.toggle('nav--scrolled', window.scrollY > 60));
+				const o = document.querySelector('.nav-overlay');
+				const t = document.getElementById('nav-toggle');
+				if (o && t) o.addEventListener('click', () => { t.checked = false; });
+				document.querySelectorAll('.nav-has-dropdown').forEach(dd => {
+					dd.querySelector(':scope > a').addEventListener('click', function (e) {
+						if (window.innerWidth <= 900) { e.preventDefault(); dd.classList.toggle('is-open'); }
+					});
+				});
+			})();
+		</script>
 
-			<header style="text-align: center; margin-bottom: 40px">
-				<img
-					src="images/tdc-logo-text-6250x3750.png"
-					alt="The Daly Creative Logo"
-					class="logo"
-				/>
-				<h1>Terms of Service</h1>
-				<p style="color: #666">Last updated: 15 February 2026</p>
-			</header>
+		<header style="text-align: center; margin-bottom: 40px">
+			<img src="images/icons/logo-txt-6250x3750.png" alt="The Daly Creative Logo" class="logo" />
+			<h1>Terms of Service</h1>
+			<p style="color: #666">Last updated: 15 February 2026</p>
+		</header>
 
-			<div class="summary">
-				<strong>Plain English Summary</strong>
-				<p>
-					You approve a quote and pay a 25% deposit to begin. Deposits are
-					non-refundable. Pay within 14 days. You own final work once paid in full
-					(for business use), but you can’t resell it. We provide two weeks of
-					complimentary support. Ongoing support requires a subscription. We’re not
-					responsible for third-party platform issues or indirect losses.
-				</p>
-			</div>
-
-			<h2>1. Our Agreement</h2>
+		<div class="summary">
+			<strong>Plain English Summary</strong>
 			<p>
-				Engagement begins when you approve a written quote and pay a 25% deposit.
-				Delays caused by late content, approvals or feedback may extend timelines.
+				You approve a quote and pay a 25% deposit to begin. Deposits are
+				non-refundable. Pay within 14 days. You own final work once paid in full
+				(for business use), but you can’t resell it. We provide two weeks of
+				complimentary support. Ongoing support requires a subscription. We’re not
+				responsible for third-party platform issues or indirect losses.
 			</p>
-
-			<h2>2. Payments and Fees</h2>
-			<p>
-				A 25% deposit is required upfront unless otherwise agreed in writing. The
-				remaining balance is due upon completion. Payment is required within 14 days
-				of invoice issue. Late payments may incur a reasonable administration fee.
-				Grow & Support Plan requires an active subscription.
-			</p>
-
-			<h2>3. Ownership & Intellectual Property</h2>
-			<p>
-				All work remains our property until full payment is received. Upon full
-				payment, you receive a non-exclusive, royalty-free licence for business use.
-				You may not resell or redistribute work without written permission. We may
-				showcase completed work unless confidentiality is requested.
-			</p>
-
-			<h2>4. Advertising Accounts</h2>
-			<p>
-				Advertising accounts created by us are managed by The Daly Creative on
-				behalf of the client. Transfer requests must be agreed in writing and may
-				incur administrative fees.
-			</p>
-
-			<h2>5. Third-Party Platforms</h2>
-			<p>
-				We may use platforms including Wix, WordPress, Squarespace, Google
-				Workspace, GitHub, GoDaddy, Cloudflare, Shopify, Webflow and others. We are
-				not responsible for outages, policy changes, or pricing changes from these
-				providers.
-			</p>
-
-			<h2>6. Support</h2>
-			<p>
-				Two weeks complimentary support for bug fixes following completion. Grow &
-				Support Plan may be cancelled with 30 days’ written notice.
-			</p>
-
-			<h2>7. Limitation of Liability</h2>
-			<p>
-				Liability is limited to fees paid for the relevant service. We are not
-				liable for indirect or consequential losses.
-			</p>
-
-			<h2>8. Governing Law</h2>
-			<p>Governed by the laws of Western Australia, Australia.</p>
-
-			<button class="button" onclick="window.print()">
-				<i class="bi bi-download"></i> Download as PDF
-			</button>
-
-			<footer>© The Daly Creative — All Rights Reserved</footer>
 		</div>
 
-		<button id="toTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
-			<i class="bi bi-arrow-up"></i>
+		<h2>1. Our Agreement</h2>
+		<p>
+			Engagement begins when you approve a written quote and pay a 25% deposit.
+			Delays caused by late content, approvals or feedback may extend timelines.
+		</p>
+
+		<h2>2. Payments and Fees</h2>
+		<p>
+			A 25% deposit is required upfront unless otherwise agreed in writing. The
+			remaining balance is due upon completion. Payment is required within 14 days
+			of invoice issue. Late payments may incur a reasonable administration fee.
+			Grow & Support Plan requires an active subscription.
+		</p>
+
+		<h2>3. Ownership & Intellectual Property</h2>
+		<p>
+			All work remains our property until full payment is received. Upon full
+			payment, you receive a non-exclusive, royalty-free licence for business use.
+			You may not resell or redistribute work without written permission. We may
+			showcase completed work unless confidentiality is requested.
+		</p>
+
+		<h2>4. Advertising Accounts</h2>
+		<p>
+			Advertising accounts created by us are managed by The Daly Creative on
+			behalf of the client. Transfer requests must be agreed in writing and may
+			incur administrative fees.
+		</p>
+
+		<h2>5. Third-Party Platforms</h2>
+		<p>
+			We may use platforms including Wix, WordPress, Squarespace, Google
+			Workspace, GitHub, GoDaddy, Cloudflare, Shopify, Webflow and others. We are
+			not responsible for outages, policy changes, or pricing changes from these
+			providers.
+		</p>
+
+		<h2>6. Support</h2>
+		<p>
+			Two weeks complimentary support for bug fixes following completion. Grow &
+			Support Plan may be cancelled with 30 days’ written notice.
+		</p>
+
+		<h2>7. Limitation of Liability</h2>
+		<p>
+			Liability is limited to fees paid for the relevant service. We are not
+			liable for indirect or consequential losses.
+		</p>
+
+		<h2>8. Governing Law</h2>
+		<p>Governed by the laws of Western Australia, Australia.</p>
+
+		<button class="button" onclick="window.print()">
+			<i class="bi bi-download"></i> Download as PDF
 		</button>
 
-		<script>
-			const toTopBtn = document.getElementById("toTop");
+		<footer>© The Daly Creative — All Rights Reserved</footer>
+	</div>
 
-			window.addEventListener("scroll", function () {
-				if (window.scrollY > 300) {
-					toTopBtn.style.display = "block";
-				} else {
-					toTopBtn.style.display = "none";
-				}
-			});
-		</script>
-	</body>
+	<button id="toTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+		<i class="bi bi-arrow-up"></i>
+	</button>
+
+	<script>
+		const toTopBtn = document.getElementById("toTop");
+
+		window.addEventListener("scroll", function () {
+			if (window.scrollY > 300) {
+				toTopBtn.style.display = "block";
+			} else {
+				toTopBtn.style.display = "none";
+			}
+		});
+	</script>
+</body>
+
 </html>
