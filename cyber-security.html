@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Cyber Security | The Daly Creative</title>
+	<meta name="description"
+		content="Protect your small business from cyber threats. Security audits, employee training, threat monitoring, and incident response — built for businesses that can't afford to be caught off guard." />
+
+	<!-- ===== FAVICON ===== -->
+	<link rel="icon" type="image/png" href="logos/tdc-icon 256x256.png" />
+
+	<!-- ===== STYLESHEETS ===== -->
+	<link rel="stylesheet" href="styles.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+	<!-- Flaticon UICONS -->
+	<link rel="stylesheet"
+		href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css" />
+	<link rel="stylesheet"
+		href="https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css" />
+
+	<!-- ===== LORDICON ===== -->
+	<script src="https://cdn.lordicon.com/lordicon.js"></script>
+
+	<!-- ===== TAILWIND ===== -->
+	<script src="https://cdn.tailwindcss.com/2.2.19"></script>
+
+	<!-- ===== FONTS ===== -->
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600&display=swap"
+		rel="stylesheet" />
+</head>
+
+<body class="cyber-page">
+	<!-- ===== NAVBAR ===== -->
+	<nav>
+		<div class="nav-container">
+			<a href="index.html" class="logo">
+				<img src="images/icons/logo-1300x507.png" alt="The Daly Creative" height="48" />
+			</a>
+			<input type="checkbox" id="nav-toggle" class="nav-toggle" />
+			<label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle menu">
+				<span></span><span></span><span></span>
+			</label>
+			<ul class="nav-links">
+				<li data-color="teal"><a href="index.html"><i class="fi fi-rr-home nav-icon"></i><span>Home</span></a>
+				</li>
+				<li class="nav-has-dropdown" data-color="amber">
+					<a href="about.html"><i class="fi fi-rr-user nav-icon"></i><span>About</span><i
+							class="fi fi-rr-angle-small-down nav-chevron"></i></a>
+					<div class="nav-dropdown">
+						<div class="nav-dropdown-grid">
+							<a href="about.html#what-drives-us" class="nav-dropdown-card"
+								style="--card-accent: var(--amber);"><i class="fi fi-rr-bulb nav-dropdown-icon"></i>
+								<div><strong>Our Approach</strong><span>The mission & mindset</span></div>
+							</a>
+							<a href="about.html#core-values" class="nav-dropdown-card"
+								style="--card-accent: var(--purple);"><i
+									class="fi fi-rr-users-alt nav-dropdown-icon"></i>
+								<div><strong>Our Mission</strong><span>The Daly Creative Way</span></div>
+							</a>
+							<a href="about.html#the-journey" class="nav-dropdown-card"
+								style="--card-accent: var(--orange);"><i
+									class="fi fi-rr-time-past nav-dropdown-icon"></i>
+								<div><strong>The Journey</strong><span>Experience & expertise</span></div>
+							</a>
+							<a href="about.html#academic-background" class="nav-dropdown-card"
+								style="--card-accent: var(--teal);"><i class="fi fi-rr-book nav-dropdown-icon"></i>
+								<div><strong>Academic</strong><span>Education & foundations</span></div>
+							</a>
+						</div>
+					</div>
+				</li>
+				<li class="nav-has-dropdown" data-color="orange">
+					<a href="services.html" class="active"><i class="fi fi-rr-apps nav-icon"></i><span>Services</span><i
+							class="fi fi-rr-angle-small-down nav-chevron"></i></a>
+					<div class="nav-dropdown">
+						<div class="nav-dropdown-grid">
+							<!-- Build Your Foundation -->
+							<a href="services.html#cat-brand" class="nav-dropdown-card"
+								style="--card-accent: var(--orange);"><i class="fi fi-rr-globe nav-dropdown-icon"></i>
+								<div><strong>Custom Website Development</strong></div>
+							</a>
+							<a href="services.html#cat-brand" class="nav-dropdown-card"
+								style="--card-accent: var(--orange);"><i
+									class="fi fi-rr-paint-brush nav-dropdown-icon"></i>
+								<div><strong>Strategic Branding &amp; Identity</strong></div>
+							</a>
+							<a href="services.html#cat-brand" class="nav-dropdown-card"
+								style="--card-accent: var(--orange);"><i class="fi fi-rr-search nav-dropdown-icon"></i>
+								<div><strong>Localized SEO Visibility</strong></div>
+							</a>
+							<a href="services.html#cat-brand" class="nav-dropdown-card"
+								style="--card-accent: var(--orange);"><i
+									class="fi fi-rr-megaphone nav-dropdown-icon"></i>
+								<div><strong>Managed Ad Campaigns</strong></div>
+							</a>
+							<!-- Work Smarter, Not Harder -->
+							<a href="services.html#cat-ai" class="nav-dropdown-card"
+								style="--card-accent: var(--purple);"><i class="fi fi-rr-brain nav-dropdown-icon"></i>
+								<div><strong>AI Strategy &amp; Navigation</strong></div>
+							</a>
+							<a href="services.html#cat-ai" class="nav-dropdown-card"
+								style="--card-accent: var(--purple);"><i class="fi fi-rr-bolt nav-dropdown-icon"></i>
+								<div><strong>Workflow Automation</strong></div>
+							</a>
+							<a href="services.html#cat-ai" class="nav-dropdown-card"
+								style="--card-accent: var(--purple);"><i
+									class="fi fi-rr-magic-wand nav-dropdown-icon"></i>
+								<div><strong>AI Content Support</strong></div>
+							</a>
+							<a href="services.html#cat-ai" class="nav-dropdown-card"
+								style="--card-accent: var(--purple);"><i
+									class="fi fi-rr-comment-dots nav-dropdown-icon"></i>
+								<div><strong>Smart Chatbots</strong></div>
+							</a>
+							<!-- Grow with Confidence -->
+							<a href="services.html#cat-growth" class="nav-dropdown-card"
+								style="--card-accent: var(--teal);"><i
+									class="fi fi-rr-chart-line-up nav-dropdown-icon"></i>
+								<div><strong>Data Insights</strong></div>
+							</a>
+							<a href="services.html#cat-growth" class="nav-dropdown-card"
+								style="--card-accent: var(--teal);"><i class="fi fi-rr-handshake nav-dropdown-icon"></i>
+								<div><strong>Grow &amp; Support Plan</strong></div>
+							</a>
+							<a href="services.html#cat-growth" class="nav-dropdown-card"
+								style="--card-accent: var(--teal);"><i class="fi fi-rr-book nav-dropdown-icon"></i>
+								<div><strong>Training &amp; Empowerment</strong></div>
+							</a>
+							<a href="services.html#cat-growth" class="nav-dropdown-card"
+								style="--card-accent: var(--teal);"><i class="fi fi-rr-sparkles nav-dropdown-icon"></i>
+								<div><strong>Future-Proofing</strong></div>
+							</a>
+							<div class="nav-dropdown-divider"></div>
+							<!-- Featured Services -->
+							<a href="cyber-security.html" class="nav-dropdown-card nav-dropdown-card--dark"
+								style="--card-accent: #c94050; --card-bg: #0c0612;"><i
+									class="bi bi-shield-lock nav-dropdown-icon"></i>
+								<div><strong>Cyber Security</strong><span>Audits, monitoring, response</span></div>
+							</a>
+							<a href="ai-tools.html" class="nav-dropdown-card nav-dropdown-card--dark"
+								style="--card-accent: #0d1b2a; --card-bg: #0a1628;"><i
+									class="fi fi-rr-brain nav-dropdown-icon"></i>
+								<div><strong>AI Tools</strong><span>GPT agents, smart integrations</span></div>
+							</a>
+						</div>
+					</div>
+				</li>
+				<li class="nav-has-dropdown" data-color="blue">
+					<a href="blueprint.html"><i class="fi fi-rr-map nav-icon"></i><span>Process</span><i
+							class="fi fi-rr-angle-small-down nav-chevron"></i></a>
+					<div class="nav-dropdown">
+						<div class="nav-dropdown-grid">
+							<a href="blueprint.html#bp-method" class="nav-dropdown-card"
+								style="--card-accent: var(--orange);"><i class="fi fi-rr-bulb nav-dropdown-icon"></i>
+								<div><strong>Our Method</strong><span>Strategy &amp; mindset</span></div>
+							</a>
+							<a href="blueprint.html#bp-timeline" class="nav-dropdown-card"
+								style="--card-accent: var(--teal);"><i class="fi fi-rr-route nav-dropdown-icon"></i>
+								<div><strong>The Journey</strong><span>Four-phase process</span></div>
+							</a>
+							<a href="blueprint.html#bp-impact" class="nav-dropdown-card"
+								style="--card-accent: var(--purple);"><i class="fi fi-rr-bolt nav-dropdown-icon"></i>
+								<div><strong>Our Impact</strong><span>Real outcomes</span></div>
+							</a>
+							<a href="blueprint.html#bp-grow" class="nav-dropdown-card"
+								style="--card-accent: var(--ocean);"><i class="fi fi-rr-seedling nav-dropdown-icon"></i>
+								<div><strong>Designed to Grow</strong><span>Built for what's next</span></div>
+							</a>
+						</div>
+					</div>
+				</li>
+				<li class="nav-has-dropdown" data-color="coral">
+					<a href="portfolio.html"><i class="fi fi-rr-briefcase nav-icon"></i><span>Work</span><i
+							class="fi fi-rr-angle-small-down nav-chevron"></i></a>
+					<div class="nav-dropdown nav-dropdown--wide">
+						<div class="nav-dropdown-grid">
+							<a href="portfolio.html#skywings" class="nav-dropdown-card"
+								style="--card-accent: #4c8cbc;"><i
+									class="fi fi-rr-plane-departure nav-dropdown-icon"></i>
+								<div><strong>SkyWings</strong><span>Aviation &amp; leisure</span></div>
+							</a>
+							<a href="portfolio.html#preservation" class="nav-dropdown-card"
+								style="--card-accent: #8b6914;"><i class="fi fi-rr-picture nav-dropdown-icon"></i>
+								<div><strong>Preservation Framers</strong><span>Art &amp; framing</span></div>
+							</a>
+							<a href="portfolio.html#wcep" class="nav-dropdown-card" style="--card-accent: #2d8a4e;"><i
+									class="fi fi-rr-hammer nav-dropdown-icon"></i>
+								<div><strong>WCE Pros</strong><span>Exterior services</span></div>
+							</a>
+							<a href="portfolio.html#drumplings" class="nav-dropdown-card"
+								style="--card-accent: #e85d3a;"><i class="fi fi-rr-utensils nav-dropdown-icon"></i>
+								<div><strong>Drumplings</strong><span>Hospitality &amp; food</span></div>
+							</a>
+							<a href="portfolio.html#dora-health" class="nav-dropdown-card"
+								style="--card-accent: #e06088;"><i class="fi fi-rr-heart nav-dropdown-icon"></i>
+								<div><strong>Dora Health</strong><span>Health &amp; wellness</span></div>
+							</a>
+							<a href="portfolio.html#pawfection" class="nav-dropdown-card"
+								style="--card-accent: #f5a623;"><i class="fi fi-rr-paw nav-dropdown-icon"></i>
+								<div><strong>Pawfection</strong><span>Pet services</span></div>
+							</a>
+							<div class="nav-dropdown-divider"></div>
+							<a href="portfolio.html#consulting" class="nav-dropdown-card nav-dropdown-card--full"
+								style="--card-accent: var(--teal);"><i class="fi fi-rr-handshake nav-dropdown-icon"></i>
+								<div><strong>Consulting &amp; Advisory</strong><span>Strategy, direction &amp;
+										partnerships</span></div>
+							</a>
+						</div>
+					</div>
+				</li>
+				<li class="nav-mobile-cta-item"><a class="nav-mobile-cta" href="contact.html"><i
+							class="fi fi-rr-calendar nav-icon"></i> Enquire Now</a></li>
+			</ul>
+			<div class="nav-overlay"></div>
+			<a class="nav-cta" href="contact.html"><i class="fi fi-rr-calendar nav-icon"></i> Enquire Now</a>
+		</div>
+	</nav>
+	<script>
+		(function () {
+			const n = document.querySelector('nav');
+			if (!n) return;
+			window.addEventListener('scroll', () => n.classList.toggle('nav--scrolled', window.scrollY > 60));
+			const o = document.querySelector('.nav-overlay');
+			const t = document.getElementById('nav-toggle');
+			if (o && t) o.addEventListener('click', () => { t.checked = false; });
+			document.querySelectorAll('.nav-has-dropdown').forEach(dd => {
+				dd.querySelector(':scope > a').addEventListener('click', function (e) {
+					if (window.innerWidth <= 900) { e.preventDefault(); dd.classList.toggle('is-open'); }
+				});
+			});
+		})();
+	</script>
+
+	<!-- ========================================
+			 SECTION 1 — HERO
+			 ======================================== -->
+	<section class="cy-hero">
+		<div class="cy-hero-bg"></div>
+
+		<div class="cy-hero-content">
+			<div class="cy-hero-badge">
+				<lord-icon src="https://cdn.lordicon.com/dicvhxpz.json" trigger="loop" delay="2000"
+					colors="primary:#c94050,secondary:#c94050" style="width: 22px; height: 22px"></lord-icon>
+				CYBER SECURITY
+			</div>
+
+			<h1>
+				Your Business Is
+				<span class="cy-hero-accent">Already</span> a Target
+			</h1>
+
+			<p>
+				43% of cyber attacks target small businesses. Most don't
+				have a single layer of protection. We find your
+				vulnerabilities, fix them, and keep watch so you never
+				become a statistic.
+			</p>
+
+			<div class="cy-hero-actions">
+				<a href="contact.html" class="cta-button cy-cta-primary">
+					Get a Free Security Audit
+				</a>
+				<a href="#cy-threats" class="cta-button cy-cta-secondary">
+					See the Threats
+					<i class="bi bi-arrow-down-short"></i>
+				</a>
+			</div>
+		</div>
+
+		<div class="cy-hero-icon">
+			<lord-icon src="https://cdn.lordicon.com/dicvhxpz.json" trigger="loop" delay="3000"
+				colors="primary:#c94050,secondary:#8b5cf6" style="width: 180px; height: 180px"></lord-icon>
+		</div>
+	</section>
+
+	<!-- ========================================
+			 SECTION 2 — STATS STRIP
+			 ======================================== -->
+	<section class="cy-stats-strip">
+		<div class="container">
+			<div class="cy-stats-grid">
+				<div class="cy-stat cy-animate-on-scroll">
+					<span class="cy-stat-number">43%</span>
+					<span class="cy-stat-label">Of Attacks Target Small Business</span>
+				</div>
+				<div class="cy-stat cy-animate-on-scroll">
+					<span class="cy-stat-number">$150K</span>
+					<span class="cy-stat-label">Avg. Cost of a Data Breach</span>
+				</div>
+				<div class="cy-stat cy-animate-on-scroll">
+					<span class="cy-stat-number">60%</span>
+					<span class="cy-stat-label">Of Breached SMBs Close in 6 Months</span>
+				</div>
+				<div class="cy-stat cy-animate-on-scroll">
+					<span class="cy-stat-number">95%</span>
+					<span class="cy-stat-label">Of Breaches Caused by Human Error</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ========================================
+			 SECTION 3 — THREAT LANDSCAPE
+			 ======================================== -->
+	<section class="cy-threats-section" id="cy-threats">
+		<div class="container">
+			<div class="cy-section-header">
+				<h2>The Threats Are Real</h2>
+				<p>
+					These aren't hypotheticals. These are the attacks
+					hitting small businesses every single day — and most
+					owners don't know until it's too late.
+				</p>
+			</div>
+
+			<div class="cy-threats-grid">
+				<!-- Phishing -->
+				<div class="cy-threat-card cy-animate-on-scroll">
+					<div class="cy-card-icon cy-icon-red">
+						<i class="bi bi-envelope-exclamation"></i>
+					</div>
+					<h3>Phishing Attacks</h3>
+					<p>
+						One fake email is all it takes. Phishing tricks
+						your staff into clicking malicious links or
+						handing over login credentials — and 91% of
+						cyber attacks start with one.
+					</p>
+					<div class="cy-threat-stat">
+						<span class="cy-threat-number">3.4B</span>
+						<span class="cy-threat-context">phishing emails sent every day worldwide</span>
+					</div>
+				</div>
+
+				<!-- Ransomware -->
+				<div class="cy-threat-card cy-animate-on-scroll">
+					<div class="cy-card-icon cy-icon-purple">
+						<i class="bi bi-lock-fill"></i>
+					</div>
+					<h3>Ransomware</h3>
+					<p>
+						Your files encrypted. Your business frozen.
+						Hackers demand payment to unlock your own data —
+						and paying doesn't guarantee you'll get it back.
+					</p>
+					<div class="cy-threat-stat">
+						<span class="cy-threat-number">$1.85M</span>
+						<span class="cy-threat-context">average recovery cost for SMBs</span>
+					</div>
+				</div>
+
+				<!-- Data Breaches -->
+				<div class="cy-threat-card cy-animate-on-scroll">
+					<div class="cy-card-icon cy-icon-crimson">
+						<i class="bi bi-database-exclamation"></i>
+					</div>
+					<h3>Data Breaches</h3>
+					<p>
+						Customer data, payment details, employee records
+						— leaked online. What follows is fines, lawsuits,
+						and permanent damage to the trust you've built.
+					</p>
+					<div class="cy-threat-stat">
+						<span class="cy-threat-number">197 days</span>
+						<span class="cy-threat-context">average time to even detect a breach</span>
+					</div>
+				</div>
+
+				<!-- Malware -->
+				<div class="cy-threat-card cy-animate-on-scroll">
+					<div class="cy-card-icon cy-icon-maroon">
+						<i class="bi bi-bug-fill"></i>
+					</div>
+					<h3>Malware &amp; Viruses</h3>
+					<p>
+						Silently installed software that steals data,
+						corrupts your systems, or turns your devices
+						into tools for criminals — often without you
+						noticing for months.
+					</p>
+					<div class="cy-threat-stat">
+						<span class="cy-threat-number">560K</span>
+						<span class="cy-threat-context">new malware threats detected daily</span>
+					</div>
+				</div>
+
+				<!-- Insider Threats -->
+				<div class="cy-threat-card cy-animate-on-scroll">
+					<div class="cy-card-icon cy-icon-purple">
+						<i class="bi bi-person-x-fill"></i>
+					</div>
+					<h3>Insider Threats</h3>
+					<p>
+						Not every threat comes from outside. Untrained
+						staff, weak passwords, shared logins, and poor
+						access controls are your single biggest
+						vulnerability.
+					</p>
+					<div class="cy-threat-stat">
+						<span class="cy-threat-number">82%</span>
+						<span class="cy-threat-context">of breaches involve a human element</span>
+					</div>
+				</div>
+
+				<!-- Social Engineering -->
+				<div class="cy-threat-card cy-animate-on-scroll">
+					<div class="cy-card-icon cy-icon-red">
+						<i class="bi bi-chat-dots-fill"></i>
+					</div>
+					<h3>Social Engineering</h3>
+					<p>
+						Hackers don't always hack — they manipulate.
+						Impersonating suppliers, clients, or your own
+						staff to trick people into giving access or
+						transferring money.
+					</p>
+					<div class="cy-threat-stat">
+						<span class="cy-threat-number">$4.1B</span>
+						<span class="cy-threat-context">lost to business email compromise in 2023</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ========================================
+			 SECTION 4 — RELATABLE SCENARIOS
+			 ======================================== -->
+	<section class="cy-scenarios-section">
+		<div class="container">
+			<div class="cy-section-header">
+				<span class="cy-section-tag">STILL THINK YOU'RE SAFE?</span>
+				<h2>
+					Think You're Too Small<br />
+					to Be a Target?
+				</h2>
+				<p>
+					You don't need to be a corporation to lose everything.
+					A single compromised email, one weak password, or an
+					unpatched system is all it takes. These aren't
+					made-up stories — they happen every week.
+				</p>
+			</div>
+
+			<div class="cy-scenarios-grid">
+				<div class="cy-scenario cy-animate-on-scroll">
+					<div class="cy-scenario-icon">
+						<i class="bi bi-wrench-adjustable"></i>
+					</div>
+					<h4>The Tradie</h4>
+					<p>
+						Email hacked. Fake invoices sent to 40 clients
+						from "his" email address. Three clients paid
+						$28,000 to the scammer before anyone noticed.
+						His reputation? Destroyed overnight.
+					</p>
+					<span class="cy-scenario-industry">Trades &amp; Services</span>
+				</div>
+
+				<div class="cy-scenario cy-animate-on-scroll">
+					<div class="cy-scenario-icon">
+						<i class="bi bi-cup-hot"></i>
+					</div>
+					<h4>The Caf&eacute; Owner</h4>
+					<p>
+						POS system breached through an outdated software
+						update. 2,200 customer card details exposed.
+						Fined $85,000 under data protection laws. Took
+						14 months to recover customer trust.
+					</p>
+					<span class="cy-scenario-industry">Hospitality</span>
+				</div>
+
+				<div class="cy-scenario cy-animate-on-scroll">
+					<div class="cy-scenario-icon">
+						<i class="bi bi-heart-pulse"></i>
+					</div>
+					<h4>The Clinic</h4>
+					<p>
+						Patient records stolen via a staff member's
+						reused password. $120,000 in regulatory fines.
+						Three-month investigation. Patients left in
+						droves — they never trusted the clinic again.
+					</p>
+					<span class="cy-scenario-industry">Health &amp; Wellness</span>
+				</div>
+
+				<div class="cy-scenario cy-animate-on-scroll">
+					<div class="cy-scenario-icon">
+						<i class="bi bi-shop"></i>
+					</div>
+					<h4>The Retailer</h4>
+					<p>
+						Website defaced by hackers who exploited an
+						unpatched plugin. Online store offline for three
+						weeks. $47,000 in lost revenue. Google blacklisted
+						the domain for six months.
+					</p>
+					<span class="cy-scenario-industry">Retail &amp; E&#8209;Commerce</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ========================================
+			 SECTION 5 — SERVICES GRID
+			 ======================================== -->
+	<section class="cy-services-section" id="cy-services">
+		<div class="container">
+			<div class="cy-section-header">
+				<h2>How We Protect You</h2>
+				<p>
+					End-to-end cyber security services built for
+					businesses that can't afford downtime, data loss,
+					or a damaged reputation.
+				</p>
+			</div>
+
+			<div class="cy-services-grid">
+				<!-- Security Audits -->
+				<div class="cy-service-card cy-animate-on-scroll">
+					<div class="cy-card-icon cy-icon-red">
+						<lord-icon src="https://cdn.lordicon.com/usownftb.json" trigger="hover"
+							colors="primary:#c94050,secondary:#c94050" style="width: 32px; height: 32px"></lord-icon>
+					</div>
+					<h3>Security Audits</h3>
+					<p>
+						We scan your entire digital footprint — email,
+						cloud, devices, website, and internal systems —
+						to find every vulnerability before hackers do.
+					</p>
+					<ul class="cy-card-features">
+						<li>Full infrastructure vulnerability scan</li>
+						<li>Risk priority report with fixes</li>
+						<li>Compliance gap analysis</li>
+					</ul>
+				</div>
+
+				<!-- Employee Training -->
+				<div class="cy-service-card cy-animate-on-scroll">
+					<div class="cy-card-icon cy-icon-purple">
+						<lord-icon src="https://cdn.lordicon.com/dqxvvqzi.json" trigger="hover"
+							colors="primary:#8b5cf6,secondary:#8b5cf6" style="width: 32px; height: 32px"></lord-icon>
+					</div>
+					<h3>Employee Training</h3>
+					<p>
+						Your team is your first line of defence. We train
+						them to spot phishing, use strong passwords,
+						and follow security best practices — in
+						plain English.
+					</p>
+					<ul class="cy-card-features">
+						<li>Phishing simulation exercises</li>
+						<li>Security awareness workshops</li>
+						<li>Password &amp; access policy setup</li>
+					</ul>
+				</div>
+
+				<!-- Threat Monitoring -->
+				<div class="cy-service-card cy-animate-on-scroll">
+					<div class="cy-card-icon cy-icon-crimson">
+						<lord-icon src="https://cdn.lordicon.com/lznlxhbr.json" trigger="hover"
+							colors="primary:#e05260,secondary:#e05260" style="width: 32px; height: 32px"></lord-icon>
+					</div>
+					<h3>24/7 Threat Monitoring</h3>
+					<p>
+						Continuous surveillance of your systems for
+						suspicious activity. Instant alerts when something
+						abnormal happens — so threats are stopped before
+						damage is done.
+					</p>
+					<ul class="cy-card-features">
+						<li>Real-time intrusion detection</li>
+						<li>Automated threat alerts</li>
+						<li>Monthly security reports</li>
+					</ul>
+				</div>
+
+				<!-- Incident Response -->
+				<div class="cy-service-card cy-animate-on-scroll">
+					<div class="cy-card-icon cy-icon-maroon">
+						<lord-icon src="https://cdn.lordicon.com/vkfbiyra.json" trigger="hover"
+							colors="primary:#a03050,secondary:#a03050" style="width: 32px; height: 32px"></lord-icon>
+					</div>
+					<h3>Incident Response</h3>
+					<p>
+						When a breach happens, speed is everything. Our
+						rapid response team isolates the threat,
+						contains the damage, and gets you back online
+						fast.
+					</p>
+					<ul class="cy-card-features">
+						<li>Rapid threat containment</li>
+						<li>Forensic investigation</li>
+						<li>Recovery &amp; restoration plan</li>
+					</ul>
+				</div>
+
+				<!-- Data Protection -->
+				<div class="cy-service-card cy-animate-on-scroll">
+					<div class="cy-card-icon cy-icon-purple">
+						<lord-icon src="https://cdn.lordicon.com/jdalicnn.json" trigger="hover"
+							colors="primary:#8b5cf6,secondary:#8b5cf6" style="width: 32px; height: 32px"></lord-icon>
+					</div>
+					<h3>Data Protection</h3>
+					<p>
+						Encrypted backups, secure cloud storage, and
+						disaster recovery plans — so a breach never
+						means losing the data your business runs on.
+					</p>
+					<ul class="cy-card-features">
+						<li>Automated encrypted backups</li>
+						<li>Disaster recovery planning</li>
+						<li>Data classification &amp; access controls</li>
+					</ul>
+				</div>
+
+				<!-- Compliance -->
+				<div class="cy-service-card cy-animate-on-scroll">
+					<div class="cy-card-icon cy-icon-red">
+						<lord-icon src="https://cdn.lordicon.com/nocovwne.json" trigger="hover"
+							colors="primary:#c94050,secondary:#c94050" style="width: 32px; height: 32px"></lord-icon>
+					</div>
+					<h3>Compliance &amp; Governance</h3>
+					<p>
+						Meet industry security standards and regulatory
+						requirements with guided compliance frameworks
+						— no legal jargon, just clear steps.
+					</p>
+					<ul class="cy-card-features">
+						<li>GDPR / Privacy Act alignment</li>
+						<li>Industry-specific standards</li>
+						<li>Security policy documentation</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ========================================
+			 SECTION 6 — IMPACT / RESULTS
+			 ======================================== -->
+	<section class="cy-impact-section">
+		<div class="container">
+			<div class="cy-section-header">
+				<span class="cy-section-tag">PROVEN RESULTS</span>
+				<h2>Security That Actually Works</h2>
+				<p>
+					Businesses that invest in cyber security don't just
+					avoid disasters — they grow faster, win more
+					contracts, and sleep better at night.
+				</p>
+			</div>
+
+			<div class="cy-impact-grid">
+				<div class="cy-impact-card cy-animate-on-scroll">
+					<span class="cy-impact-number">70%</span>
+					<span class="cy-impact-label">Fewer Successful Phishing Attacks</span>
+					<p>
+						Businesses with regular security awareness
+						training reduce successful phishing by up to 70%
+						within the first year.
+					</p>
+				</div>
+
+				<div class="cy-impact-card cy-animate-on-scroll">
+					<span class="cy-impact-number">12&times;</span>
+					<span class="cy-impact-label">Faster Threat Detection</span>
+					<p>
+						Monitored businesses detect and respond to
+						threats 12 times faster than those without
+						active monitoring in place.
+					</p>
+				</div>
+
+				<div class="cy-impact-card cy-animate-on-scroll">
+					<span class="cy-impact-number">96%</span>
+					<span class="cy-impact-label">Ransomware Impact Reduction</span>
+					<p>
+						Proper backup and recovery systems reduce the
+						business impact of ransomware attacks by up to
+						96% — turning disasters into minor setbacks.
+					</p>
+				</div>
+
+				<div class="cy-impact-card cy-animate-on-scroll">
+					<span class="cy-impact-number">$14</span>
+					<span class="cy-impact-label">Return per $1 Invested</span>
+					<p>
+						For every dollar spent on cyber security,
+						businesses see an average of $14 in avoided
+						losses, reduced downtime, and protected revenue.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ========================================
+			 SECTION 7 — PROCESS
+			 ======================================== -->
+	<section class="cy-process-section">
+		<div class="container">
+			<div class="cy-section-header">
+				<h2>Three Steps to Total Protection</h2>
+				<p>
+					A clear, no-jargon process that gets your business
+					protected fast — and keeps it that way.
+				</p>
+			</div>
+
+			<div class="cy-process-grid">
+				<div class="cy-process-step cy-animate-on-scroll">
+					<span class="cy-step-number">01</span>
+					<h3>Assess</h3>
+					<p>
+						Free security audit. We scan your business for
+						vulnerabilities and give you a clear, prioritised
+						risk report — no obligation, no jargon.
+					</p>
+				</div>
+
+				<div class="cy-process-connector">
+					<i class="bi bi-arrow-right"></i>
+				</div>
+
+				<div class="cy-process-step cy-animate-on-scroll">
+					<span class="cy-step-number">02</span>
+					<h3>Protect</h3>
+					<p>
+						Custom security setup built for your business.
+						From staff training to system hardening, we
+						implement the right protection — nothing more,
+						nothing less.
+					</p>
+				</div>
+
+				<div class="cy-process-connector">
+					<i class="bi bi-arrow-right"></i>
+				</div>
+
+				<div class="cy-process-step cy-animate-on-scroll">
+					<span class="cy-step-number">03</span>
+					<h3>Monitor</h3>
+					<p>
+						Ongoing defence. 24/7 monitoring, regular security
+						updates, and rapid response if anything happens.
+						You focus on business — we handle the threats.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ========================================
+			 SECTION 8 — FINAL CTA
+			 ======================================== -->
+	<section class="cy-cta-section">
+		<div class="container">
+			<div class="cy-cta-card">
+				<div class="cy-cta-content">
+					<h2>Don't Wait for the Breach</h2>
+					<p>
+						Every day without protection is another day your
+						business is exposed. Book a free security audit
+						and find out exactly where you stand — before
+						someone else does.
+					</p>
+					<a href="contact.html" class="cta-button cy-cta-primary">
+						Book Your Free Audit
+						<i class="bi bi-arrow-right"></i>
+					</a>
+				</div>
+				<div class="cy-cta-visual">
+					<div class="cy-cta-glow"></div>
+					<i class="bi bi-shield-lock-fill"></i>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ===== FOOTER ===== -->
+	<div id="footer"></div>
+
+	<!-- ===== SMOOTH SCROLL ===== -->
+	<script>
+		document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+			anchor.addEventListener("click", function (e) {
+				e.preventDefault();
+				var target = document.querySelector(
+					this.getAttribute("href"),
+				);
+				if (target)
+					target.scrollIntoView({
+						behavior: "smooth",
+						block: "start",
+					});
+			});
+		});
+	</script>
+
+	<!-- ===== SCROLL ANIMATIONS ===== -->
+	<script>
+		(function () {
+			var observer = new IntersectionObserver(
+				function (entries) {
+					entries.forEach(function (entry) {
+						if (entry.isIntersecting) {
+							entry.target.classList.add("cy-animated");
+							observer.unobserve(entry.target);
+						}
+					});
+				},
+				{ threshold: 0.15, rootMargin: "0px 0px -40px 0px" },
+			);
+
+			var elements = document.querySelectorAll(
+				".cy-threat-card, .cy-service-card, .cy-scenario, .cy-stat, .cy-process-step, .cy-impact-card",
+			);
+			elements.forEach(function (el) {
+				el.classList.add("cy-animate-on-scroll");
+				observer.observe(el);
+			});
+		})();
+	</script>
+
+	<!-- ===== COMPONENT INCLUDES ===== -->
+	<script>
+		/* Load shared footer - trusted local component file */
+		fetch("-footer.html")
+			.then(function (response) {
+				return response.text();
+			})
+			.then(function (html) {
+				var footEl = document.getElementById("footer");
+				if (footEl) footEl.insertAdjacentHTML("afterbegin", html);
+			})
+			.catch(function (error) {
+				console.error("Footer load failed:", error);
+			});
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Our Method | The Daly Creative</title>
+		<meta
+			name="description"
+			content="Discover The Daly Creative's unique approach to creative strategy, design, and automation. Learn how our proven method helps brands grow with clarity and confidence."
+		/>
+		<link rel="icon" type="image/png" href="images/icons/icon-x256.png" />
+		<link rel="stylesheet" href="styles.css" />
+		<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css" />
+		<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css" />
+	</head>
+	<body>
+		<nav>
+			<div class="nav-container">
+				<a href="index.html" class="logo">
+					<img src="images/icons/logo-1300x507.png" alt="The Daly Creative" height="48" />
+				</a>
+				<input type="checkbox" id="nav-toggle" class="nav-toggle" />
+				<label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle menu">
+					<span></span><span></span><span></span>
+				</label>
+				<ul class="nav-links">
+					<li data-color="teal"><a href="index.html"><i class="fi fi-rr-home nav-icon"></i><span>Home</span></a></li>
+					<li data-color="amber"><a href="about.html"><i class="fi fi-rr-user nav-icon"></i><span>About</span></a></li>
+					<li class="nav-has-dropdown" data-color="orange">
+						<a href="services.html"><i class="fi fi-rr-apps nav-icon"></i><span>Services</span><i class="fi fi-rr-angle-small-down nav-chevron"></i></a>
+						<div class="nav-dropdown">
+							<div class="nav-dropdown-grid">
+								<a href="services.html#cat-brand" class="nav-dropdown-card" style="--card-accent: var(--orange);"><i class="fi fi-rr-paint-brush nav-dropdown-icon"></i><div><strong>Brand &amp; Digital</strong><span>Web, branding, SEO, ads</span></div></a>
+								<a href="services.html#cat-ai" class="nav-dropdown-card" style="--card-accent: var(--purple);"><i class="fi fi-rr-brain nav-dropdown-icon"></i><div><strong>AI &amp; Automation</strong><span>Agents, workflows, chatbots</span></div></a>
+								<a href="services.html#cat-growth" class="nav-dropdown-card" style="--card-accent: var(--teal);"><i class="fi fi-rr-chart-line-up nav-dropdown-icon"></i><div><strong>Growth &amp; Strategy</strong><span>Data, support, training</span></div></a>
+								<a href="services.html#cat-security" class="nav-dropdown-card" style="--card-accent: var(--coral);"><i class="bi bi-shield-lock nav-dropdown-icon"></i><div><strong>Cyber Security</strong><span>Audits, monitoring, response</span></div></a>
+							</div>
+						</div>
+					</li>
+					<li data-color="purple"><a href="ai-tools.html"><i class="fi fi-rr-brain nav-icon"></i><span>AI Tools</span></a></li>
+					<li data-color="blue"><a href="blueprint.html" class="active"><i class="fi fi-rr-map nav-icon"></i><span>Process</span></a></li>
+					<li data-color="coral"><a href="portfolio.html"><i class="fi fi-rr-briefcase nav-icon"></i><span>Work</span></a></li>
+					<li data-color="peach"><a href="contact.html"><i class="fi fi-rr-envelope nav-icon"></i><span>Contact</span></a></li>
+					<li class="nav-mobile-cta-item"><a class="nav-mobile-cta" href="contact.html"><i class="fi fi-rr-calendar nav-icon"></i> Book a Call</a></li>
+				</ul>
+				<div class="nav-overlay"></div>
+				<a class="nav-cta" href="contact.html"><i class="fi fi-rr-calendar nav-icon"></i> Book a Call</a>
+			</div>
+		</nav>
+		<script>
+		(function(){
+			const n=document.querySelector('nav');
+			if(!n)return;
+			window.addEventListener('scroll',()=>n.classList.toggle('nav--scrolled',window.scrollY>60));
+			const o=document.querySelector('.nav-overlay');
+			const t=document.getElementById('nav-toggle');
+			if(o&&t)o.addEventListener('click',()=>{t.checked=false;});
+			const dd=document.querySelector('.nav-has-dropdown');
+			if(dd){dd.querySelector(':scope > a').addEventListener('click',function(e){if(window.innerWidth<=900){e.preventDefault();dd.classList.toggle('is-open');}});}
+		})();
+		</script>
+		<section class="hero hero-half">
+			<div
+				class="hero-bg"
+				style="
+					background: url(&quot;images/hero-images/methods-hero-bg.jpg&quot;)
+						center/cover no-repeat;
+					opacity: 0.12;
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					z-index: 0;
+				"
+			></div>
+			<div class="hero-content" style="position: relative; z-index: 1">
+				<h1>Our Method</h1>
+				<p>How we turn creative strategy into real business growth.</p>
+			</div>
+		</section>
+		<section class="about-preview">
+			<div class="container">
+				<div class="about-content">
+					<h2>Strategy. Flow. Growth.</h2>
+					<p class="about-text">
+						Our approach is built on trust, collaboration, and a proven process. We
+						blend creative thinking with smart automation to help brands connect,
+						grow, and thrive in a changing world.
+					</p>
+				</div>
+			</div>
+		</section>
+		<section class="services-section">
+			<div class="container">
+				<div class="section-header">
+					<h2>How We Work</h2>
+					<p>Three steps to clarity and momentum for your brand.</p>
+				</div>
+				<div class="services-grid">
+					<div class="service-card">
+						<div class="service-icon">
+							<img
+								src="images/methods-page/method1-trust.png"
+								alt="Trust icon"
+								style="width: 48px; height: 48px"
+							/>
+						</div>
+						<h3>1. Build Trust</h3>
+						<p>
+							We start with deep listening and research to understand your goals,
+							audience, and challenges. Trust is the foundation for every great brand
+							partnership.
+						</p>
+					</div>
+					<div class="service-card">
+						<div class="service-icon">
+							<img
+								src="images/methods-page/method2-flow.png"
+								alt="Flow icon"
+								style="width: 48px; height: 48px"
+							/>
+						</div>
+						<h3>2. Create Flow</h3>
+						<p>
+							We design clear strategies, creative systems, and automation flows that
+							make your brand work smarter, not harder.
+						</p>
+					</div>
+					<div class="service-card">
+						<div class="service-icon">
+							<img
+								src="images/methods-page/method3-growth.png"
+								alt="Growth icon"
+								style="width: 48px; height: 48px"
+							/>
+						</div>
+						<h3>3. Drive Growth</h3>
+						<p>
+							We launch, measure, and optimize for results—helping you scale with
+							confidence and clarity.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="about-preview">
+			<div class="container">
+				<div class="about-content">
+					<h2>Ready to Grow?</h2>
+					<p class="about-text">
+						Let’s build something extraordinary together.
+						<a href="contact.html">Contact us</a> to get started.
+					</p>
+				</div>
+			</div>
+		</section>
+		<div id="footer"></div>
+		<script>
+			fetch("-footer.html")
+				.then((r) => r.text())
+				.then((html) => {
+					document.getElementById("footer").innerHTML = html;
+				});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!--===== HEAD TAGS =====-->
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!--Page Title-->
+	<title>Contact | The Daly Creative</title>
+	<!--Description-->
+	<meta name="description"
+		content="Get in touch with The Daly Creative. Tell us about your project and let's build something extraordinary together." />
+	<!--Favicon-->
+	<link rel="icon" type="image/png" href="logos/tdc-icon 256x256.png" />
+	<!--Bootstrap Icons-->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+	<!-- Flaticon UICONS -->
+	<link rel="stylesheet"
+		href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css" />
+	<link rel="stylesheet"
+		href="https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css" />
+	<!--Leaflet CSS-->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+		integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+	<!-- AOS Animate on Scroll -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+	<!--Main Stylesheet-->
+	<link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+	<!-- ===== NAV BAR ===== -->
+	<nav>
+		<div class="nav-container">
+			<a href="index.html" class="logo">
+				<img src="images/icons/logo-1300x507.png" alt="The Daly Creative" height="48" />
+			</a>
+			<input type="checkbox" id="nav-toggle" class="nav-toggle" />
+			<label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle menu">
+				<span></span><span></span><span></span>
+			</label>
+			<ul class="nav-links">
+				<li data-color="teal"><a href="index.html"><i class="fi fi-rr-home nav-icon"></i><span>Home</span></a>
+				</li>
+				<li data-color="amber"><a href="about.html"><i class="fi fi-rr-user nav-icon"></i><span>About</span></a>
+				</li>
+				<li class="nav-has-dropdown" data-color="orange">
+					<a href="services.html"><i class="fi fi-rr-apps nav-icon"></i><span>Services</span><i
+							class="fi fi-rr-angle-small-down nav-chevron"></i></a>
+					<div class="nav-dropdown">
+						<div class="nav-dropdown-grid">
+							<a href="services.html#cat-brand" class="nav-dropdown-card"
+								style="--card-accent: var(--orange);"><i
+									class="fi fi-rr-paint-brush nav-dropdown-icon"></i>
+								<div><strong>Brand &amp; Digital</strong><span>Web, branding, SEO, ads</span></div>
+							</a>
+							<a href="services.html#cat-ai" class="nav-dropdown-card"
+								style="--card-accent: var(--purple);"><i class="fi fi-rr-brain nav-dropdown-icon"></i>
+								<div><strong>AI &amp; Automation</strong><span>Agents, workflows, chatbots</span></div>
+							</a>
+							<a href="services.html#cat-growth" class="nav-dropdown-card"
+								style="--card-accent: var(--teal);"><i
+									class="fi fi-rr-chart-line-up nav-dropdown-icon"></i>
+								<div><strong>Growth &amp; Strategy</strong><span>Data, support, training</span></div>
+							</a>
+							<a href="services.html#cat-security" class="nav-dropdown-card"
+								style="--card-accent: var(--coral);"><i class="bi bi-shield-lock nav-dropdown-icon"></i>
+								<div><strong>Cyber Security</strong><span>Audits, monitoring, response</span></div>
+							</a>
+						</div>
+					</div>
+				</li>
+				<li data-color="purple"><a href="ai-tools.html"><i class="fi fi-rr-brain nav-icon"></i><span>AI
+							Tools</span></a></li>
+				<li data-color="blue"><a href="blueprint.html"><i
+							class="fi fi-rr-map nav-icon"></i><span>Process</span></a></li>
+				<li data-color="coral"><a href="portfolio.html"><i
+							class="fi fi-rr-briefcase nav-icon"></i><span>Work</span></a></li>
+				<li data-color="peach"><a href="contact.html" class="active"><i
+							class="fi fi-rr-envelope nav-icon"></i><span>Contact</span></a></li>
+				<li class="nav-mobile-cta-item"><a class="nav-mobile-cta" href="contact.html"><i
+							class="fi fi-rr-calendar nav-icon"></i> Book a Call</a></li>
+			</ul>
+			<div class="nav-overlay"></div>
+			<a class="nav-cta" href="contact.html"><i class="fi fi-rr-calendar nav-icon"></i> Book a Call</a>
+		</div>
+	</nav>
+	<script>
+		(function () {
+			const n = document.querySelector('nav');
+			if (!n) return;
+			window.addEventListener('scroll', () => n.classList.toggle('nav--scrolled', window.scrollY > 60));
+			const o = document.querySelector('.nav-overlay');
+			const t = document.getElementById('nav-toggle');
+			if (o && t) o.addEventListener('click', () => { t.checked = false; });
+			const dd = document.querySelector('.nav-has-dropdown');
+			if (dd) { dd.querySelector(':scope > a').addEventListener('click', function (e) { if (window.innerWidth <= 900) { e.preventDefault(); dd.classList.toggle('is-open'); } }); }
+		})();
+	</script>
+
+	<!-- ===== CONTACT HERO SECTION ===== -->
+	<section class="services-hero contact-page-hero">
+		<div class="services-hero-bg"
+			style="background-image: linear-gradient(135deg, rgba(15, 29, 45, 0.92) 0%, rgba(16, 17, 22, 0.88) 100%), url('images/hero-images/hero-contact.png');">
+		</div>
+		<div class="services-hero-content">
+			<div class="services-hero-badge" data-aos="fade-down" data-aos-delay="100">
+				<i class="fi fi-rr-envelope icon-pulse" style="font-size: 1.1rem; color: #fa9361;"></i>
+				<span>Let's Connect</span>
+			</div>
+			<h1 data-aos="fade-up" data-aos-delay="200">
+				Let's Build Your Next <span class="hero-accent"
+					style="background: linear-gradient(135deg, var(--peach), var(--coral)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Growth</span>
+				Chapter
+			</h1>
+			<p data-aos="fade-up" data-aos-delay="300">
+				A high-impact digital presence starts with one conversation. Whether you need a brand reset, AI
+				automation, or a performance web system, we're ready to build.
+			</p>
+			<div class="services-hero-stats" data-aos="fade-up" data-aos-delay="400">
+				<div class="hero-stat">
+					<span class="hero-stat-number" style="color: var(--peach);">24h</span>
+					<span class="hero-stat-label">Response Time</span>
+				</div>
+				<div class="hero-stat-divider"></div>
+				<div class="hero-stat">
+					<span class="hero-stat-number" style="color: var(--peach);">15m</span>
+					<span class="hero-stat-label">Initial Call</span>
+				</div>
+				<div class="hero-stat-divider"></div>
+				<div class="hero-stat">
+					<span class="hero-stat-number" style="color: var(--peach);">1:1</span>
+					<span class="hero-stat-label">Strategy First</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- ===== CONTACT QUICK STRIP ===== -->
+	<section class="contact-strip">
+		<div class="container">
+			<div class="contact-strip-grid">
+				<a href="mailto:timothy@thedalycreative.com.au" class="strip-item reveal" style="transition-delay: 0s;">
+					<div class="strip-icon">
+						<i class="fi fi-rr-envelope icon-float" style="font-size: 1.2rem; color: #fa9361;"></i>
+					</div>
+					<div class="strip-text">
+						<span class="strip-label">Email</span>
+						<span class="strip-value">timothy@thedalycreative.com.au</span>
+					</div>
+				</a>
+				<a href="tel:+61414265050" class="strip-item reveal" style="transition-delay: 0.1s;">
+					<div class="strip-icon">
+						<i class="fi fi-rr-phone-call icon-pulse" style="font-size: 1.2rem; color: #48c9b0;"></i>
+					</div>
+					<div class="strip-text">
+						<span class="strip-label">Phone</span>
+						<span class="strip-value">+61 414 265 050</span>
+					</div>
+				</a>
+				<div class="strip-item reveal" style="transition-delay: 0.2s;">
+					<div class="strip-icon">
+						<i class="fi fi-rr-marker icon-float" style="font-size: 1.2rem; color: #e3b156;"></i>
+					</div>
+					<div class="strip-text">
+						<span class="strip-label">Location</span>
+						<span class="strip-value">Fremantle / Perth, WA</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ===== CONTACT CONTENT SECTION ===== -->
+	<section class="contact-section">
+		<div class="container">
+			<div class="contact-grid">
+				<!-- Contact Info Column -->
+				<div class="contact-info reveal reveal-left">
+					<h2>Get in Touch</h2>
+					<p class="contact-intro">
+						Whether you're starting from scratch or looking to level up, let's talk
+						about how we can help you achieve your goals.
+					</p>
+
+					<div class="contact-methods">
+						<div class="contact-method">
+							<i class="bi bi-clock-fill"></i>
+							<div>
+								<h3>Response Time</h3>
+								<p>We typically reply within 24 hours</p>
+							</div>
+						</div>
+
+						<div class="contact-method">
+							<i class="bi bi-chat-dots-fill"></i>
+							<div>
+								<h3>Free Consultation</h3>
+								<p>Book a no-obligation discovery call</p>
+							</div>
+						</div>
+
+						<div class="contact-method">
+							<i class="bi bi-globe2"></i>
+							<div>
+								<h3>Remote Friendly</h3>
+								<p>We work with clients across Australia and beyond</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Map Section -->
+					<div class="contact-map">
+						<div id="fremantle-map" class="map-frame" aria-label="Map showing Fremantle, Western Australia">
+						</div>
+						<p class="map-attribution">Map data &copy; OpenStreetMap contributors</p>
+					</div>
+				</div>
+
+				<!-- Contact Form Column -->
+				<div class="contact-form-wrapper reveal reveal-right">
+					<h2>Start a Conversation</h2>
+					<p class="form-intro">
+						Tell us a bit about your project and we'll get back to you with ideas and
+						a plan.
+					</p>
+					<form class="contact-form">
+						<div class="form-row">
+							<div class="form-group">
+								<label for="name">Your Name</label>
+								<input type="text" id="name" name="name" placeholder="Sharon Strzelecki" />
+							</div>
+							<div class="form-group">
+								<label for="email">Email Address</label>
+								<input type="email" id="email" name="email" placeholder="shaz@fountain-lakes.com.au"
+									required />
+							</div>
+						</div>
+
+						<div class="form-row">
+							<div class="form-group">
+								<label for="phone">Phone Number (Optional)</label>
+								<input type="tel" id="phone" name="phone" placeholder="0419 123 456" />
+							</div>
+							<div class="form-group">
+								<label for="service">Which service are you interested in?</label>
+								<select id="service" name="service">
+									<option value="">Select a service</option>
+									<option value="web-dev">Custom Website Development</option>
+									<option value="branding">Strategic Branding &amp; Identity</option>
+									<option value="seo">SEO &amp; Local Visibility</option>
+									<option value="support">Grow &amp; Support Plan</option>
+									<option value="training">Training &amp; Empowerment</option>
+									<option value="ads">Managed Ad Campaigns</option>
+									<option value="ai-strategy">AI Strategy &amp; Navigation</option>
+									<option value="automation">Workflow Automation</option>
+									<option value="content">AI Content Support</option>
+									<option value="data">Data Insights</option>
+									<option value="chatbots">Smart Chatbots</option>
+									<option value="future">Future-Proofing</option>
+									<option value="multiple">Multiple Services</option>
+									<option value="not-sure">Not Sure Yet</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="message">Tell us about your project</label>
+							<textarea id="message" name="message"
+								placeholder="Look at moy, look at moy, look at moy... I need a website that's noice, different, unusual!"></textarea>
+						</div>
+
+						<button type="submit" class="submit-button">
+							Send Message <i class="bi bi-send-fill"></i>
+						</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ===== FOOTER SECTION ===== -->
+	<div id="footer"></div>
+
+	<!-- ===== MAP LIBRARY ===== -->
+	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+		integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+	<!-- ===== SCRIPTS ===== -->
+	<script>
+		// Wait for DOM to be fully loaded
+		document.addEventListener("DOMContentLoaded", function () {
+			// Initialize Fremantle map (no controls)
+			var mapElement = document.getElementById("fremantle-map");
+			if (mapElement && window.L) {
+				var map = L.map(mapElement, {
+					zoomControl: false,
+					attributionControl: false,
+					dragging: false,
+					scrollWheelZoom: false,
+					doubleClickZoom: false,
+					boxZoom: false,
+					keyboard: false,
+					tap: false,
+					touchZoom: false,
+				});
+				L.tileLayer(
+					"https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png",
+					{
+						maxZoom: 18,
+					},
+				).addTo(map);
+				var bounds = [
+					[-33.33, 115.45],
+					[-31.74, 116.2],
+				];
+				map.fitBounds(bounds, { padding: [20, 20] });
+				L.marker([-32.0569, 115.747]).addTo(map);
+			}
+
+			// Form submission handling
+			const contactForm = document.querySelector(".contact-form");
+			if (contactForm) {
+				contactForm.addEventListener("submit", function (e) {
+					e.preventDefault();
+					alert("Thank you for your message! We'll get back to you soon.");
+					this.reset();
+				});
+			}
+
+			// Add scroll effect to navbar
+			window.addEventListener("scroll", function () {
+				const nav = document.querySelector("nav");
+				if (nav) {
+					if (window.scrollY > 100) {
+						nav.style.boxShadow = "0 4px 20px rgba(0,0,0,0.15)";
+					} else {
+						nav.style.boxShadow = "0 2px 10px rgba(0,0,0,0.1)";
+					}
+				}
+			});
+		});
+	</script>
+
+	<!-- AOS Init -->
+	<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+	<script>
+		AOS.init({
+			duration: 800,
+			easing: "ease-out-cubic",
+			once: true,
+			offset: 60,
+		});
+	</script>
+
+	<!-- ===== SCROLL REVEAL ===== -->
+	<script>
+		(function () {
+			const revealEls = document.querySelectorAll(
+				".reveal, .reveal-left, .reveal-right, .reveal-scale"
+			);
+			if (!revealEls.length) return;
+
+			const io = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							entry.target.classList.add("revealed");
+							io.unobserve(entry.target);
+						}
+					});
+				},
+				{ threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+			);
+
+			revealEls.forEach((el) => io.observe(el));
+		})();
+	</script>
+
+	<!-- ===== FOOTER INCLUDE ===== -->
+	<script>
+		fetch("-footer.html")
+			.then((response) => response.text())
+			.then((html) => {
+				const footer = document.getElementById("footer");
+				if (footer) {
+					footer.innerHTML = html;
+				}
+			})
+			.catch((error) => {
+				console.error("Footer load failed:", error);
+			});
+	</script>
+</body>
+
+</html>

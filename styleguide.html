@@ -1,0 +1,2906 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+	<head>
+		<!--===== HEAD TAGS =====-->
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Space+Grotesk:wght@400;500;600&display=swap"
+		/>
+		<!--Page Title-->
+		<title>Brand Styleguide | The Daly Creative</title>
+		<!--Description-->
+		<meta
+			name="description"
+			content="Brand voice, palette, typography, and visual assets for The Daly Creative."
+		/>
+		<!--Favicon-->
+		<link rel="icon" type="image/png" href="logos/tdc-icon2-1563x1563.png" />
+		<!--Bootstrap Icons-->
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+		/>
+		<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css" />
+		<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css" />
+		<!--Main Stylesheet-->
+		<link rel="stylesheet" href="styles.css" />
+		<script>
+			tailwind.config = {
+				theme: {
+					extend: {
+						colors: {
+							ink: "#101116",
+							navy: "#0f1d2d",
+							slate: "#334155",
+							sand: "#f4f1ea",
+							cream: "#fffaf2",
+							line: "#e2d9cc",
+							orange: "#ff8a3d",
+							teal: "#2f9ea0",
+							mint: "#dff3f2",
+							sky: "#7fcbdb",
+							coral: "#fb837d",
+							amber: "#e3b156",
+							blue: "#4c8cbc",
+							purple: "#a079cb",
+							peach: "#fa9361",
+						},
+						fontFamily: {
+							serif: ["Fraunces", "Times New Roman", "serif"],
+							sans: ["Space Grotesk", "Noto Sans", "sans-serif"],
+						},
+						boxShadow: {
+							soft: "0 18px 40px rgba(15, 23, 42, 0.12)",
+						},
+					},
+				},
+			};
+		</script>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<style>
+			/* Scroll Animation Styles */
+			.animate-on-scroll {
+				opacity: 0;
+				transform: translateY(30px);
+				transition:
+					opacity 0.8s ease-out,
+					transform 0.3s ease-out;
+			}
+
+			.animate-on-scroll.animate-visible {
+				opacity: 1;
+				transform: translateY(0);
+			}
+
+			.stagger-1 {
+				transition-delay: 0.1s;
+			}
+			.stagger-2 {
+				transition-delay: 0.2s;
+			}
+			.stagger-3 {
+				transition-delay: 0.3s;
+			}
+			.stagger-4 {
+				transition-delay: 0.4s;
+			}
+			.stagger-5 {
+				transition-delay: 0.5s;
+			}
+			.stagger-6 {
+				transition-delay: 0.6s;
+			}
+
+			/* Hero entrance animation */
+			.hero-content {
+				animation: heroFadeIn 1.2s ease-out forwards;
+			}
+
+			@keyframes heroFadeIn {
+				from {
+					opacity: 0;
+					transform: translateY(40px) scale(0.95);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0) scale(1);
+				}
+			}
+
+			/* Color swatch styles */
+			.color-swatch {
+				transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+			}
+
+			.color-swatch:hover {
+				transform: scale(1.05);
+				box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+			}
+
+			/* Copy button feedback */
+			.copy-feedback {
+				position: fixed;
+				top: 20px;
+				right: 20px;
+				background: #0f1d2d;
+				color: white;
+				padding: 12px 20px;
+				border-radius: 6px;
+				font-size: 14px;
+				z-index: 1000;
+				animation:
+					slideIn 0.3s ease-out,
+					slideOut 0.3s ease-out 2.7s;
+			}
+
+			@keyframes slideIn {
+				from {
+					opacity: 0;
+					transform: translateX(100px);
+				}
+				to {
+					opacity: 1;
+					transform: translateX(0);
+				}
+			}
+
+			@keyframes slideOut {
+				from {
+					opacity: 1;
+					transform: translateX(0);
+				}
+				to {
+					opacity: 0;
+					transform: translateX(100px);
+				}
+			}
+
+			body {
+				background: url("/images/hero-images/hero-create.png") center/cover fixed
+					no-repeat;
+			}
+
+			body > :not(#page-overlay):not(#navbar) {
+				position: relative;
+				z-index: 10;
+			}
+
+			#navbar {
+				position: relative;
+				z-index: 9999;
+			}
+
+			#navbar nav {
+				z-index: 9999 !important;
+			}
+
+			#navbar nav.nav-animate {
+				transition:
+					transform 0.25s ease,
+					opacity 0.25s ease;
+				will-change: transform, opacity;
+			}
+
+			#navbar nav.nav-hidden {
+				transform: translateY(-110%);
+				opacity: 0;
+			}
+
+			#footer {
+				position: relative;
+				z-index: 10;
+			}
+
+			.page-overlay {
+				position: fixed;
+				inset: 0;
+				background: rgba(255, 255, 255, 1);
+				opacity: 0;
+				pointer-events: none;
+				z-index: 5;
+				transition: opacity 0.2s ease-out;
+			}
+		</style>
+
+		<script>
+			function copyCode(button, htmlCode) {
+				// Copy to clipboard
+				navigator.clipboard.writeText(htmlCode).then(() => {
+					// Show feedback message
+					const feedback = document.createElement("div");
+					feedback.className = "copy-feedback";
+					feedback.textContent = "✓ Copied to clipboard";
+					document.body.appendChild(feedback);
+
+					// Remove after animation completes
+					setTimeout(() => feedback.remove(), 3000);
+
+					// Add visual feedback to button
+					const originalColor = button.style.opacity;
+					button.style.opacity = "0.6";
+					setTimeout(() => {
+						button.style.opacity = originalColor || "1";
+					}, 200);
+				});
+			}
+		</script>
+
+	</head>
+	
+	<body class="bg-sand text-ink font-sans antialiased">
+		<div id="page-overlay" class="page-overlay" aria-hidden="true"></div>
+		<!-- ===== NAV BAR ===== -->
+		<nav>
+			<div class="nav-container">
+				<a href="index.html" class="logo">
+					<img src="images/icons/logo-1300x507.png" alt="The Daly Creative" height="48" />
+				</a>
+				<input type="checkbox" id="nav-toggle" class="nav-toggle" />
+				<label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle menu">
+					<span></span><span></span><span></span>
+				</label>
+				<ul class="nav-links">
+					<li data-color="teal"><a href="index.html"><i class="fi fi-rr-home nav-icon"></i><span>Home</span></a></li>
+					<li data-color="amber"><a href="about.html"><i class="fi fi-rr-user nav-icon"></i><span>About</span></a></li>
+					<li class="nav-has-dropdown" data-color="orange">
+						<a href="services.html"><i class="fi fi-rr-apps nav-icon"></i><span>Services</span><i class="fi fi-rr-angle-small-down nav-chevron"></i></a>
+						<div class="nav-dropdown">
+							<div class="nav-dropdown-grid">
+								<a href="services.html#cat-brand" class="nav-dropdown-card" style="--card-accent: var(--orange);"><i class="fi fi-rr-paint-brush nav-dropdown-icon"></i><div><strong>Brand &amp; Digital</strong><span>Web, branding, SEO, ads</span></div></a>
+								<a href="services.html#cat-ai" class="nav-dropdown-card" style="--card-accent: var(--purple);"><i class="fi fi-rr-brain nav-dropdown-icon"></i><div><strong>AI &amp; Automation</strong><span>Agents, workflows, chatbots</span></div></a>
+								<a href="services.html#cat-growth" class="nav-dropdown-card" style="--card-accent: var(--teal);"><i class="fi fi-rr-chart-line-up nav-dropdown-icon"></i><div><strong>Growth &amp; Strategy</strong><span>Data, support, training</span></div></a>
+								<a href="services.html#cat-security" class="nav-dropdown-card" style="--card-accent: var(--coral);"><i class="bi bi-shield-lock nav-dropdown-icon"></i><div><strong>Cyber Security</strong><span>Audits, monitoring, response</span></div></a>
+							</div>
+						</div>
+					</li>
+					<li data-color="purple"><a href="ai-tools.html"><i class="fi fi-rr-brain nav-icon"></i><span>AI Tools</span></a></li>
+					<li data-color="blue"><a href="blueprint.html"><i class="fi fi-rr-map nav-icon"></i><span>Process</span></a></li>
+					<li data-color="coral"><a href="portfolio.html"><i class="fi fi-rr-briefcase nav-icon"></i><span>Work</span></a></li>
+					<li data-color="peach"><a href="contact.html"><i class="fi fi-rr-envelope nav-icon"></i><span>Contact</span></a></li>
+					<li class="nav-mobile-cta-item"><a class="nav-mobile-cta" href="contact.html"><i class="fi fi-rr-calendar nav-icon"></i> Book a Call</a></li>
+				</ul>
+				<div class="nav-overlay"></div>
+				<a class="nav-cta" href="contact.html"><i class="fi fi-rr-calendar nav-icon"></i> Book a Call</a>
+			</div>
+		</nav>
+		<script>
+		(function(){
+			const n=document.querySelector('nav');
+			if(!n)return;
+			window.addEventListener('scroll',()=>n.classList.toggle('nav--scrolled',window.scrollY>60));
+			const o=document.querySelector('.nav-overlay');
+			const t=document.getElementById('nav-toggle');
+			if(o&&t)o.addEventListener('click',()=>{t.checked=false;});
+			const dd=document.querySelector('.nav-has-dropdown');
+			if(dd){dd.querySelector(':scope > a').addEventListener('click',function(e){if(window.innerWidth<=900){e.preventDefault();dd.classList.toggle('is-open');}});}
+		})();
+		</script>
+
+		<!-- ===== HERO SECTION ===== -->
+		<section
+			id="styleguide"
+			class="relative flex min-h-screen items-center justify-start overflow-hidden px-8 pb-28 pt-40"
+		>
+			<div
+				class="hero-content relative z-10 max-w-3xl rounded-3xl border border-black bg-white/85 px-6 py-10 text-left text-ink backdrop-blur md:px-10 md:py-12"
+			>
+				<h1 class="font-serif text-4xl text-ink md:text-6xl">Brand Styleguide</h1>
+
+				<p class="mt-6 text-base text-slate md:text-lg">
+					Voice, palette, typography, and visual assets that bring The Daly Creative
+					to life. Every element tells our story.
+				</p>
+			</div>
+		</section>
+
+		<!-- ===== BRAND VOICE SECTION ===== -->
+		<section class="bg-gradient-to-b from-cream to-sand py-24">
+			<div class="mx-auto max-w-6xl px-8">
+				<div class="mb-16 animate-on-scroll">
+					<h2 class="font-serif text-4xl text-ink md:text-5xl">
+						Brand Voice & Personality
+					</h2>
+					<p class="mt-4 text-lg text-slate">
+						How we communicate, who we are, and what drives us.
+					</p>
+				</div>
+
+				<div class="grid gap-8 md:grid-cols-3">
+					<!-- Tone Card -->
+					<div
+						class="animate-on-scroll stagger-1 rounded-3xl border border-black bg-white p-8"
+					>
+						<div
+							class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg"
+							style="background-color: rgba(127, 203, 219, 0.2)"
+						>
+							<i class="bi bi-chat-dots text-2xl" style="color: #7fcbdb"></i>
+						</div>
+						<h3 class="font-serif text-2xl text-ink">Tone</h3>
+						<p class="mt-4 leading-relaxed text-slate">
+							Clever, friendly mate energy. Clear, direct, and warm with a touch of
+							cheek. We sound like a trusted friend who gets it.
+						</p>
+					</div>
+
+					<!-- Values Card -->
+					<div
+						class="animate-on-scroll stagger-2 rounded-3xl border border-black bg-white p-8 md:col-span-2"
+					>
+						<div
+							class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg"
+							style="background-color: rgba(251, 131, 125, 0.2)"
+						>
+							<i class="bi bi-heart text-2xl" style="color: #fb837d"></i>
+						</div>
+						<h3 class="font-serif text-2xl text-ink">Core Values</h3>
+						<div class="mt-6 grid gap-6 md:grid-cols-2">
+							<!-- Value 1 -->
+							<div>
+								<h4 class="font-semibold text-ink">Clarity Over Noise</h4>
+								<p class="mt-2 text-sm text-slate">
+									We simplify complexity. Strong brands don't shout — they communicate
+									with confidence and direction.
+								</p>
+							</div>
+							<!-- Value 2 -->
+							<div>
+								<h4 class="font-semibold text-ink">Design With Purpose</h4>
+								<p class="mt-2 text-sm text-slate">
+									Every visual choice, every interaction, every system serves a strategic
+									reason. Nothing is decorative without intention.
+								</p>
+							</div>
+							<!-- Value 3 -->
+							<div>
+								<h4 class="font-semibold text-ink">Intelligence Drives Growth</h4>
+								<p class="mt-2 text-sm text-slate">
+									Data, research, and AI tools are not trends — they are leverage. We
+									build with foresight.
+								</p>
+							</div>
+							<!-- Value 4 -->
+							<div>
+								<h4 class="font-semibold text-ink">Empowerment Over Dependency</h4>
+								<p class="mt-2 text-sm text-slate">
+									We build systems you can understand and use. You leave equipped — not
+									reliant.
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Voice Guidelines Card -->
+					<div
+						class="animate-on-scroll stagger-3 rounded-3xl border border-black bg-white p-8"
+					>
+						<div
+							class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg"
+							style="background-color: rgba(227, 177, 86, 0.2)"
+						>
+							<i class="bi bi-megaphone text-2xl" style="color: #e3b156"></i>
+						</div>
+						<h3 class="font-serif text-2xl text-ink">Guiding Rules</h3>
+						<ul class="mt-4 space-y-2 text-slate">
+							<li
+								class="relative pl-5 before:absolute before:left-0 before:content-['✓']"
+							>
+								Skip the jargon
+							</li>
+							<li
+								class="relative pl-5 before:absolute before:left-0 before:content-['✓']"
+							>
+								Lead with outcomes
+							</li>
+							<li
+								class="relative pl-5 before:absolute before:left-0 before:content-['✓']"
+							>
+								Show real examples
+							</li>
+							<li
+								class="relative pl-5 before:absolute before:left-0 before:content-['✓']"
+							>
+								Stay conversational
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ===== COLOR PALETTE SECTION ===== -->
+		<section class="bg-gradient-to-b from-sand to-cream py-24">
+			<div class="mx-auto max-w-6xl px-8">
+				<div class="mb-16 animate-on-scroll">
+					<h2 class="font-serif text-4xl text-ink md:text-5xl">Color Palette</h2>
+					<p class="mt-4 text-lg text-slate">
+						Primary colors and accents that define our visual identity.
+					</p>
+				</div>
+
+				<!-- Primary Colors -->
+				<div class="mb-12">
+					<h3 class="font-serif text-2xl text-ink mb-8">Primary Colors</h3>
+					<div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+						<!-- Teal -->
+						<div class="animate-on-scroll stagger-1 text-center">
+							<div
+								class="color-swatch mb-4 h-32 rounded-2xl border-2 border-black"
+								style="background: #2f9ea0"
+							></div>
+							<h4 class="font-semibold text-ink">Teal</h4>
+							<p class="text-sm text-slate">#2F9EA0</p>
+							<p class="mt-2 text-xs text-slate">Primary brand color</p>
+						</div>
+
+						<!-- Orange -->
+						<div class="animate-on-scroll stagger-2 text-center">
+							<div
+								class="color-swatch mb-4 h-32 rounded-2xl border-2 border-black"
+								style="background: #ff8a3d"
+							></div>
+							<h4 class="font-semibold text-ink">Orange</h4>
+							<p class="text-sm text-slate">#FF8A3D</p>
+							<p class="mt-2 text-xs text-slate">Call-to-action</p>
+						</div>
+
+						<!-- Purple -->
+						<div class="animate-on-scroll stagger-3 text-center">
+							<div
+								class="color-swatch mb-4 h-32 rounded-2xl border-2 border-black"
+								style="background: #a079cb"
+							></div>
+							<h4 class="font-semibold text-ink">Purple</h4>
+							<p class="text-sm text-slate">#A079CB</p>
+							<p class="mt-2 text-xs text-slate">Accent & highlights</p>
+						</div>
+
+						<!-- Sky -->
+						<div class="animate-on-scroll stagger-4 text-center">
+							<div
+								class="color-swatch mb-4 h-32 rounded-2xl border-2 border-black"
+								style="background: #7fcbdb"
+							></div>
+							<h4 class="font-semibold text-ink">Sky</h4>
+							<p class="text-sm text-slate">#7FCBDB</p>
+							<p class="mt-2 text-xs text-slate">Secondary accent</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Secondary Colors -->
+				<div>
+					<h3 class="font-serif text-2xl text-ink mb-8">Secondary Colors</h3>
+					<div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+						<!-- Coral -->
+						<div class="animate-on-scroll stagger-1 text-center">
+							<div
+								class="color-swatch mb-4 h-32 rounded-2xl border-2 border-black"
+								style="background: #fb837d"
+							></div>
+							<h4 class="font-semibold text-ink">Coral</h4>
+							<p class="text-sm text-slate">#FB837D</p>
+						</div>
+
+						<!-- Amber -->
+						<div class="animate-on-scroll stagger-2 text-center">
+							<div
+								class="color-swatch mb-4 h-32 rounded-2xl border-2 border-black"
+								style="background: #e3b156"
+							></div>
+							<h4 class="font-semibold text-ink">Amber</h4>
+							<p class="text-sm text-slate">#E3B156</p>
+						</div>
+
+						<!-- Peach -->
+						<div class="animate-on-scroll stagger-3 text-center">
+							<div
+								class="color-swatch mb-4 h-32 rounded-2xl border-2 border-black"
+								style="background: #fa9361"
+							></div>
+							<h4 class="font-semibold text-ink">Peach</h4>
+							<p class="text-sm text-slate">#FA9361</p>
+						</div>
+
+						<!-- Blue -->
+						<div class="animate-on-scroll stagger-4 text-center">
+							<div
+								class="color-swatch mb-4 h-32 rounded-2xl border-2 border-black"
+								style="background: #4c8cbc"
+							></div>
+							<h4 class="font-semibold text-ink">Blue</h4>
+							<p class="text-sm text-slate">#4C8CBC</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Neutrals -->
+				<div class="mt-12">
+					<h3 class="font-serif text-2xl text-ink mb-8">Neutrals</h3>
+					<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+						<!-- Ink -->
+						<div class="animate-on-scroll stagger-1 text-center">
+							<div
+								class="color-swatch mb-4 h-32 rounded-2xl border-2 border-black"
+								style="background: #101116"
+							></div>
+							<h4 class="font-semibold text-ink">Ink</h4>
+							<p class="text-sm text-slate">#101116</p>
+						</div>
+
+						<!-- Sand -->
+						<div class="animate-on-scroll stagger-2 text-center">
+							<div
+								class="color-swatch mb-4 h-32 rounded-2xl border-2 border-black"
+								style="background: #f4f1ea"
+							></div>
+							<h4 class="font-semibold text-ink">Sand</h4>
+							<p class="text-sm text-slate">#F4F1EA</p>
+						</div>
+
+						<!-- Cream -->
+						<div class="animate-on-scroll stagger-3 text-center">
+							<div
+								class="color-swatch mb-4 h-32 rounded-2xl border-2 border-black"
+								style="background: #fffaf2"
+							></div>
+							<h4 class="font-semibold text-ink">Cream</h4>
+							<p class="text-sm text-slate">#FFFAF2</p>
+						</div>
+
+						<!-- Slate -->
+						<div class="animate-on-scroll stagger-4 text-center">
+							<div
+								class="color-swatch mb-4 h-32 rounded-2xl border-2 border-black"
+								style="background: #334155"
+							></div>
+							<h4 class="font-semibold text-ink">Slate</h4>
+							<p class="text-sm text-slate">#334155</p>
+						</div>
+
+						<!-- Mint -->
+						<div class="animate-on-scroll stagger-5 text-center">
+							<div
+								class="color-swatch mb-4 h-32 rounded-2xl border-2 border-black"
+								style="background: #dff3f2"
+							></div>
+							<h4 class="font-semibold text-ink">Mint</h4>
+							<p class="text-sm text-slate">#DFF3F2</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ===== TYPOGRAPHY SECTION ===== -->
+		<section class="bg-gradient-to-b from-cream to-sand py-24">
+			<div class="mx-auto max-w-6xl px-8">
+				<div class="mb-16 animate-on-scroll">
+					<h2 class="font-serif text-4xl text-ink md:text-5xl">Typography</h2>
+					<p class="mt-4 text-lg text-slate">
+						Two complementary typefaces that define our visual hierarchy.
+					</p>
+				</div>
+
+				<div class="grid gap-12 md:grid-cols-2">
+					<!-- Fraunces -->
+					<div class="animate-on-scroll stagger-1">
+						<div class="rounded-3xl border border-black bg-white p-12">
+							<p class="mb-6 font-serif text-5xl text-ink">Fraunces</p>
+							<p class="text-base leading-relaxed text-slate">
+								Expressive, editorial, and warm. Used for all headings to create
+								personality and draw attention. Bold, confident, and distinctive.
+							</p>
+							<div class="mt-8 border-t border-line pt-6">
+								<p class="text-sm font-semibold uppercase text-slate">
+									Weights Available
+								</p>
+								<p class="mt-2 font-serif text-lg font-semibold text-ink">
+									Semibold (600)
+								</p>
+								<p class="mt-1 font-serif text-2xl font-bold text-ink">Bold (700)</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Space Grotesk -->
+					<div class="animate-on-scroll stagger-2">
+						<div class="rounded-3xl border border-black bg-white p-12">
+							<p class="mb-6 font-sans text-5xl font-medium text-ink">Space Grotesk</p>
+							<p class="text-base leading-relaxed text-slate">
+								Clean, modern, and highly readable. Used for body copy, UI text, and
+								interface elements. Designed for excellent legibility at all sizes.
+							</p>
+							<div class="mt-8 border-t border-line pt-6">
+								<p class="text-sm font-semibold uppercase text-slate">
+									Weights Available
+								</p>
+								<p class="mt-2 font-sans font-normal text-ink">Regular (400)</p>
+								<p class="mt-1 font-sans font-medium text-ink md:text-lg">
+									Medium (500)
+								</p>
+								<p class="mt-1 font-sans font-semibold text-ink md:text-lg">
+									Semibold (600)
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Hierarchy Examples -->
+				<div
+					class="mt-16 animate-on-scroll rounded-3xl border border-black bg-white p-12"
+				>
+					<h3 class="font-serif text-2xl text-ink mb-8">Typographic Scale</h3>
+					<div class="space-y-8">
+						<div>
+							<p class="font-serif text-4xl text-ink md:text-5xl">Heading 1</p>
+							<p class="mt-2 text-sm uppercase text-slate">
+								36px / 48px | Fraunces Bold (700)
+							</p>
+						</div>
+						<div>
+							<p class="font-serif text-3xl text-ink md:text-4xl">Heading 2</p>
+							<p class="mt-2 text-sm uppercase text-slate">
+								28px / 36px | Fraunces Semibold (600)
+							</p>
+						</div>
+						<div>
+							<p class="font-serif text-2xl text-ink">Heading 3</p>
+							<p class="mt-2 text-sm uppercase text-slate">
+								24px | Fraunces Semibold (600)
+							</p>
+						</div>
+						<div>
+							<p class="text-base text-slate md:text-lg">
+								Body text - used for paragraphs and content. Space Grotesk Regular (400)
+								at 16px.
+							</p>
+							<p class="mt-2 text-sm uppercase text-slate">
+								16px / 18px | Space Grotesk Regular (400)
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ===== LOGOS & BRAND ASSETS SECTION ===== -->
+		<section class="bg-gradient-to-b from-sand to-cream py-24">
+			<div class="mx-auto max-w-6xl px-8">
+				<div class="mb-16 animate-on-scroll">
+					<h2 class="font-serif text-4xl text-ink md:text-5xl">
+						Logos & Brand Assets
+					</h2>
+					<p class="mt-4 text-lg text-slate">
+						Logo variations and primary brand marks.
+					</p>
+				</div>
+
+				<div class="grid gap-8 md:grid-cols-2">
+					<!-- Logo 1 -->
+					<div
+						class="animate-on-scroll stagger-1 rounded-3xl border border-black bg-white p-8"
+					>
+						<div
+							class="mb-6 flex h-40 items-center justify-center rounded-2xl bg-cream"
+						>
+							<img
+								src="/images/tdc-logo-1.png"
+								alt="TDC Logo with text"
+								class="max-h-full max-w-full"
+							/>
+						</div>
+						<p class="font-semibold text-ink">TDC Logo with Text</p>
+						<p class="text-sm text-slate">Primary logo for most applications</p>
+					</div>
+
+					<!-- Logo 2 -->
+					<div
+						class="animate-on-scroll stagger-2 rounded-3xl border border-black bg-white p-8"
+					>
+						<div
+							class="mb-6 flex h-40 items-center justify-center rounded-2xl bg-cream"
+						>
+							<img
+								src="images/tdc-logo-circle-1485x1430.png"
+								alt="TDC Logo mark"
+								class="max-h-full max-w-full"
+							/>
+						</div>
+						<p class="font-semibold text-ink">TDC Logo Mark</p>
+						<p class="text-sm text-slate">Icon/social media version</p>
+					</div>
+
+					<!-- Icons -->
+					<div
+						class="animate-on-scroll stagger-3 rounded-3xl border border-black bg-white p-8"
+					>
+						<div
+							class="mb-6 flex h-40 items-center justify-center rounded-2xl bg-cream"
+						>
+							<img
+								src="images/tdc-icons-1250x937.png"
+								alt="TDC Icons"
+								class="max-h-full max-w-full"
+							/>
+						</div>
+						<p class="font-semibold text-ink">Brand Icons</p>
+						<p class="text-sm text-slate">Icon system for service indicators</p>
+					</div>
+
+					<!-- Favicon -->
+					<div
+						class="animate-on-scroll stagger-4 rounded-3xl border border-black bg-white p-8"
+					>
+						<div
+							class="mb-6 flex h-40 items-center justify-center rounded-2xl bg-cream"
+						>
+							<img
+								src="images/tdc-icon1-1563x1563.png"
+								alt="TDC Favicon"
+								class="max-h-full max-w-full"
+							/>
+						</div>
+						<p class="font-semibold text-ink">Favicon</p>
+						<p class="text-sm text-slate">Website tab icon, 256x256px</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ===== IMAGERY & VISUAL ELEMENTS ===== -->
+		<section class="bg-gradient-to-b from-cream to-sand py-24">
+			<div class="mx-auto max-w-6xl px-8">
+				<div class="mb-16 animate-on-scroll">
+					<h2 class="font-serif text-4xl text-ink md:text-5xl">Imagery</h2>
+					<p class="mt-4 text-lg text-slate">
+						Photography, illustrations, and graphic elements.
+					</p>
+				</div>
+
+				<!-- Hero Backgrounds & Shapes -->
+				<div class="mb-16">
+					<div class="mb-6 animate-on-scroll">
+						<h3 class="font-serif text-2xl text-ink">Hero Backgrounds & Shapes</h3>
+						<p class="mt-2 text-sm text-slate">
+							Bold, graphic backdrops and abstract shapes for hero sections.
+						</p>
+						<p class="mt-2 text-xs text-slate">
+							Prompt: Editorial hero background, abstract blobs, layered shapes, muted
+							cream and sand palette, soft grain, modern brand energy.
+						</p>
+					</div>
+					<div class="grid gap-6 md:grid-cols-3">
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-hero-shapes-full.png"
+									alt="Hero shapes full"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Hero Shapes Full</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-hero-shapes-half.png"
+									alt="Hero shapes half"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Hero Shapes Half</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-abstract-blobs-1024x1024.png"
+									alt="Abstract blobs 1024"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Abstract Blobs 1024</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-abstract-blobs-716x769.png"
+									alt="Abstract blobs 716"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Abstract Blobs 716</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Hero Photography -->
+				<div class="mb-16">
+					<div class="mb-6 animate-on-scroll">
+						<h3 class="font-serif text-2xl text-ink">Hero Photography</h3>
+						<p class="mt-2 text-sm text-slate">
+							Real, candid team and work moments with natural light.
+						</p>
+						<p class="mt-2 text-xs text-slate">
+							Prompt: Documentary-style team photo, warm daylight, minimal office set,
+							subtle film grain, clean composition, brand palette accents.
+						</p>
+					</div>
+					<div class="grid gap-6 md:grid-cols-3">
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-gray-200"
+							>
+								<img
+									src="images/tdc-hero-meeting.png"
+									alt="Hero meeting"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Hero Meeting</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-gray-200"
+							>
+								<img
+									src="images/tdc-hero-podcast.png"
+									alt="Hero podcast"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Hero Podcast</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-gray-200"
+							>
+								<img
+									src="images/tdc-hero-workers.png"
+									alt="Hero workers"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Hero Workers</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-gray-200"
+							>
+								<img
+									src="images/tdc-meet-tim.jpeg"
+									alt="Meet Tim"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Meet Tim</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-gray-200"
+							>
+								<img
+									src="images/tdc-tim-real-960x960.png"
+									alt="Tim portrait"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Tim Portrait</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- AI & Tech Concept Art -->
+				<div class="mb-16">
+					<div class="mb-6 animate-on-scroll">
+						<h3 class="font-serif text-2xl text-ink">AI & Tech Concept Art</h3>
+						<p class="mt-2 text-sm text-slate">
+							Graphic concepts for AI, automation, and futuristic services.
+						</p>
+						<p class="mt-2 text-xs text-slate">
+							Prompt: Clean AI concept illustration, layered shapes, soft gradients,
+							teal and sky accents, minimal tech motifs, modern brand feel.
+						</p>
+					</div>
+					<div class="grid gap-6 md:grid-cols-3">
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-hero-ai-full.png"
+									alt="AI hero full"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">AI Hero Full</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-section-ai-hero.png"
+									alt="AI section hero"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">AI Section Hero</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-section-aiservices.png"
+									alt="AI services"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">AI Services</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-section-aitoolsandautomation.png"
+									alt="AI tools and automation"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">AI Tools & Automation</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Section Illustrations & Headers -->
+				<div class="mb-16">
+					<div class="mb-6 animate-on-scroll">
+						<h3 class="font-serif text-2xl text-ink">
+							Section Illustrations & Headers
+						</h3>
+						<p class="mt-2 text-sm text-slate">
+							Graphic section banners and story panels for core pages.
+						</p>
+						<p class="mt-2 text-xs text-slate">
+							Prompt: Clean section banner illustration, simple shapes, subtle texture,
+							warm neutrals, teal or coral accents, strong hierarchy.
+						</p>
+					</div>
+					<div class="grid gap-6 md:grid-cols-3">
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-section-aboutus.png"
+									alt="About us section"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">About Us Section</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-section-aiprocess.png"
+									alt="AI process"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">AI Process</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-section-bringideastolife.png"
+									alt="Bring ideas to life"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Bring Ideas to Life</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-section-whatweoffer.png"
+									alt="What we offer"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">What We Offer</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-section-whychooseus.png"
+									alt="Why choose us"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Why Choose Us</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-heading-ourapproach-1563x1024.png"
+									alt="Our approach heading"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Our Approach Heading</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Icon Systems & Marks -->
+				<div class="mb-16">
+					<div class="mb-6 animate-on-scroll">
+						<h3 class="font-serif text-2xl text-ink">Icon Systems & Marks</h3>
+						<p class="mt-2 text-sm text-slate">
+							Icons, glyph sets, and favicon-ready marks for UI systems.
+						</p>
+						<p class="mt-2 text-xs text-slate">
+							Prompt: Friendly icon set, rounded corners, two-tone ink and teal,
+							consistent stroke, simple geometry, brand-ready.
+						</p>
+					</div>
+					<div class="grid gap-6 md:grid-cols-3">
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-examples-icons.png"
+									alt="Examples icons"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Examples Icons</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-icons.png"
+									alt="Icons set"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Icons Set</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-icons-1250x937.png"
+									alt="Icons 1250x937"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Icons 1250x937</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-icons-1563x1563.png"
+									alt="Icons 1563x1563"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Icons 1563x1563</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-icons-6250x3125.png"
+									alt="Icons 6250x3125"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Icons 6250x3125</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-icons-padded-1563x1563.png"
+									alt="Icons padded"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Icons Padded</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-icons-whitebg-800x600.jpg"
+									alt="Icons white background"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Icons White BG</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-icon1-1250x937.png"
+									alt="Icon1 1250x937"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Icon 1 1250x937</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-icon1-1563x1563.png"
+									alt="Icon1 1563x1563"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Icon 1 1563x1563</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-icon1-256x256.png"
+									alt="Icon1 256x256"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Icon 1 256x256</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-icon2-1250x937.png"
+									alt="Icon2 1250x937"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Icon 2 1250x937</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-icon2-1563x1563.png"
+									alt="Icon2 1563x1563"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Icon 2 1563x1563</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-icon2-387x457.png"
+									alt="Icon2 387x457"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Icon 2 387x457</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Logos & Wordmarks -->
+				<div class="mb-16">
+					<div class="mb-6 animate-on-scroll">
+						<h3 class="font-serif text-2xl text-ink">Logos & Wordmarks</h3>
+						<p class="mt-2 text-sm text-slate">
+							Primary logos, wordmarks, and social variants.
+						</p>
+						<p class="mt-2 text-xs text-slate">
+							Prompt: Clean wordmark, strong serif type, bold confident letterforms,
+							balanced spacing, monochrome ink on warm cream background.
+						</p>
+					</div>
+					<div class="grid gap-6 md:grid-cols-3">
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-logo-1.png"
+									alt="Logo with text"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Logo With Text</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-logo-circle-1485x1430.png"
+									alt="Logo mark circle"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Logo Mark Circle</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-logo-social-1556x1560.png"
+									alt="Logo social"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Logo Social</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-logo-text-1250x937.png"
+									alt="Logo text 1250x937"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Logo Text 1250x937</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-logo-text-1563x1563.png"
+									alt="Logo text 1563x1563"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Logo Text 1563x1563</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-logo-text-3713x3575.png"
+									alt="Logo text 3713x3575"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Logo Text 3713x3575</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-logo-text-6250x3750.png"
+									alt="Logo text 6250x3750"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Logo Text 6250x3750</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-logo-text-whitebackground.png"
+									alt="Logo text white background"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Logo Text White BG</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<video class="h-full w-full object-contain" controls muted playsinline>
+									<source src="images/tdc-logo-text-animation.mp4" type="video/mp4" />
+								</video>
+							</div>
+							<p class="font-semibold text-ink">Logo Text Animation</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Illustration Tiles & Vectors -->
+				<div class="mb-16">
+					<div class="mb-6 animate-on-scroll">
+						<h3 class="font-serif text-2xl text-ink">Illustration Tiles & Vectors</h3>
+						<p class="mt-2 text-sm text-slate">
+							Vector tiles and iconographic illustrations for features and steps.
+						</p>
+						<p class="mt-2 text-xs text-slate">
+							Prompt: Minimal vector tile illustration, bold shapes, ink outlines, warm
+							neutrals, accent teal or coral, clean geometry.
+						</p>
+					</div>
+					<div class="grid gap-6 md:grid-cols-3">
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-examples-vectors.png"
+									alt="Example vectors"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Example Vectors</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-examples-tile.png"
+									alt="Example tile"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Example Tile</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-tile-handshake.png"
+									alt="Tile handshake"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Tile Handshake</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-tile-lightbulb.png"
+									alt="Tile lightbulb"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Tile Lightbulb</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-tile-method1-trust.png"
+									alt="Tile trust"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Tile Method 1 Trust</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-tile-method2-flow.png"
+									alt="Tile flow"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Tile Method 2 Flow</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-tile-method3-growth.png"
+									alt="Tile growth"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Tile Method 3 Growth</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Social Posts & Templates -->
+				<div class="mb-16">
+					<div class="mb-6 animate-on-scroll">
+						<h3 class="font-serif text-2xl text-ink">Social Posts & Templates</h3>
+						<p class="mt-2 text-sm text-slate">
+							Shareable post designs and internal style templates.
+						</p>
+						<p class="mt-2 text-xs text-slate">
+							Prompt: Social post template, bold headline, strong serif type, warm
+							neutrals, coral accents, generous whitespace.
+						</p>
+					</div>
+					<div class="grid gap-6 md:grid-cols-3">
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-post-ourapproach-virtical%20.png"
+									alt="Our approach vertical post"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Our Approach Vertical</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-post-ourapproach2.png"
+									alt="Our approach post"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Our Approach Post 2</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-post-techabrandtofish.png"
+									alt="Tech a brand to fish"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Tech a Brand to Fish</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-post-youraiyourvoice.png"
+									alt="Your AI your voice"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Your AI Your Voice</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tcd-template-colourscheme-v1.png"
+									alt="Color scheme template v1"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Color Scheme Template V1</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tcd-template-colourscheme-v2.png"
+									alt="Color scheme template v2"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Color Scheme Template V2</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-40 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<img
+									src="images/tdc-template-font.png"
+									alt="Font template"
+									class="h-full w-full object-contain"
+								/>
+							</div>
+							<p class="font-semibold text-ink">Font Template</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Motion & Video -->
+				<div class="mb-6">
+					<div class="mb-6 animate-on-scroll">
+						<h3 class="font-serif text-2xl text-ink">Motion & Video</h3>
+						<p class="mt-2 text-sm text-slate">
+							Motion assets for brand moments and hero storytelling.
+						</p>
+						<p class="mt-2 text-xs text-slate">
+							Prompt: Short brand motion clip, clean typography reveal, soft easing,
+							warm cream background, minimal accents, calm pace.
+						</p>
+					</div>
+					<div class="grid gap-6 md:grid-cols-2">
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-48 flex items-center justify-center overflow-hidden rounded-2xl bg-cream"
+							>
+								<video class="h-full w-full object-contain" controls muted playsinline>
+									<source src="images/tdc-logo-text-animation.mp4" type="video/mp4" />
+								</video>
+							</div>
+							<p class="font-semibold text-ink">Logo Text Animation</p>
+						</div>
+						<div
+							class="animate-on-scroll rounded-3xl border border-black bg-white p-6"
+						>
+							<div
+								class="mb-4 h-48 flex items-center justify-center overflow-hidden rounded-2xl bg-gray-200"
+							>
+								<video class="h-full w-full object-contain" controls muted playsinline>
+									<source src="images/tdc-tim-real-960x960.mp4" type="video/mp4" />
+								</video>
+							</div>
+							<p class="font-semibold text-ink">Tim Real Video</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ===== UI COMPONENTS SECTION ===== -->
+		<section class="bg-gradient-to-b from-sand to-cream py-24">
+			<div class="mx-auto max-w-6xl px-8">
+				<div class="mb-16 animate-on-scroll">
+					<h2 class="font-serif text-4xl text-ink md:text-5xl">UI Components</h2>
+					<p class="mt-4 text-lg text-slate">
+						Buttons, cards, badges, and interactive elements.
+					</p>
+				</div>
+
+				<!-- PRIMARY BUTTONS -->
+				<div class="mb-20">
+					<h3 class="font-serif text-4xl text-ink mb-4">Primary Buttons</h3>
+					<p class="mb-4 text-sm text-slate">
+						Click any button to copy its HTML code
+					</p>
+
+					<div class="overflow-x-auto rounded-lg border-2 border-black">
+						<table class="w-full text-sm border-collapse divide-x divide-black">
+							<thead>
+								<tr class="border-b border-black bg-[#f1f1f1]/90">
+									<th class="px-6 py-4 text-left font-semibold text-ink bg-[#f1f1f1]/90">
+										Environment
+									</th>
+									<th
+										class="px-6 py-4 text-center font-semibold bg-[#f1f1f1]/90"
+										style="color: #ff8a3d"
+									>
+										Orange
+									</th>
+									<th
+										class="px-6 py-4 text-center font-semibold bg-[#f1f1f1]/90"
+										style="color: #2f9ea0"
+									>
+										Teal
+									</th>
+									<th
+										class="px-6 py-4 text-center font-semibold bg-[#f1f1f1]/90"
+										style="color: #a079cb"
+									>
+										Purple
+									</th>
+									<th
+										class="px-6 py-4 text-center font-semibold bg-[#f1f1f1]/90"
+										style="color: #7fcbdb"
+									>
+										Sky
+									</th>
+									<th
+										class="px-6 py-4 text-center font-semibold bg-[#f1f1f1]/90"
+										style="color: #fb837d"
+									>
+										Coral
+									</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<!-- WHITE BACKGROUND -->
+								<tr class="border-b border-black bg-white">
+									<td class="px-6 py-6 font-semibold text-ink bg-[#f1f1f1]/90">
+										White Background
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full bg-[#FF8A3D] px-6 py-3 text-sm font-semibold text-[#101116] transition hover:bg-white hover:text-[#FF8A3D] hover:border hover:border-[#FF8A3D] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FF8A3D]"><i class="bi bi-arrow-right"></i> Get Started</button>'
+											class="inline-flex items-center gap-2 rounded-full bg-[#FF8A3D] px-6 py-3 text-sm font-semibold text-[#101116] transition hover:bg-white hover:text-[#FF8A3D] hover:border hover:border-[#FF8A3D] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FF8A3D]"
+										>
+											Get Started <i class="bi bi-arrow-right"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full bg-[#2F9EA0] px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-[#2F9EA0] hover:border hover:border-[#2F9EA0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2F9EA0]"><i class="bi bi-check-lg"></i> Confirm</button>'
+											class="inline-flex items-center gap-2 rounded-full bg-[#2F9EA0] px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-[#2F9EA0] hover:border hover:border-[#2F9EA0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2F9EA0]"
+										>
+											Confirm <i class="bi bi-check-lg"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full bg-[#A079CB] px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-[#A079CB] hover:border hover:border-[#A079CB] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A079CB]"><i class="bi bi-star-fill"></i> Explore</button>'
+											class="inline-flex items-center gap-2 rounded-full bg-[#A079CB] px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-[#A079CB] hover:border hover:border-[#A079CB] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A079CB]"
+										>
+											Explore <i class="bi bi-star-fill"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full bg-[#7FCBDB] px-6 py-3 text-sm font-semibold text-[#101116] transition hover:bg-white hover:text-[#7FCBDB] hover:border hover:border-[#7FCBDB] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#7FCBDB]"><i class="bi bi-download"></i> Download</button>'
+											class="inline-flex items-center gap-2 rounded-full bg-[#7FCBDB] px-6 py-3 text-sm font-semibold text-[#101116] transition hover:bg-white hover:text-[#7FCBDB] hover:border hover:border-[#7FCBDB] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#7FCBDB]"
+										>
+											Download <i class="bi bi-download"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full bg-[#FB837D] px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-[#FB837D] hover:border hover:border-[#FB837D] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FB837D]"><i class="bi bi-chat-dots"></i> Contact</button>'
+											class="inline-flex items-center gap-2 rounded-full bg-[#FB837D] px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-[#FB837D] hover:border hover:border-[#FB837D] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FB837D]"
+										>
+											Contact <i class="bi bi-chat-dots"></i>
+										</button>
+									</td>
+								</tr>
+								<tr class="border-b border-black">
+									<td class="px-6 py-6 font-semibold text-ink bg-[#f1f1f1]/90">Clear</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full bg-[#FF8A3D] px-6 py-3 text-sm font-semibold text-[#101116] transition hover:bg-white hover:text-[#FF8A3D] hover:border hover:border-[#FF8A3D] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FF8A3D]"><i class="bi bi-arrow-right"></i> Get Started</button>'
+											class="inline-flex items-center gap-2 rounded-full bg-[#FF8A3D] px-6 py-3 text-sm font-semibold text-[#101116] transition hover:bg-white hover:text-[#FF8A3D] hover:border hover:border-[#FF8A3D] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FF8A3D]"
+										>
+											Get Started <i class="bi bi-arrow-right"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full bg-[#2F9EA0] px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-[#2F9EA0] hover:border hover:border-[#2F9EA0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2F9EA0]"><i class="bi bi-check-lg"></i> Confirm</button>'
+											class="inline-flex items-center gap-2 rounded-full bg-[#2F9EA0] px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-[#2F9EA0] hover:border hover:border-[#2F9EA0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2F9EA0]"
+										>
+											Confirm <i class="bi bi-check-lg"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full bg-[#A079CB] px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-[#A079CB] hover:border hover:border-[#A079CB] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A079CB]"><i class="bi bi-star-fill"></i> Explore</button>'
+											class="inline-flex items-center gap-2 rounded-full bg-[#A079CB] px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-[#A079CB] hover:border hover:border-[#A079CB] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A079CB]"
+										>
+											Explore <i class="bi bi-star-fill"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full bg-[#7FCBDB] px-6 py-3 text-sm font-semibold text-[#101116] transition hover:bg-white hover:text-[#7FCBDB] hover:border hover:border-[#7FCBDB] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#7FCBDB]"><i class="bi bi-download"></i> Download</button>'
+											class="inline-flex items-center gap-2 rounded-full bg-[#7FCBDB] px-6 py-3 text-sm font-semibold text-[#101116] transition hover:bg-white hover:text-[#7FCBDB] hover:border hover:border-[#7FCBDB] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#7FCBDB]"
+										>
+											Download <i class="bi bi-download"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full bg-[#FB837D] px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-[#FB837D] hover:border hover:border-[#FB837D] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FB837D]"><i class="bi bi-chat-dots"></i> Contact</button>'
+											class="inline-flex items-center gap-2 rounded-full bg-[#FB837D] px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-[#FB837D] hover:border hover:border-[#FB837D] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FB837D]"
+										>
+											Contact <i class="bi bi-chat-dots"></i>
+										</button>
+									</td>
+								</tr>
+
+								<!-- BLACK BACKGROUND -->
+								<tr class="border-b border-black bg-[#101116]">
+									<td class="px-6 py-6 font-semibold text-ink bg-[#f1f1f1]/90">
+										Black Background
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full bg-[#FF8A3D] px-6 py-3 text-sm font-semibold text-black transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"><i class="bi bi-arrow-right"></i> Get Started</button>'
+											class="inline-flex items-center gap-2 rounded-full bg-[#FF8A3D] px-6 py-3 text-sm font-semibold text-black transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+										>
+											Get Started <i class="bi bi-arrow-right"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full bg-[#2F9EA0] px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"><i class="bi bi-check-lg"></i> Confirm</button>'
+											class="inline-flex items-center gap-2 rounded-full bg-[#2F9EA0] px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+										>
+											Confirm <i class="bi bi-check-lg"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full bg-[#A079CB] px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"><i class="bi bi-star-fill"></i> Explore</button>'
+											class="inline-flex items-center gap-2 rounded-full bg-[#A079CB] px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+										>
+											Explore <i class="bi bi-star-fill"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full bg-[#7FCBDB] px-6 py-3 text-sm font-semibold text-black transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"><i class="bi bi-download"></i> Download</button>'
+											class="inline-flex items-center gap-2 rounded-full bg-[#7FCBDB] px-6 py-3 text-sm font-semibold text-black transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+										>
+											Download <i class="bi bi-download"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full bg-[#FB837D] px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"><i class="bi bi-chat-dots"></i> Contact</button>'
+											class="inline-flex items-center gap-2 rounded-full bg-[#FB837D] px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+										>
+											Contact <i class="bi bi-chat-dots"></i>
+										</button>
+									</td>
+								</tr>
+
+								<!-- COLOURED BACKGROUND -->
+								<tr>
+									<td class="px-6 py-6 font-semibold text-ink bg-[#f1f1f1]/90">
+										Coloured Background
+									</td>
+
+									<td class="px-6 py-6 text-center bg-[#FF8A3D]">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#FF8A3D] transition hover:bg-[#2F9EA0] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"><i class="bi bi-arrow-right"></i> Get Started</button>'
+											class="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#FF8A3D] transition hover:bg-[#2F9EA0] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+										>
+											Get Started <i class="bi bi-arrow-right"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center bg-[#2F9EA0]">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#2F9EA0] transition hover:bg-[#FF8A3D] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"><i class="bi bi-check-lg"></i> Confirm</button>'
+											class="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#2F9EA0] transition hover:bg-[#FF8A3D] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+										>
+											Confirm <i class="bi bi-check-lg"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center bg-[#A079CB]">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#A079CB] transition hover:bg-[#2F9EA0] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"><i class="bi bi-star-fill"></i> Explore</button>'
+											class="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#A079CB] transition hover:bg-[#2F9EA0] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+										>
+											Explore <i class="bi bi-star-fill"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center bg-[#7FCBDB]">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#7FCBDB] transition hover:bg-[#A079CB] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"><i class="bi bi-download"></i> Download</button>'
+											class="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#7FCBDB] transition hover:bg-[#A079CB] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+										>
+											Download <i class="bi bi-download"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center bg-[#FB837D]">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#FB837D] transition hover:bg-[#FF8A3D] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"><i class="bi bi-chat-dots"></i> Contact</button>'
+											class="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#FB837D] transition hover:bg-[#FF8A3D] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+										>
+											Contact <i class="bi bi-chat-dots"></i>
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- SECONDARY BUTTONS -->
+				<div class="mb-20">
+					<h3 class="font-serif text-4xl text-ink mb-4">Secondary Buttons</h3>
+					<p class="mb-4 text-sm text-slate">
+						Click any button to copy its HTML code
+					</p>
+
+					<div class="overflow-x-auto rounded-lg border-2 border-black">
+						<table class="w-full text-sm border-collapse divide-x divide-black">
+							<thead>
+								<tr class="border-b border-black bg-[#f1f1f1]/90">
+									<th class="px-6 py-4 text-left font-semibold text-ink bg-[#f1f1f1]/90">
+										Environment
+									</th>
+									<th
+										class="px-6 py-4 text-center font-semibold bg-[#f1f1f1]/90"
+										style="color: #ff8a3d"
+									>
+										Orange
+									</th>
+									<th
+										class="px-6 py-4 text-center font-semibold bg-[#f1f1f1]/90"
+										style="color: #2f9ea0"
+									>
+										Teal
+									</th>
+									<th
+										class="px-6 py-4 text-center font-semibold bg-[#f1f1f1]/90"
+										style="color: #a079cb"
+									>
+										Purple
+									</th>
+									<th
+										class="px-6 py-4 text-center font-semibold bg-[#f1f1f1]/90"
+										style="color: #7fcbdb"
+									>
+										Sky
+									</th>
+									<th
+										class="px-6 py-4 text-center font-semibold bg-[#f1f1f1]/90"
+										style="color: #fb837d"
+									>
+										Coral
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- WHITE BACKGROUND -->
+								<tr class="border-b border-black bg-white">
+									<td class="px-6 py-6 font-semibold text-ink bg-[#f1f1f1]/90">
+										White Background
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full border-2 border-[#FF8A3D] bg-white px-6 py-3 text-sm font-semibold text-[#FF8A3D] transition hover:bg-[#FF8A3D] hover:text-[#101116] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FF8A3D]"><i class="bi bi-arrow-right"></i> Get Started</button>'
+											class="inline-flex items-center gap-2 rounded-full border-2 border-[#FF8A3D] bg-white px-6 py-3 text-sm font-semibold text-[#FF8A3D] transition hover:bg-[#FF8A3D] hover:text-[#101116] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FF8A3D]"
+										>
+											Get Started <i class="bi bi-arrow-right"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full border-2 border-[#2F9EA0] bg-white px-6 py-3 text-sm font-semibold text-[#2F9EA0] transition hover:bg-[#2F9EA0] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2F9EA0]"><i class="bi bi-check-lg"></i> Confirm</button>'
+											class="inline-flex items-center gap-2 rounded-full border-2 border-[#2F9EA0] bg-white px-6 py-3 text-sm font-semibold text-[#2F9EA0] transition hover:bg-[#2F9EA0] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2F9EA0]"
+										>
+											Confirm <i class="bi bi-check-lg"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full border-2 border-[#A079CB] bg-white px-6 py-3 text-sm font-semibold text-[#A079CB] transition hover:bg-[#A079CB] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A079CB]"><i class="bi bi-star-fill"></i> Explore</button>'
+											class="inline-flex items-center gap-2 rounded-full border-2 border-[#A079CB] bg-white px-6 py-3 text-sm font-semibold text-[#A079CB] transition hover:bg-[#A079CB] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A079CB]"
+										>
+											Explore <i class="bi bi-star-fill"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full border-2 border-[#7FCBDB] bg-white px-6 py-3 text-sm font-semibold text-[#7FCBDB] transition hover:bg-[#7FCBDB] hover:text-[#101116] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#7FCBDB]"><i class="bi bi-download"></i> Download</button>'
+											class="inline-flex items-center gap-2 rounded-full border-2 border-[#7FCBDB] bg-white px-6 py-3 text-sm font-semibold text-[#7FCBDB] transition hover:bg-[#7FCBDB] hover:text-[#101116] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#7FCBDB]"
+										>
+											Download <i class="bi bi-download"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full border-2 border-[#FB837D] bg-white px-6 py-3 text-sm font-semibold text-[#FB837D] transition hover:bg-[#FB837D] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FB837D]"><i class="bi bi-chat-dots"></i> Contact</button>'
+											class="inline-flex items-center gap-2 rounded-full border-2 border-[#FB837D] bg-white px-6 py-3 text-sm font-semibold text-[#FB837D] transition hover:bg-[#FB837D] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FB837D]"
+										>
+											Contact <i class="bi bi-chat-dots"></i>
+										</button>
+									</td>
+								</tr>
+								<tr class="border-b border-black">
+									<td class="px-6 py-6 font-semibold text-ink bg-[#f1f1f1]/90">Clear</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full border-2 border-[#FF8A3D] bg-white px-6 py-3 text-sm font-semibold text-[#FF8A3D] transition hover:bg-[#FF8A3D] hover:text-[#101116] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FF8A3D]"><i class="bi bi-arrow-right"></i> Get Started</button>'
+											class="inline-flex items-center gap-2 rounded-full border-2 border-[#FF8A3D] bg-white px-6 py-3 text-sm font-semibold text-[#FF8A3D] transition hover:bg-[#FF8A3D] hover:text-[#101116] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FF8A3D]"
+										>
+											Get Started <i class="bi bi-arrow-right"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full border-2 border-[#2F9EA0] bg-white px-6 py-3 text-sm font-semibold text-[#2F9EA0] transition hover:bg-[#2F9EA0] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2F9EA0]"><i class="bi bi-check-lg"></i> Confirm</button>'
+											class="inline-flex items-center gap-2 rounded-full border-2 border-[#2F9EA0] bg-white px-6 py-3 text-sm font-semibold text-[#2F9EA0] transition hover:bg-[#2F9EA0] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2F9EA0]"
+										>
+											Confirm <i class="bi bi-check-lg"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full border-2 border-[#A079CB] bg-white px-6 py-3 text-sm font-semibold text-[#A079CB] transition hover:bg-[#A079CB] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A079CB]"><i class="bi bi-star-fill"></i> Explore</button>'
+											class="inline-flex items-center gap-2 rounded-full border-2 border-[#A079CB] bg-white px-6 py-3 text-sm font-semibold text-[#A079CB] transition hover:bg-[#A079CB] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A079CB]"
+										>
+											Explore <i class="bi bi-star-fill"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full border-2 border-[#7FCBDB] bg-white px-6 py-3 text-sm font-semibold text-[#7FCBDB] transition hover:bg-[#7FCBDB] hover:text-[#101116] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#7FCBDB]"><i class="bi bi-download"></i> Download</button>'
+											class="inline-flex items-center gap-2 rounded-full border-2 border-[#7FCBDB] bg-white px-6 py-3 text-sm font-semibold text-[#7FCBDB] transition hover:bg-[#7FCBDB] hover:text-[#101116] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#7FCBDB]"
+										>
+											Download <i class="bi bi-download"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full border-2 border-[#FB837D] bg-white px-6 py-3 text-sm font-semibold text-[#FB837D] transition hover:bg-[#FB837D] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FB837D]"><i class="bi bi-chat-dots"></i> Contact</button>'
+											class="inline-flex items-center gap-2 rounded-full border-2 border-[#FB837D] bg-white px-6 py-3 text-sm font-semibold text-[#FB837D] transition hover:bg-[#FB837D] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FB837D]"
+										>
+											Contact <i class="bi bi-chat-dots"></i>
+										</button>
+									</td>
+								</tr>
+
+								<!-- BLACK BACKGROUND -->
+								<tr class="border-b border-black bg-[#101116]">
+									<td class="px-6 py-6 font-semibold text-ink bg-[#f1f1f1]/90">
+										Black Background
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full border-2 border-[#FF8A3D] bg-transparent px-6 py-3 text-sm font-semibold text-[#FF8A3D] transition hover:bg-[#FF8A3D] hover:text-[#101116] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"><i class="bi bi-arrow-right"></i> Get Started</button>'
+											class="inline-flex items-center gap-2 rounded-full border-2 border-[#FF8A3D] bg-transparent px-6 py-3 text-sm font-semibold text-[#FF8A3D] transition hover:bg-[#FF8A3D] hover:text-[#101116] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+										>
+											Get Started <i class="bi bi-arrow-right"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full border-2 border-[#2F9EA0] bg-transparent px-6 py-3 text-sm font-semibold text-[#2F9EA0] transition hover:bg-[#2F9EA0] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"><i class="bi bi-check-lg"></i> Confirm</button>'
+											class="inline-flex items-center gap-2 rounded-full border-2 border-[#2F9EA0] bg-transparent px-6 py-3 text-sm font-semibold text-[#2F9EA0] transition hover:bg-[#2F9EA0] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+										>
+											Confirm <i class="bi bi-check-lg"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full border-2 border-[#A079CB] bg-transparent px-6 py-3 text-sm font-semibold text-[#A079CB] transition hover:bg-[#A079CB] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"><i class="bi bi-star-fill"></i> Explore</button>'
+											class="inline-flex items-center gap-2 rounded-full border-2 border-[#A079CB] bg-transparent px-6 py-3 text-sm font-semibold text-[#A079CB] transition hover:bg-[#A079CB] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+										>
+											Explore <i class="bi bi-star-fill"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full border-2 border-[#7FCBDB] bg-transparent px-6 py-3 text-sm font-semibold text-[#7FCBDB] transition hover:bg-[#7FCBDB] hover:text-[#101116] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"><i class="bi bi-download"></i> Download</button>'
+											class="inline-flex items-center gap-2 rounded-full border-2 border-[#7FCBDB] bg-transparent px-6 py-3 text-sm font-semibold text-[#7FCBDB] transition hover:bg-[#7FCBDB] hover:text-[#101116] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+										>
+											Download <i class="bi bi-download"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full border-2 border-[#FB837D] bg-transparent px-6 py-3 text-sm font-semibold text-[#FB837D] transition hover:bg-[#FB837D] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"><i class="bi bi-chat-dots"></i> Contact</button>'
+											class="inline-flex items-center gap-2 rounded-full border-2 border-[#FB837D] bg-transparent px-6 py-3 text-sm font-semibold text-[#FB837D] transition hover:bg-[#FB837D] hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+										>
+											Contact <i class="bi bi-chat-dots"></i>
+										</button>
+									</td>
+								</tr>
+
+								<!-- COLOURED BACKGROUND -->
+								<tr>
+									<td class="px-6 py-6 font-semibold text-ink bg-[#f1f1f1]/90">
+										Coloured Background
+									</td>
+
+									<td class="px-6 py-6 text-center bg-[#FF8A3D]">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full border-2 border-white bg-transparent px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-[#FF8A3D] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"><i class="bi bi-arrow-right"></i> Get Started</button>'
+											class="inline-flex items-center gap-2 rounded-full border-2 border-white bg-transparent px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-[#FF8A3D] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+										>
+											Get Started <i class="bi bi-arrow-right"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center bg-[#2F9EA0]">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full border-2 border-white bg-transparent px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-[#2F9EA0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"><i class="bi bi-check-lg"></i> Confirm</button>'
+											class="inline-flex items-center gap-2 rounded-full border-2 border-white bg-transparent px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-[#2F9EA0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+										>
+											Confirm <i class="bi bi-check-lg"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center bg-[#A079CB]">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full border-2 border-white bg-transparent px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-[#A079CB] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"><i class="bi bi-star-fill"></i> Explore</button>'
+											class="inline-flex items-center gap-2 rounded-full border-2 border-white bg-transparent px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-[#A079CB] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+										>
+											Explore <i class="bi bi-star-fill"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center bg-[#7FCBDB]">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full border-2 border-white bg-transparent px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-[#7FCBDB] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"><i class="bi bi-download"></i> Download</button>'
+											class="inline-flex items-center gap-2 rounded-full border-2 border-white bg-transparent px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-[#7FCBDB] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+										>
+											Download <i class="bi bi-download"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center bg-[#FB837D]">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 rounded-full border-2 border-white bg-transparent px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-[#FB837D] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"><i class="bi bi-chat-dots"></i> Contact</button>'
+											class="inline-flex items-center gap-2 rounded-full border-2 border-white bg-transparent px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-[#FB837D] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+										>
+											Contact <i class="bi bi-chat-dots"></i>
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- LEARN MORE BUTTONS -->
+				<div class="mb-20">
+					<h3 class="font-serif text-4xl text-ink mb-4">Learn More Buttons</h3>
+					<p class="mb-4 text-sm text-slate">
+						Click any button to copy its HTML code
+					</p>
+
+					<div class="overflow-x-auto rounded-lg border-2 border-black">
+						<table class="w-full text-sm border-collapse divide-x divide-black">
+							<thead>
+								<tr class="border-b border-black bg-[#f1f1f1]/90">
+									<th class="px-6 py-4 text-left font-semibold text-ink bg-[#f1f1f1]/90">
+										Environment
+									</th>
+									<th
+										class="px-6 py-4 text-center font-semibold bg-[#f1f1f1]/90"
+										style="color: #ff8a3d"
+									>
+										Orange
+									</th>
+									<th
+										class="px-6 py-4 text-center font-semibold bg-[#f1f1f1]/90"
+										style="color: #2f9ea0"
+									>
+										Teal
+									</th>
+									<th
+										class="px-6 py-4 text-center font-semibold bg-[#f1f1f1]/90"
+										style="color: #a079cb"
+									>
+										Purple
+									</th>
+									<th
+										class="px-6 py-4 text-center font-semibold bg-[#f1f1f1]/90"
+										style="color: #7fcbdb"
+									>
+										Sky
+									</th>
+									<th
+										class="px-6 py-4 text-center font-semibold bg-[#f1f1f1]/90"
+										style="color: #fb837d"
+									>
+										Coral
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- WHITE BACKGROUND -->
+								<tr class="border-b border-black bg-white">
+									<td class="px-6 py-6 font-semibold text-ink bg-[#f1f1f1]/90">
+										White Background
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-[#FF8A3D] underline decoration-2 underline-offset-4 transition hover:text-ink focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FF8A3D]"><i class="bi bi-arrow-right"></i> Learn More</button>'
+											class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-[#FF8A3D] underline decoration-2 underline-offset-4 transition hover:text-ink focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FF8A3D]"
+										>
+											Learn More <i class="bi bi-arrow-right"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-[#2F9EA0] underline decoration-2 underline-offset-4 transition hover:text-ink focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2F9EA0]"><i class="bi bi-arrow-right"></i> Learn More</button>'
+											class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-[#2F9EA0] underline decoration-2 underline-offset-4 transition hover:text-ink focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2F9EA0]"
+										>
+											Learn More <i class="bi bi-arrow-right"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-[#A079CB] underline decoration-2 underline-offset-4 transition hover:text-ink focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A079CB]"><i class="bi bi-arrow-right"></i> Learn More</button>'
+											class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-[#A079CB] underline decoration-2 underline-offset-4 transition hover:text-ink focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A079CB]"
+										>
+											Learn More <i class="bi bi-arrow-right"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-[#7FCBDB] underline decoration-2 underline-offset-4 transition hover:text-ink focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#7FCBDB]"><i class="bi bi-arrow-right"></i> Learn More</button>'
+											class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-[#7FCBDB] underline decoration-2 underline-offset-4 transition hover:text-ink focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#7FCBDB]"
+										>
+											Learn More <i class="bi bi-arrow-right"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-[#FB837D] underline decoration-2 underline-offset-4 transition hover:text-ink focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FB837D]"><i class="bi bi-arrow-right"></i> Learn More</button>'
+											class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-[#FB837D] underline decoration-2 underline-offset-4 transition hover:text-ink focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FB837D]"
+										>
+											Learn More <i class="bi bi-arrow-right"></i>
+										</button>
+									</td>
+								</tr>
+								<tr class="border-b border-black">
+									<td class="px-6 py-6 font-semibold text-ink bg-[#f1f1f1]/90">Clear</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-[#FF8A3D] underline decoration-2 underline-offset-4 transition hover:text-ink focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FF8A3D]"><i class="bi bi-arrow-right"></i> Learn More</button>'
+											class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-[#FF8A3D] underline decoration-2 underline-offset-4 transition hover:text-ink focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FF8A3D]"
+										>
+											Learn More <i class="bi bi-arrow-right"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-[#2F9EA0] underline decoration-2 underline-offset-4 transition hover:text-ink focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2F9EA0]"><i class="bi bi-arrow-right"></i> Learn More</button>'
+											class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-[#2F9EA0] underline decoration-2 underline-offset-4 transition hover:text-ink focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#2F9EA0]"
+										>
+											Learn More <i class="bi bi-arrow-right"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-[#A079CB] underline decoration-2 underline-offset-4 transition hover:text-ink focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A079CB]"><i class="bi bi-arrow-right"></i> Learn More</button>'
+											class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-[#A079CB] underline decoration-2 underline-offset-4 transition hover:text-ink focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A079CB]"
+										>
+											Learn More <i class="bi bi-arrow-right"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-[#7FCBDB] underline decoration-2 underline-offset-4 transition hover:text-ink focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#7FCBDB]"><i class="bi bi-arrow-right"></i> Learn More</button>'
+											class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-[#7FCBDB] underline decoration-2 underline-offset-4 transition hover:text-ink focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#7FCBDB]"
+										>
+											Learn More <i class="bi bi-arrow-right"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-[#FB837D] underline decoration-2 underline-offset-4 transition hover:text-ink focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FB837D]"><i class="bi bi-arrow-right"></i> Learn More</button>'
+											class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-[#FB837D] underline decoration-2 underline-offset-4 transition hover:text-ink focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FB837D]"
+										>
+											Learn More <i class="bi bi-arrow-right"></i>
+										</button>
+									</td>
+								</tr>
+
+								<!-- BLACK BACKGROUND -->
+								<tr class="border-b border-black bg-[#101116]">
+									<td class="px-6 py-6 font-semibold text-ink bg-[#f1f1f1]/90">
+										Black Background
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-[#FF8A3D] underline decoration-2 underline-offset-4 transition hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"><i class="bi bi-arrow-right"></i> Learn More</button>'
+											class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-[#FF8A3D] underline decoration-2 underline-offset-4 transition hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+										>
+											Learn More <i class="bi bi-arrow-right"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-[#2F9EA0] underline decoration-2 underline-offset-4 transition hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"><i class="bi bi-arrow-right"></i> Learn More</button>'
+											class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-[#2F9EA0] underline decoration-2 underline-offset-4 transition hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+										>
+											Learn More <i class="bi bi-arrow-right"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-[#A079CB] underline decoration-2 underline-offset-4 transition hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"><i class="bi bi-arrow-right"></i> Learn More</button>'
+											class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-[#A079CB] underline decoration-2 underline-offset-4 transition hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+										>
+											Learn More <i class="bi bi-arrow-right"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-[#7FCBDB] underline decoration-2 underline-offset-4 transition hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"><i class="bi bi-arrow-right"></i> Learn More</button>'
+											class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-[#7FCBDB] underline decoration-2 underline-offset-4 transition hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+										>
+											Learn More <i class="bi bi-arrow-right"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-[#FB837D] underline decoration-2 underline-offset-4 transition hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"><i class="bi bi-arrow-right"></i> Learn More</button>'
+											class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-[#FB837D] underline decoration-2 underline-offset-4 transition hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+										>
+											Learn More <i class="bi bi-arrow-right"></i>
+										</button>
+									</td>
+								</tr>
+
+								<!-- COLOURED BACKGROUND -->
+								<tr>
+									<td class="px-6 py-6 font-semibold text-ink bg-[#f1f1f1]/90">
+										Coloured Background
+									</td>
+
+									<td class="px-6 py-6 text-center bg-[#FF8A3D]">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-white underline decoration-2 underline-offset-4 transition hover:text-[#101116] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"><i class="bi bi-arrow-right"></i> Learn More</button>'
+											class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-white underline decoration-2 underline-offset-4 transition hover:text-[#101116] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+										>
+											Learn More <i class="bi bi-arrow-right"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center bg-[#2F9EA0]">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-white underline decoration-2 underline-offset-4 transition hover:text-[#101116] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"><i class="bi bi-arrow-right"></i> Learn More</button>'
+											class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-white underline decoration-2 underline-offset-4 transition hover:text-[#101116] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+										>
+											Learn More <i class="bi bi-arrow-right"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center bg-[#A079CB]">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-white underline decoration-2 underline-offset-4 transition hover:text-[#101116] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"><i class="bi bi-arrow-right"></i> Learn More</button>'
+											class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-white underline decoration-2 underline-offset-4 transition hover:text-[#101116] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+										>
+											Learn More <i class="bi bi-arrow-right"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center bg-[#7FCBDB]">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-white underline decoration-2 underline-offset-4 transition hover:text-[#101116] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"><i class="bi bi-arrow-right"></i> Learn More</button>'
+											class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-white underline decoration-2 underline-offset-4 transition hover:text-[#101116] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+										>
+											Learn More <i class="bi bi-arrow-right"></i>
+										</button>
+									</td>
+
+									<td class="px-6 py-6 text-center bg-[#FB837D]">
+										<button
+											onclick="copyCode(this)"
+											data-code='<button class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-white underline decoration-2 underline-offset-4 transition hover:text-[#101116] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"><i class="bi bi-arrow-right"></i> Learn More</button>'
+											class="inline-flex items-center gap-2 bg-transparent px-2 py-2 text-sm font-semibold text-white underline decoration-2 underline-offset-4 transition hover:text-[#101116] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+										>
+											Learn More <i class="bi bi-arrow-right"></i>
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<!-- COLORED HEADER CARDS -->
+				<div class="mb-20">
+					<h3 class="font-serif text-2xl text-ink mb-8">
+						Cards with Colored Headers
+					</h3>
+					<div class="grid gap-6 md:grid-cols-3">
+						<!-- Orange Card -->
+						<div
+							class="animate-on-scroll stagger-1 rounded-2xl border border-black overflow-hidden"
+						>
+							<div class="bg-[#ff8a3d] px-6 py-4">
+								<h4 class="font-serif text-lg font-semibold text-white">
+									Brand Guidelines
+								</h4>
+							</div>
+							<div class="bg-white p-6">
+								<ul class="space-y-2 text-slate">
+									<li
+										class="relative pl-5 before:absolute before:left-0 before:content-['✓']"
+										style="color: #ff8a3d"
+									>
+										Logo standards
+									</li>
+									<li
+										class="relative pl-5 before:absolute before:left-0 before:content-['✓']"
+										style="color: #ff8a3d"
+									>
+										Color guidelines
+									</li>
+									<li
+										class="relative pl-5 before:absolute before:left-0 before:content-['✓']"
+										style="color: #ff8a3d"
+									>
+										Typography rules
+									</li>
+								</ul>
+								<div class="mt-6 flex items-center gap-3 border-t border-line pt-4">
+									<div class="h-8 w-8 rounded" style="background-color: #ff8a3d"></div>
+									<div>
+										<p class="text-xs uppercase text-slate">Orange</p>
+										<p class="font-mono text-xs text-slate">#ff8a3d</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Teal Card -->
+						<div
+							class="animate-on-scroll stagger-2 rounded-2xl border border-black overflow-hidden"
+						>
+							<div class="bg-[#2f9ea0] px-6 py-4">
+								<h4 class="font-serif text-lg font-semibold text-white">
+									Web Standards
+								</h4>
+							</div>
+							<div class="bg-white p-6">
+								<ul class="space-y-2 text-slate">
+									<li
+										class="relative pl-5 before:absolute before:left-0 before:content-['✓']"
+										style="color: #2f9ea0"
+									>
+										Responsive design
+									</li>
+									<li
+										class="relative pl-5 before:absolute before:left-0 before:content-['✓']"
+										style="color: #2f9ea0"
+									>
+										Accessibility rules
+									</li>
+									<li
+										class="relative pl-5 before:absolute before:left-0 before:content-['✓']"
+										style="color: #2f9ea0"
+									>
+										Performance goals
+									</li>
+								</ul>
+								<div class="mt-6 flex items-center gap-3 border-t border-line pt-4">
+									<div class="h-8 w-8 rounded" style="background-color: #2f9ea0"></div>
+									<div>
+										<p class="text-xs uppercase text-slate">Teal</p>
+										<p class="font-mono text-xs text-slate">#2f9ea0</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Purple Card -->
+						<div
+							class="animate-on-scroll stagger-3 rounded-2xl border border-black overflow-hidden"
+						>
+							<div class="bg-[#a079cb] px-6 py-4">
+								<h4 class="font-serif text-lg font-semibold text-white">
+									AI Components
+								</h4>
+							</div>
+							<div class="bg-white p-6">
+								<ul class="space-y-2 text-slate">
+									<li
+										class="relative pl-5 before:absolute before:left-0 before:content-['✓']"
+										style="color: #a079cb"
+									>
+										Smart assistants
+									</li>
+									<li
+										class="relative pl-5 before:absolute before:left-0 before:content-['✓']"
+										style="color: #a079cb"
+									>
+										Automation flows
+									</li>
+									<li
+										class="relative pl-5 before:absolute before:left-0 before:content-['✓']"
+										style="color: #a079cb"
+									>
+										AI integration
+									</li>
+								</ul>
+								<div class="mt-6 flex items-center gap-3 border-t border-line pt-4">
+									<div class="h-8 w-8 rounded" style="background-color: #a079cb"></div>
+									<div>
+										<p class="text-xs uppercase text-slate">Purple</p>
+										<p class="font-mono text-xs text-slate">#a079cb</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- ADDITIONAL COMPONENTS -->
+				<div class="mb-20">
+					<h3 class="font-serif text-2xl text-ink mb-8">Additional UI Elements</h3>
+					<div class="grid gap-8 md:grid-cols-2">
+						<!-- Badges -->
+						<div
+							class="animate-on-scroll stagger-1 rounded-2xl border border-black bg-white p-8"
+						>
+							<h4 class="font-serif text-lg font-semibold text-ink mb-6">Badges</h4>
+							<div class="mb-6 flex flex-wrap gap-3">
+								<span
+									class="rounded-full px-4 py-2 text-sm font-medium"
+									style="background-color: rgba(255, 138, 61, 0.2); color: #ff8a3d"
+									>New</span
+								>
+								<span
+									class="rounded-full px-4 py-2 text-sm font-medium"
+									style="background-color: rgba(47, 158, 160, 0.2); color: #2f9ea0"
+									>Featured</span
+								>
+								<span
+									class="rounded-full px-4 py-2 text-sm font-medium"
+									style="background-color: rgba(160, 121, 203, 0.2); color: #a079cb"
+									>Popular</span
+								>
+								<span
+									class="rounded-full px-4 py-2 text-sm font-medium"
+									style="background-color: rgba(127, 203, 219, 0.2); color: #7fcbdb"
+									>Updated</span
+								>
+								<span
+									class="rounded-full px-4 py-2 text-sm font-medium"
+									style="background-color: rgba(251, 131, 125, 0.2); color: #fb837d"
+									>Pro</span
+								>
+								<span
+									class="rounded-full px-4 py-2 text-sm font-medium"
+									style="background-color: rgba(227, 177, 86, 0.2); color: #e3b156"
+									>Beta</span
+								>
+							</div>
+							<div class="border-t border-line pt-6">
+								<p class="text-xs font-semibold uppercase text-slate mb-3">
+									Color Reference
+								</p>
+								<div class="grid grid-cols-2 gap-3 text-xs">
+									<div class="flex items-center gap-2">
+										<div class="h-4 w-4 rounded" style="background-color: #ff8a3d"></div>
+										<span class="font-mono text-slate">#ff8a3d</span>
+									</div>
+									<div class="flex items-center gap-2">
+										<div class="h-4 w-4 rounded" style="background-color: #2f9ea0"></div>
+										<span class="font-mono text-slate">#2f9ea0</span>
+									</div>
+									<div class="flex items-center gap-2">
+										<div class="h-4 w-4 rounded" style="background-color: #a079cb"></div>
+										<span class="font-mono text-slate">#a079cb</span>
+									</div>
+									<div class="flex items-center gap-2">
+										<div class="h-4 w-4 rounded" style="background-color: #7fcbdb"></div>
+										<span class="font-mono text-slate">#7fcbdb</span>
+									</div>
+									<div class="flex items-center gap-2">
+										<div class="h-4 w-4 rounded" style="background-color: #fb837d"></div>
+										<span class="font-mono text-slate">#fb837d</span>
+									</div>
+									<div class="flex items-center gap-2">
+										<div class="h-4 w-4 rounded" style="background-color: #e3b156"></div>
+										<span class="font-mono text-slate">#e3b156</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Form Elements -->
+						<div
+							class="animate-on-scroll stagger-2 rounded-2xl border border-black bg-white p-8"
+						>
+							<h4 class="font-serif text-lg font-semibold text-ink mb-6">
+								Form Elements
+							</h4>
+							<div class="space-y-4">
+								<input
+									type="text"
+									placeholder="Text input"
+									class="w-full rounded-lg border border-line bg-sand px-4 py-2.5 text-ink placeholder:text-slate focus:outline-none focus:ring-2 focus:ring-teal"
+								/>
+								<select
+									class="w-full rounded-lg border border-line bg-sand px-4 py-2.5 text-slate focus:outline-none focus:ring-2 focus:ring-teal"
+								>
+									<option>Select an option</option>
+									<option>Option 1</option>
+									<option>Option 2</option>
+								</select>
+								<textarea
+									placeholder="Textarea"
+									rows="3"
+									class="w-full rounded-lg border border-line bg-sand px-4 py-2.5 text-ink placeholder:text-slate focus:outline-none focus:ring-2 focus:ring-teal"
+								></textarea>
+							</div>
+						</div>
+
+						<!-- Status Indicators -->
+						<div
+							class="animate-on-scroll stagger-3 rounded-2xl border border-black bg-white p-8"
+						>
+							<h4 class="font-serif text-lg font-semibold text-ink mb-6">
+								Status Indicators
+							</h4>
+							<div class="space-y-3">
+								<div class="flex items-center gap-3">
+									<div
+										class="h-3 w-3 rounded-full"
+										style="background-color: #2f9ea0"
+									></div>
+									<p class="text-sm text-slate">Active</p>
+								</div>
+								<div class="flex items-center gap-3">
+									<div
+										class="h-3 w-3 rounded-full"
+										style="background-color: #ff8a3d"
+									></div>
+									<p class="text-sm text-slate">Pending</p>
+								</div>
+								<div class="flex items-center gap-3">
+									<div
+										class="h-3 w-3 rounded-full"
+										style="background-color: #fb837d"
+									></div>
+									<p class="text-sm text-slate">Inactive</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Alerts -->
+						<div
+							class="animate-on-scroll stagger-4 rounded-2xl border border-black bg-white p-8"
+						>
+							<h4 class="font-serif text-lg font-semibold text-ink mb-6">
+								Alert Messages
+							</h4>
+							<div class="space-y-3">
+								<div
+									class="rounded-lg px-4 py-3 text-sm"
+									style="
+										background-color: rgba(47, 158, 160, 0.1);
+										color: #2f9ea0;
+										border: 1px solid rgba(47, 158, 160, 0.3);
+									"
+								>
+									✓ Successfully updated
+								</div>
+								<div
+									class="rounded-lg px-4 py-3 text-sm"
+									style="
+										background-color: rgba(255, 138, 61, 0.1);
+										color: #ff8a3d;
+										border: 1px solid rgba(255, 138, 61, 0.3);
+									"
+								>
+									⚠ Please review changes
+								</div>
+								<div
+									class="rounded-lg px-4 py-3 text-sm"
+									style="
+										background-color: rgba(251, 131, 125, 0.1);
+										color: #fb837d;
+										border: 1px solid rgba(251, 131, 125, 0.3);
+									"
+								>
+									✕ Error occurred
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ===== FOOTER ===== -->
+		<div id="footer"></div>
+
+		<script>
+			// Fetch footer
+			fetch("-footer.html")
+				.then((response) => response.text())
+				.then((html) => (document.getElementById("footer").innerHTML = html));
+
+			// Scroll animation observer
+			const observerOptions = {
+				threshold: 0.15,
+			};
+
+			const observer = new IntersectionObserver(function (entries) {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add("animate-visible");
+						observer.unobserve(entry.target);
+					}
+				});
+			}, observerOptions);
+
+			document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+				observer.observe(el);
+			});
+
+			// Hero overlay fade-in
+			const overlay = document.getElementById("page-overlay");
+			const heroSection = document.getElementById("styleguide");
+			const overlayMaxOpacity = 0.5;
+
+			const updateOverlayOpacity = () => {
+				if (!overlay || !heroSection) {
+					return;
+				}
+				const heroHeight = heroSection.offsetHeight || 1;
+				const progress = Math.min(1, window.scrollY / heroHeight);
+				overlay.style.opacity = (overlayMaxOpacity * progress).toFixed(4);
+			};
+
+			window.addEventListener("scroll", updateOverlayOpacity, { passive: true });
+			window.addEventListener("resize", updateOverlayOpacity);
+			updateOverlayOpacity();
+
+			// Copy button code	function copyCode(el) {
+			const code = el.getAttribute("data-code");
+			navigator.clipboard.writeText(code);
+
+			el.classList.add("ring-2", "ring-black", "ring-offset-2");
+			el.setAttribute("aria-live", "polite");
+			el.setAttribute("aria-label", "Code copied");
+
+			setTimeout(() => {
+				el.classList.remove("ring-2", "ring-black", "ring-offset-2");
+				el.setAttribute("aria-label", "Copy button code");
+			}, 1000);
+		</script>
+	</body>
+</html>
