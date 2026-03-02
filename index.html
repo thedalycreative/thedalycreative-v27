@@ -587,6 +587,41 @@
 			gap: 0;
 		}
 
+		@media (max-width: 900px) {
+			.home-why-grid {
+				grid-template-columns: 1fr;
+			}
+
+			.home-why-visual {
+				height: 60vh;
+				position: relative;
+				top: 0;
+				padding: 1rem;
+			}
+
+			.home-photo-frame {
+				height: 100%;
+				border-radius: 24px;
+			}
+
+			.home-why-content {
+				padding: 4rem 1rem;
+			}
+
+			.container--right {
+				padding: 0 1.5rem;
+				max-width: 100%;
+			}
+
+			.section-header--left {
+				margin-bottom: 3rem;
+			}
+
+			.why-scrolling-items {
+				gap: 4rem;
+			}
+		}
+
 		.home-why-visual {
 			position: sticky;
 			top: 0;
@@ -599,7 +634,7 @@
 
 		.home-photo-frame {
 			width: 100%;
-			height: 90vh;
+			height: 85vh;
 			position: relative;
 			border-radius: 40px;
 			overflow: hidden;
@@ -609,8 +644,8 @@
 		.home-photo-frame img {
 			width: 100%;
 			height: 100%;
-			object-fit: cover;
-			object-position: center;
+			object-fit: contain;
+			object-position: bottom center;
 		}
 
 		.visual-overlay {
@@ -619,12 +654,7 @@
 			background: linear-gradient(180deg, rgba(15, 29, 45, 0) 50%, rgba(15, 29, 45, 0.6) 100%);
 		}
 
-		.home-photo-frame img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			object-position: top center;
-		}
+
 
 		.visual-overlay {
 			position: absolute;
@@ -664,9 +694,9 @@
 		}
 
 		.container--right {
-			padding-left: 5rem;
-			padding-right: 3rem;
-			max-width: 700px;
+			padding-left: 6rem;
+			padding-right: 4rem;
+			max-width: 800px;
 		}
 
 		.section-header--left {
@@ -814,6 +844,91 @@
 				grid-template-columns: 1fr;
 			}
 		}
+
+		/* Impressive Affiliates Marquee */
+		.affiliates-section {
+			background: #ffffff;
+			padding: 8rem 0;
+			overflow: hidden;
+		}
+
+		.marquee-wrapper {
+			position: relative;
+			display: flex;
+			overflow: hidden;
+			user-select: none;
+			gap: 4rem;
+			padding: 2rem 0;
+		}
+
+		.marquee-content {
+			flex-shrink: 0;
+			display: flex;
+			justify-content: space-around;
+			min-width: 100%;
+			gap: 4rem;
+			animation: scroll 40s linear infinite;
+		}
+
+		.marquee-wrapper:hover .marquee-content {
+			animation-play-state: paused;
+		}
+
+		.affiliate-tile {
+			width: 180px;
+			height: 100px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+			filter: grayscale(1) opacity(0.5);
+		}
+
+		.affiliate-tile:hover {
+			filter: grayscale(0) opacity(1);
+			transform: scale(1.15) rotate(2deg);
+		}
+
+		.affiliate-logo {
+			max-width: 100%;
+			max-height: 100%;
+			object-fit: contain;
+		}
+
+		@keyframes scroll {
+			from {
+				transform: translateX(0);
+			}
+
+			to {
+				transform: translateX(calc(-100% - 4rem));
+			}
+		}
+
+		@media (max-width: 768px) {
+			.affiliates-section {
+				padding: 4rem 0;
+			}
+
+			.affiliate-tile {
+				width: 120px;
+				height: 70px;
+			}
+
+			.marquee-content {
+				gap: 2rem;
+			}
+
+			@keyframes scroll {
+				from {
+					transform: translateX(0);
+				}
+
+				to {
+					transform: translateX(calc(-100% - 2rem));
+				}
+			}
+		}
 	</style>
 
 	<!-- ===== OUR AFFILIATES SECTION ===== -->
@@ -825,110 +940,61 @@
 				<p>Trusted partners we work with</p>
 			</div>
 
-			<!--Affiliates Logo Carousel-->
-			<div class="affiliates-carousel" data-autoplay="true">
-				<!--Carousel Control: Previous-->
-				<button class="carousel-btn prev" style="display: none;" type="button" aria-label="Previous affiliates">
-					<i class="bi bi-chevron-left"></i>
-				</button>
-
-				<div class="carousel-viewport">
-					<div class="carousel-track">
-						<!--Affiliate Logo 1-->
-						<div class="affiliate-tile">
-							<img src="images/affilliates/DORA-logo-virtical circle.png" alt="Affiliate Logo 1"
-								class="affiliate-logo">
-						</div>
-						<!--Affiliate Logo 2-->
-						<div class="affiliate-tile">
-							<img src="images/affilliates/and-logo.png" alt="Affiliate Logo 2" class="affiliate-logo">
-						</div>
-						<!--Affiliate Logo 3-->
-						<div class="affiliate-tile">
-							<img src="images/affilliates/angharadoflynnlim-logo.png" alt="Affiliate Logo 3"
-								class="affiliate-logo">
-						</div>
-						<!--Affiliate Logo 4-->
-						<div class="affiliate-tile">
-							<img src="images/affilliates/atq-logo.png" alt="Affiliate Logo 4" class="affiliate-logo">
-						</div>
-						<!--Affiliate Logo 5-->
-						<div class="affiliate-tile">
-							<img src="images/affilliates/brellock-logo.png" alt="Affiliate Logo 5"
-								class="affiliate-logo">
-						</div>
-						<!--Affiliate Logo 6-->
-						<div class="affiliate-tile">
-							<img src="images/affilliates/drumplings-logo.png" alt="Affiliate Logo 6"
-								class="affiliate-logo">
-						</div>
-						<!--Affiliate Logo 7-->
-						<div class="affiliate-tile">
-							<img src="images/affilliates/drumps-logo.png" alt="Affiliate Logo 7" class="affiliate-logo">
-						</div>
-						<!--Affiliate Logo 8-->
-						<div class="affiliate-tile">
-							<img src="images/affilliates/mwm-logo.png" alt="Affiliate Logo 8" class="affiliate-logo">
-						</div>
-						<!--Affiliate Logo 9-->
-						<div class="affiliate-tile">
-							<img src="images/affilliates/preservation logo.png" alt="Affiliate Logo 9"
-								class="affiliate-logo">
-						</div>
-						<!--Affiliate Logo 10-->
-						<div class="affiliate-tile">
-							<img src="images/affilliates/projecta-logo.png" alt="Affiliate Logo 10"
-								class="affiliate-logo">
-						</div>
-						<!--Affiliate Logo 11-->
-						<div class="affiliate-tile">
-							<img src="images/affilliates/supremecourtofwa-logo.PNG" alt="Affiliate Logo 11"
-								class="affiliate-logo">
-						</div>
-						<!--Affiliate Logo 12-->
-						<div class="affiliate-tile">
-							<img src="images/affilliates/tassiedevils-logo.png" alt="Affiliate Logo 12"
-								class="affiliate-logo">
-						</div>
-						<!--Affiliate Logo 13-->
-						<div class="affiliate-tile">
-							<img src="images/affilliates/td-logo.png" alt="Affiliate Logo 13" class="affiliate-logo">
-						</div>
-						<!--Affiliate Logo 14-->
-						<div class="affiliate-tile">
-							<img src="images/affilliates/thegoodroot-logo.png" alt="Affiliate Logo 14"
-								class="affiliate-logo">
-						</div>
-						<!--Affiliate Logo 15-->
-						<div class="affiliate-tile">
-							<img src="images/affilliates/threesisters-logo.png" alt="Affiliate Logo 15"
-								class="affiliate-logo">
-						</div>
-						<!--Affiliate Logo 16-->
-						<div class="affiliate-tile">
-							<img src="images/affilliates/truenothwitch-logo.png" alt="Affiliate Logo 16"
-								class="affiliate-logo">
-						</div>
-						<!--Affiliate Logo 17-->
-						<div class="affiliate-tile">
-							<img src="images/affilliates/upstitchcreek-logo.png" alt="Affiliate Logo 17"
-								class="affiliate-logo">
-						</div>
-						<!--Affiliate Logo 18-->
-						<div class="affiliate-tile">
-							<img src="images/affilliates/wcepros-logo.png" alt="Affiliate Logo 18"
-								class="affiliate-logo">
-						</div>
-						<!--Affiliate Logo 19-->
-						<div class="affiliate-tile">
-							<img src="images/affilliates/whd-logo.png" alt="Affiliate Logo 19" class="affiliate-logo">
-						</div>
-					</div>
+			<div class="marquee-wrapper">
+				<div class="marquee-content">
+					<!-- Duplicate content for seamless loop -->
+					<div class="affiliate-tile"><img src="images/affilliates/DORA-logo-virtical circle.png" alt="DORA"
+							class="affiliate-logo"></div>
+					<div class="affiliate-tile"><img src="images/affilliates/and-logo.png" alt="AND"
+							class="affiliate-logo"></div>
+					<div class="affiliate-tile"><img src="images/affilliates/angharadoflynnlim-logo.png"
+							alt="Angharad Flynn" class="affiliate-logo"></div>
+					<div class="affiliate-tile"><img src="images/affilliates/atq-logo.png" alt="ATQ"
+							class="affiliate-logo"></div>
+					<div class="affiliate-tile"><img src="images/affilliates/brellock-logo.png" alt="Brellock"
+							class="affiliate-logo"></div>
+					<div class="affiliate-tile"><img src="images/affilliates/drumplings-logo.png" alt="Drumplings"
+							class="affiliate-logo"></div>
+					<div class="affiliate-tile"><img src="images/affilliates/drumps-logo.png" alt="Drumps"
+							class="affiliate-logo"></div>
+					<div class="affiliate-tile"><img src="images/affilliates/mwm-logo.png" alt="MWM"
+							class="affiliate-logo"></div>
+					<div class="affiliate-tile"><img src="images/affilliates/preservation logo.png" alt="Preservation"
+							class="affiliate-logo"></div>
+					<div class="affiliate-tile"><img src="images/affilliates/projecta-logo.png" alt="ProjectA"
+							class="affiliate-logo"></div>
+					<div class="affiliate-tile"><img src="images/affilliates/supremecourtofwa-logo.PNG"
+							alt="Supreme Court" class="affiliate-logo"></div>
+					<div class="affiliate-tile"><img src="images/affilliates/tassiedevils-logo.png" alt="Tassie Devils"
+							class="affiliate-logo"></div>
 				</div>
-				<!--Carousel Control: Next-->
-				<button class="carousel-btn next" style="display: none;" type="button" aria-label="Next affiliates">
-					<i class="bi bi-chevron-right"></i>
-				</button>
+				<div class="marquee-content" aria-hidden="true">
+					<!-- Hidden duplicate -->
+					<div class="affiliate-tile"><img src="images/affilliates/DORA-logo-virtical circle.png" alt="DORA"
+							class="affiliate-logo"></div>
+					<div class="affiliate-tile"><img src="images/affilliates/and-logo.png" alt="AND"
+							class="affiliate-logo"></div>
+					<div class="affiliate-tile"><img src="images/affilliates/angharadoflynnlim-logo.png"
+							alt="Angharad Flynn" class="affiliate-logo"></div>
+					<div class="affiliate-tile"><img src="images/affilliates/atq-logo.png" alt="ATQ"
+							class="affiliate-logo"></div>
+					<div class="affiliate-tile"><img src="images/affilliates/brellock-logo.png" alt="Brellock"
+							class="affiliate-logo"></div>
+					<div class="affiliate-tile"><img src="images/affilliates/drumplings-logo.png" alt="Drumplings"
+							class="affiliate-logo"></div>
+					<div class="affiliate-tile"><img src="images/affilliates/drumps-logo.png" alt="Drumps"
+							class="affiliate-logo"></div>
+					<div class="affiliate-tile"><img src="images/affilliates/mwm-logo.png" alt="MWM"
+							class="affiliate-logo"></div>
+					<div class="affiliate-tile"><img src="images/affilliates/preservation logo.png" alt="Preservation"
+							class="affiliate-logo"></div>
+					<div class="affiliate-tile"><img src="images/affilliates/projecta-logo.png" alt="ProjectA"
+							class="affiliate-logo"></div>
+					<div class="affiliate-tile"><img src="images/affilliates/supremecourtofwa-logo.PNG"
+							alt="Supreme Court" class="affiliate-logo"></div>
+					<div class="affiliate-tile"><img src="images/affilliates/tassiedevils-logo.png" alt="Tassie Devils"
+							class="affiliate-logo"></div>
+				</div>
 			</div>
 			<!--End Affiliates Carousel-->
 		</div>
@@ -983,126 +1049,7 @@
 			}
 		});
 
-		const carousel = document.querySelector(".testimonial-carousel");
-		if (carousel) {
-			const viewport = carousel.querySelector(".carousel-viewport");
-			const track = carousel.querySelector(".carousel-track");
-			const tiles = carousel.querySelectorAll(".testimonial-tile");
-			const prevButton = carousel.querySelector(".carousel-btn.prev");
-			const nextButton = carousel.querySelector(".carousel-btn.next");
-			const autoplay = carousel.dataset.autoplay === "true";
-			let autoplayId = null;
-			let originalWidth = 0;
-			let hasCloned = false;
 
-			const getGap = () => {
-				if (!track) {
-					return 0;
-				}
-				const styles = window.getComputedStyle(track);
-				const gap = parseFloat(styles.columnGap || styles.gap || "0");
-				return Number.isNaN(gap) ? 0 : gap;
-			};
-
-			const getTilesPerView = () => {
-				if (!viewport || tiles.length === 0) {
-					return 1;
-				}
-				const tileWidth = tiles[0].offsetWidth || 1;
-				return Math.max(1, Math.round(viewport.clientWidth / tileWidth));
-			};
-
-			const updateOriginalWidth = () => {
-				if (!track) {
-					return;
-				}
-				originalWidth = track.scrollWidth / 2;
-			};
-
-			const setupInfiniteLoop = () => {
-				if (!track || hasCloned) {
-					return;
-				}
-				tiles.forEach((tile) => {
-					track.appendChild(tile.cloneNode(true));
-				});
-				hasCloned = true;
-				window.requestAnimationFrame(updateOriginalWidth);
-			};
-
-			const scrollByTiles = (direction = 1) => {
-				if (!viewport || tiles.length === 0) {
-					return;
-				}
-				const gap = getGap();
-				const tileWidth = tiles[0].offsetWidth || 0;
-				const perView = getTilesPerView();
-				const step = (tileWidth + gap) * perView * direction;
-				if (originalWidth) {
-					if (direction < 0 && viewport.scrollLeft <= 1) {
-						viewport.scrollLeft += originalWidth;
-					}
-					if (direction > 0 && viewport.scrollLeft >= originalWidth - 1) {
-						viewport.scrollLeft -= originalWidth;
-					}
-				}
-				viewport.scrollBy({ left: step, behavior: "smooth" });
-			};
-
-			const stopAutoplay = () => {
-				if (autoplayId) {
-					window.clearInterval(autoplayId);
-					autoplayId = null;
-				}
-			};
-
-			const startAutoplay = () => {
-				if (!autoplay || autoplayId) {
-					return;
-				}
-				autoplayId = window.setInterval(() => {
-					scrollByTiles(1);
-				}, 7500);
-			};
-
-			setupInfiniteLoop();
-			window.addEventListener("resize", updateOriginalWidth);
-
-			if (viewport) {
-				viewport.addEventListener("scroll", () => {
-					if (!originalWidth) {
-						return;
-					}
-					if (viewport.scrollLeft >= originalWidth) {
-						viewport.scrollLeft -= originalWidth;
-					} else if (viewport.scrollLeft < 0) {
-						viewport.scrollLeft += originalWidth;
-					}
-				});
-			}
-
-			if (prevButton) {
-				prevButton.addEventListener("click", () => {
-					scrollByTiles(-1);
-					stopAutoplay();
-					startAutoplay();
-				});
-			}
-
-			if (nextButton) {
-				nextButton.addEventListener("click", () => {
-					scrollByTiles(1);
-					stopAutoplay();
-					startAutoplay();
-				});
-			}
-
-			viewport.addEventListener("mouseenter", stopAutoplay);
-			viewport.addEventListener("mouseleave", startAutoplay);
-			viewport.addEventListener("focusin", stopAutoplay);
-			viewport.addEventListener("focusout", startAutoplay);
-			startAutoplay();
-		}
 	</script>
 
 	<!-- AOS Init -->

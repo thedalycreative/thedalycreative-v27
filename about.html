@@ -232,8 +232,7 @@
 			   ABOUT PAGE — MEET TIM — STICKY PHOTO LEFT
 			   ========================================================== */
 		.about-meet-section {
-			margin-bottom: 0 !important;
-			padding-bottom: 0 !important;
+			padding: 10rem 0;
 			background: var(--cream);
 		}
 
@@ -260,13 +259,14 @@
 			overflow: hidden;
 			display: flex;
 			align-items: flex-end;
+			justify-content: center;
 		}
 
 		.about-photo-frame img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			object-position: top center;
+			max-width: 100%;
+			max-height: 100%;
+			object-fit: contain;
+			object-position: bottom center;
 			display: block;
 		}
 
@@ -439,7 +439,7 @@
 			   ABOUT PAGE — JOURNEY TIMELINE — DRAW-REVEAL ANIMATION
 			   ========================================================== */
 		.cv-section {
-			padding: 6rem 0;
+			padding: 10rem 0;
 			background: var(--cream);
 			overflow: hidden;
 		}
@@ -597,7 +597,7 @@
 			   ABOUT PAGE — EDUCATION & CREDENTIALS — REDESIGNED
 			   ========================================================== */
 		.about-edu-section {
-			padding: 5rem 0;
+			padding: 10rem 0;
 			background:
 				radial-gradient(ellipse at 20% 30%, rgba(160, 121, 203, 0.06), transparent 50%),
 				radial-gradient(ellipse at 80% 70%, rgba(47, 158, 160, 0.05), transparent 50%),
@@ -1216,40 +1216,40 @@
 					<p>The principles behind every project we take on.</p>
 				</div>
 
-				<div class="about-values-grid">
-					<div class="about-value-card" data-aos="fade-up" data-aos-delay="100">
-						<div class="about-value-icon" style="background: rgba(255, 138, 61, 0.1)">
-							<span class="fi-icon-wrap fi-animate-bounce">
-								<i class="fi fi-br-lightbulb-on" style="color: #ff8a3d; font-size: 1.65rem"></i>
-							</span>
+				<div class="about-values-grid-new">
+					<!-- Tile 1 -->
+					<div class="about-value-tile" data-aos="fade-up" data-aos-delay="100">
+						<div class="tile-icon-box" style="--tile-accent: var(--orange)">
+							<img src="images/icons/flavicon1-x1563.png" alt="Icon 1" class="tile-brand-icon">
+							<i class="fi fi-br-lightbulb-on"></i>
 						</div>
-						<div class="value-text">
+						<div class="tile-content">
 							<h3>Creative Strategy</h3>
 							<p>We don't just make things look good — we make sure they work. Every design decision is
 								backed by strategy and purpose.</p>
 						</div>
 					</div>
 
-					<div class="about-value-card" data-aos="fade-up" data-aos-delay="200">
-						<div class="about-value-icon" style="background: rgba(160, 121, 203, 0.1)">
-							<span class="fi-icon-wrap fi-animate-spin">
-								<i class="fi fi-br-settings" style="color: #a079cb; font-size: 1.65rem"></i>
-							</span>
+					<!-- Tile 2 -->
+					<div class="about-value-tile" data-aos="fade-up" data-aos-delay="200">
+						<div class="tile-icon-box" style="--tile-accent: var(--purple)">
+							<img src="images/icons/flavicon2-x1563.png" alt="Icon 2" class="tile-brand-icon">
+							<i class="fi fi-br-settings"></i>
 						</div>
-						<div class="value-text">
+						<div class="tile-content">
 							<h3>Smart Automation</h3>
 							<p>We use AI and automation to amplify your effort, not replace the human touch. Technology
 								should serve you.</p>
 						</div>
 					</div>
 
-					<div class="about-value-card" data-aos="fade-up" data-aos-delay="300">
-						<div class="about-value-icon" style="background: rgba(72, 201, 176, 0.1)">
-							<span class="fi-icon-wrap fi-animate-float">
-								<i class="fi fi-br-heart" style="color: #48c9b0; font-size: 1.65rem"></i>
-							</span>
+					<!-- Tile 3 -->
+					<div class="about-value-tile" data-aos="fade-up" data-aos-delay="300">
+						<div class="tile-icon-box" style="--tile-accent: var(--teal)">
+							<img src="images/icons/flavicon1-x1563.png" alt="Icon 1" class="tile-brand-icon">
+							<i class="fi fi-br-heart"></i>
 						</div>
-						<div class="value-text">
+						<div class="tile-content">
 							<h3>Human-First Design</h3>
 							<p>Accessibility, clarity, and empathy are baked into everything we create. Great design
 								should feel effortless.</p>
@@ -1258,10 +1258,90 @@
 				</div>
 			</div>
 
-			<!-- RIGHT: flavicons -->
+			<style>
+				.about-values-grid-new {
+					display: grid;
+					grid-template-columns: 1fr;
+					gap: 2rem;
+					margin-top: 3rem;
+				}
+
+				.about-value-tile {
+					display: flex;
+					gap: 2rem;
+					background: #ffffff;
+					padding: 3rem;
+					border-radius: 32px;
+					border: 1px solid rgba(0, 0, 0, 0.05);
+					transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+					position: relative;
+					overflow: hidden;
+				}
+
+				.about-value-tile:hover {
+					transform: translateY(-10px);
+					box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+					border-color: var(--tile-accent);
+				}
+
+				.tile-icon-box {
+					width: 100px;
+					height: 100px;
+					flex-shrink: 0;
+					position: relative;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
+
+				.tile-brand-icon {
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					opacity: 0.1;
+					transform: scale(1.5) rotate(-15deg);
+					pointer-events: none;
+				}
+
+				.tile-icon-box i {
+					font-size: 2.5rem;
+					color: var(--tile-accent);
+					position: relative;
+					z-index: 2;
+				}
+
+				.tile-content h3 {
+					font-family: "Fraunces", serif;
+					font-size: 1.8rem;
+					margin-bottom: 1rem;
+					color: var(--ink);
+				}
+
+				.tile-content p {
+					font-size: 1.1rem;
+					line-height: 1.7;
+					color: var(--slate);
+					margin: 0;
+				}
+
+				@media (max-width: 768px) {
+					.about-value-tile {
+						flex-direction: column;
+						padding: 2rem;
+						text-align: center;
+					}
+
+					.tile-icon-box {
+						margin: 0 auto;
+					}
+				}
+			</style>
+
+			<!-- RIGHT: Large Brand Image (replacing old sticky col contents) -->
 			<div class="values-sticky-col">
-				<div class="sticky-flavicon" data-aos="fade-left" data-aos-duration="1200">
-					<img src="images/icons/flavicon1-x1563.png" alt="The Daly Creative Brand Mark" loading="lazy" />
+				<div class="sticky-flavicon" data-aos="zoom-in" data-aos-duration="1500">
+					<img src="images/icons/logo-txt-6250x3750.png" alt="The Daly Creative Brand" loading="lazy"
+						style="filter: drop-shadow(0 20px 40px rgba(0,0,0,0.1));" />
 				</div>
 			</div>
 		</div>
@@ -1707,6 +1787,13 @@
 
 			.values-scroll-col {
 				padding: 4rem 2rem;
+			}
+
+			.about-meet-section,
+			.about-values-section,
+			.cv-section,
+			.about-edu-section {
+				padding: 6rem 1.5rem !important;
 			}
 		}
 	</style>
