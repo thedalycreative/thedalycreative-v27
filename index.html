@@ -854,63 +854,165 @@
 			}
 		}
 
-		/* Impressive Affiliates Marquee */
+		/* Impressive Affiliates Section - Homepage Refined */
 		.affiliates-section {
+			padding: 10rem 0;
 			background: #ffffff;
-			padding: 8rem 0;
 			overflow: hidden;
-		}
-
-		.marquee-wrapper {
 			position: relative;
+		}
+
+		/* Decorative Blobs for Homepage */
+		.home-aff-blob {
+			position: absolute;
+			border-radius: 50%;
+			filter: blur(100px);
+			z-index: 1;
+			opacity: 0.12;
+			pointer-events: none;
+		}
+
+		.home-blob-1 {
+			width: 500px;
+			height: 500px;
+			background: var(--teal);
+			top: -10%;
+			left: -5%;
+		}
+
+		.home-blob-2 {
+			width: 400px;
+			height: 400px;
+			background: var(--purple);
+			bottom: -5%;
+			right: -5%;
+		}
+
+		.affiliates-section h2 {
+			color: var(--ink);
+			text-align: center;
+			margin-bottom: 5rem;
+			font-family: "Fraunces", serif;
+			font-size: 3.5rem;
+			font-weight: 800;
+			z-index: 5;
+			position: relative;
+		}
+
+		.affiliates-section h2 span.brand-accent {
+			position: relative;
+			z-index: 1;
+		}
+
+		.affiliates-section h2 span.brand-accent::after {
+			content: '';
+			position: absolute;
+			bottom: 0.2rem;
+			left: 0;
+			width: 100%;
+			height: 1rem;
+			background: var(--peach);
+			opacity: 0.25;
+			z-index: -1;
+			transform: skewX(-12deg);
+		}
+
+		.home-marquee-row {
 			display: flex;
-			overflow: hidden;
-			user-select: none;
 			gap: 4rem;
-			padding: 2rem 0;
+			padding: 1.5rem 0;
+			white-space: nowrap;
+			z-index: 2;
+			position: relative;
 		}
 
-		.marquee-content {
-			flex-shrink: 0;
+		.home-marquee-content {
 			display: flex;
-			justify-content: space-around;
-			min-width: 100%;
 			gap: 4rem;
-			animation: scroll 40s linear infinite;
+			animation: homeMarqueeScroll 45s linear infinite;
 		}
 
-		.marquee-wrapper:hover .marquee-content {
-			animation-play-state: paused;
+		.home-marquee-row:nth-child(even) .home-marquee-content {
+			animation-direction: reverse;
 		}
 
-		.affiliate-tile {
-			width: 180px;
-			height: 100px;
+		.home-aff-tile {
+			width: 200px;
+			height: 110px;
+			background: #ffffff;
+			border-radius: 24px;
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-			filter: grayscale(1) opacity(0.5);
+			padding: 1.2rem;
+			transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+			position: relative;
+			border: 1px solid rgba(0, 0, 0, 0.04);
+			box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+			overflow: hidden;
 		}
 
-		.affiliate-tile:hover {
-			filter: grayscale(0) opacity(1);
-			transform: scale(1.15) rotate(2deg);
+		/* Watercolor Ellipse Effect behind tiles */
+		.home-aff-tile::before {
+			content: '';
+			position: absolute;
+			inset: -20%;
+			background: radial-gradient(circle at center, var(--tile-bg, rgba(47, 158, 160, 0.1)), transparent 70%);
+			opacity: 0;
+			transition: opacity 0.4s ease;
+			z-index: 1;
 		}
 
-		.affiliate-logo {
+		.home-aff-tile:hover {
+			transform: scale(1.08) translateY(-5px);
+			box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+			border-color: var(--tile-color, var(--teal));
+		}
+
+		.home-aff-tile:hover::before {
+			opacity: 1;
+		}
+
+		.home-aff-tile img {
 			max-width: 100%;
 			max-height: 100%;
 			object-fit: contain;
+			position: relative;
+			z-index: 2;
+			transition: all 0.4s ease;
 		}
 
-		@keyframes scroll {
+		.home-aff-tile:hover img {
+			transform: scale(1.1);
+		}
+
+		/* Decorative Halftone Pattern */
+		.home-aff-tile::after {
+			content: '';
+			position: absolute;
+			width: 50px;
+			height: 50px;
+			background-image: radial-gradient(var(--tile-color, var(--teal)) 2px, transparent 2px);
+			background-size: 8px 8px;
+			opacity: 0;
+			top: -5px;
+			right: -5px;
+			transition: all 0.4s ease;
+			z-index: 1;
+		}
+
+		.home-aff-tile:hover::after {
+			opacity: 0.15;
+			transform: translate(-5px, 5px);
+		}
+
+		@keyframes homeMarqueeScroll {
 			from {
 				transform: translateX(0);
 			}
 
 			to {
-				transform: translateX(calc(-100% - 4rem));
+				transform: translateX(-50%);
 			}
 		}
 
@@ -941,175 +1043,230 @@
 	</style>
 
 	<!-- ===== OUR AFFILIATES SECTION ===== -->
-	<section class="affiliates-section">
-		<div class="container">
-			<!--Affiliates Section Header-->
-			<div class="section-header reveal">
-				<h2>Our Affiliates</h2>
-				<p>Trusted partners we work with</p>
+	<section id="affiliates" class="affiliates-section">
+		<!-- Decorative Background Elements -->
+		<div class="home-aff-blob home-blob-1"></div>
+		<div class="home-aff-blob home-blob-2"></div>
+
+		<div class="container text-center" style="position: relative; z-index: 5;">
+			<div class="category-badge mx-auto mb-4" style="background: rgba(255, 138, 61, 0.1); color: var(--orange);">
+				<i class="fi fi-rr-star icon-float" style="font-size: 1rem; color: var(--orange);"></i>
+				<span>Global Network</span>
 			</div>
+			<h2 data-aos="fade-up">Our <span class="brand-accent">Affiliates</span></h2>
+		</div>
 
-			<div class="marquee-wrapper">
-				<div class="marquee-content">
-					<!-- Duplicate content for seamless loop -->
-					<div class="affiliate-tile"><img src="images/affilliates/DORA-logo-virtical circle.png" alt="DORA"
-							class="affiliate-logo"></div>
-					<div class="affiliate-tile"><img src="images/affilliates/and-logo.png" alt="AND"
-							class="affiliate-logo"></div>
-					<div class="affiliate-tile"><img src="images/affilliates/angharadoflynnlim-logo.png"
-							alt="Angharad Flynn" class="affiliate-logo"></div>
-					<div class="affiliate-tile"><img src="images/affilliates/atq-logo.png" alt="ATQ"
-							class="affiliate-logo"></div>
-					<div class="affiliate-tile"><img src="images/affilliates/brellock-logo.png" alt="Brellock"
-							class="affiliate-logo"></div>
-					<div class="affiliate-tile"><img src="images/affilliates/drumplings-logo.png" alt="Drumplings"
-							class="affiliate-logo"></div>
-					<div class="affiliate-tile"><img src="images/affilliates/drumps-logo.png" alt="Drumps"
-							class="affiliate-logo"></div>
-					<div class="affiliate-tile"><img src="images/affilliates/mwm-logo.png" alt="MWM"
-							class="affiliate-logo"></div>
-					<div class="affiliate-tile"><img src="images/affilliates/preservation logo.png" alt="Preservation"
-							class="affiliate-logo"></div>
-					<div class="affiliate-tile"><img src="images/affilliates/projecta-logo.png" alt="ProjectA"
-							class="affiliate-logo"></div>
-					<div class="affiliate-tile"><img src="images/affilliates/supremecourtofwa-logo.PNG"
-							alt="Supreme Court" class="affiliate-logo"></div>
-					<div class="affiliate-tile"><img src="images/affilliates/tassiedevils-logo.png" alt="Tassie Devils"
-							class="affiliate-logo"></div>
+		<!-- Row 1 -->
+		<div class="home-marquee-row">
+			<div class="home-marquee-content">
+				<div class="home-aff-tile" style="--tile-color: var(--teal); --tile-bg: rgba(47, 158, 160, 0.1);">
+					<img src="images/affilliates/dorahealth-logo.png" alt="DORA">
 				</div>
-				<div class="marquee-content" aria-hidden="true">
-					<!-- Hidden duplicate -->
-					<div class="affiliate-tile"><img src="images/affilliates/DORA-logo-virtical circle.png" alt="DORA"
-							class="affiliate-logo"></div>
-					<div class="affiliate-tile"><img src="images/affilliates/and-logo.png" alt="AND"
-							class="affiliate-logo"></div>
-					<div class="affiliate-tile"><img src="images/affilliates/angharadoflynnlim-logo.png"
-							alt="Angharad Flynn" class="affiliate-logo"></div>
-					<div class="affiliate-tile"><img src="images/affilliates/atq-logo.png" alt="ATQ"
-							class="affiliate-logo"></div>
-					<div class="affiliate-tile"><img src="images/affilliates/brellock-logo.png" alt="Brellock"
-							class="affiliate-logo"></div>
-					<div class="affiliate-tile"><img src="images/affilliates/drumplings-logo.png" alt="Drumplings"
-							class="affiliate-logo"></div>
-					<div class="affiliate-tile"><img src="images/affilliates/drumps-logo.png" alt="Drumps"
-							class="affiliate-logo"></div>
-					<div class="affiliate-tile"><img src="images/affilliates/mwm-logo.png" alt="MWM"
-							class="affiliate-logo"></div>
-					<div class="affiliate-tile"><img src="images/affilliates/preservation logo.png" alt="Preservation"
-							class="affiliate-logo"></div>
-					<div class="affiliate-tile"><img src="images/affilliates/projecta-logo.png" alt="ProjectA"
-							class="affiliate-logo"></div>
-					<div class="affiliate-tile"><img src="images/affilliates/supremecourtofwa-logo.PNG"
-							alt="Supreme Court" class="affiliate-logo"></div>
-					<div class="affiliate-tile"><img src="images/affilliates/tassiedevils-logo.png" alt="Tassie Devils"
-							class="affiliate-logo"></div>
+				<div class="home-aff-tile" style="--tile-color: var(--purple); --tile-bg: rgba(160, 121, 203, 0.1);">
+					<img src="images/affilliates/and-logo.png" alt="AND">
+				</div>
+				<div class="home-aff-tile" style="--tile-color: var(--orange); --tile-bg: rgba(255, 138, 61, 0.1);">
+					<img src="images/affilliates/angharadoflynnlim-logo.png" alt="Angharad">
+				</div>
+				<div class="home-aff-tile" style="--tile-color: var(--teal); --tile-bg: rgba(47, 158, 160, 0.1);">
+					<img src="images/affilliates/atq-logo.png" alt="ATQ">
+				</div>
+				<div class="home-aff-tile" style="--tile-color: var(--purple); --tile-bg: rgba(160, 121, 203, 0.1);">
+					<img src="images/affilliates/brellock-logo.png" alt="Brellock">
+				</div>
+				<div class="home-aff-tile" style="--tile-color: var(--orange); --tile-bg: rgba(255, 138, 61, 0.1);">
+					<img src="images/affilliates/drumplings-logo.png" alt="Drumplings">
+				</div>
+				<div class="home-aff-tile" style="--tile-color: var(--amber); --tile-bg: rgba(245, 166, 35, 0.1);">
+					<img src="images/affilliates/approach-logo.png" alt="Approach">
+				</div>
+				<div class="home-aff-tile" style="--tile-color: var(--purple); --tile-bg: rgba(160, 121, 203, 0.1);">
+					<img src="images/affilliates/rtrfm-logo.png" alt="RTRFM">
+				</div>
+				<!-- Duplicates for seamless loop -->
+				<div class="home-aff-tile" style="--tile-color: var(--teal); --tile-bg: rgba(47, 158, 160, 0.1);">
+					<img src="images/affilliates/dorahealth-logo.png" alt="DORA">
+				</div>
+				<div class="home-aff-tile" style="--tile-color: var(--purple); --tile-bg: rgba(160, 121, 203, 0.1);">
+					<img src="images/affilliates/and-logo.png" alt="AND">
+				</div>
+				<div class="home-aff-tile" style="--tile-color: var(--orange); --tile-bg: rgba(255, 138, 61, 0.1);">
+					<img src="images/affilliates/angharadoflynnlim-logo.png" alt="Angharad">
+				</div>
+				<div class="home-aff-tile" style="--tile-color: var(--teal); --tile-bg: rgba(47, 158, 160, 0.1);">
+					<img src="images/affilliates/atq-logo.png" alt="ATQ">
+				</div>
+				<div class="home-aff-tile" style="--tile-color: var(--purple); --tile-bg: rgba(160, 121, 203, 0.1);">
+					<img src="images/affilliates/brellock-logo.png" alt="Brellock">
+				</div>
+				<div class="home-aff-tile" style="--tile-color: var(--orange); --tile-bg: rgba(255, 138, 61, 0.1);">
+					<img src="images/affilliates/drumplings-logo.png" alt="Drumplings">
+				</div>
+				<div class="home-aff-tile" style="--tile-color: var(--amber); --tile-bg: rgba(245, 166, 35, 0.1);">
+					<img src="images/affilliates/approach-logo.png" alt="Approach">
+				</div>
+				<div class="home-aff-tile" style="--tile-color: var(--purple); --tile-bg: rgba(160, 121, 203, 0.1);">
+					<img src="images/affilliates/rtrfm-logo.png" alt="RTRFM">
 				</div>
 			</div>
-			<!--End Affiliates Carousel-->
 		</div>
-	</section>
 
-	<!-- ===== FINAL CTA SECTION ===== -->
-	<section class="final-cta"
-		style="background-image: linear-gradient(135deg, rgba(15, 29, 45, 0.75) 0%, rgba(16, 17, 22, 0.75) 100%), url('images/hero-images/hero-landing.png'); background-attachment: fixed; background-size: cover; background-position: center;">
-		<div class="container text-center reveal-scale">
-			<!--CTA Title-->
-			<h2 class="final-cta-title">Ready to Grow?</h2>
-			<!--CTA Text-->
-			<p class="final-cta-text">Let's build something extraordinary together.</p>
-			<!--CTA Button-->
-			<a href="contact.html" class="cta-button final-cta-button">Start Your Project <i
-					class="fi fi-rr-arrow-right" style="font-size: 0.9rem; margin-left: 0.3rem;"></i></a>
+		<!-- Row 2 -->
+		<div class="home-marquee-row">
+			<div class="home-marquee-content">
+				<div class="home-aff-tile" style="--tile-color: var(--purple); --tile-bg: rgba(160, 121, 203, 0.1);">
+					<img src="images/affilliates/mwm-logo.png" alt="MWM">
+				</div>
+				<div class="home-aff-tile" style="--tile-color: var(--teal); --tile-bg: rgba(47, 158, 160, 0.1);">
+					<img src="images/affilliates/preservation-logo.png" alt="Preservation">
+				</div>
+				<div class="home-aff-tile" style="--tile-color: var(--orange); --tile-bg: rgba(255, 138, 61, 0.1);">
+					<img src="images/affilliates/projecta-logo.png" alt="Projecta">
+				</div>
+				<div class="home-aff-tile" style="--tile-color: var(--amber); --tile-bg: rgba(245, 166, 35, 0.1);">
+					<img src="images/affilliates/supremecourtofwa-logo.PNG" alt="Supreme Court">
+				</div>
+				<div class="home-aff-tile" style="--tile-color: var(--teal); --tile-bg: rgba(47, 158, 160, 0.1);">
+					<img src="images/affilliates/tassiedevils-logo.png" alt="Tassie Devils">
+				</div>
+				<div class="home-aff-tile" style="--tile-color: var(--purple); --tile-bg: rgba(160, 121, 203, 0.1);">
+					<img src="images/affilliates/thegoodroot-logo.png" alt="The Good Root">
+				</div>
+				<div class="home-aff-tile" style="--tile-color: var(--orange); --tile-bg: rgba(255, 138, 61, 0.1);">
+					<img src="images/affilliates/wcep-logo.png" alt="WCE Pros">
+				</div>
+				<div class="home-aff-tile" style="--tile-color: var(--teal); --tile-bg: rgba(47, 158, 160, 0.1);">
+					<img src="images/affilliates/whd-logo.png" alt="WHD">
+				</div>
+				<!-- Duplicates for seamless loop -->
+				<div class="home-aff-tile" style="--tile-color: var(--purple); --tile-bg: rgba(160, 121, 203, 0.1);">
+					<img src="images/affilliates/mwm-logo.png" alt="MWM">
+				</div>
+				<div class="home-aff-tile" style="--tile-color: var(--teal); --tile-bg: rgba(47, 158, 160, 0.1);">
+					<img src="images/affilliates/preservation-logo.png" alt="Preservation">
+				</div>
+				<div class="home-aff-tile" style="--tile-color: var(--orange); --tile-bg: rgba(255, 138, 61, 0.1);">
+					<img src="images/affilliates/projecta-logo.png" alt="Projecta">
+				</div>
+				<div class="home-aff-tile" style="--tile-color: var(--amber); --tile-bg: rgba(245, 166, 35, 0.1);">
+					<img src="images/affilliates/supremecourtofwa-logo.PNG" alt="Supreme Court">
+				</div>
+				<div class="home-aff-tile" style="--tile-color: var(--teal); --tile-bg: rgba(47, 158, 160, 0.1);">
+					<img src="images/affilliates/tassiedevils-logo.png" alt="Tassie Devils">
+				</div>
+				<div class="home-aff-tile" style="--tile-color: var(--purple); --tile-bg: rgba(160, 121, 203, 0.1);">
+					<img src="images/affilliates/thegoodroot-logo.png" alt="The Good Root">
+				</div>
+				<div class="home-aff-tile" style="--tile-color: var(--orange); --tile-bg: rgba(255, 138, 61, 0.1);">
+					<img src="images/affilliates/wcep-logo.png" alt="WCE Pros">
+				</div>
+				<div class="home-aff-tile" style="--tile-color: var(--teal); --tile-bg: rgba(47, 158, 160, 0.1);">
+					<img src="images/affilliates/whd-logo.png" alt="WHD">
+				</div>
+			</div>
 		</div>
-	</section>
 
-	<!-- ===== FOOTER SECTION ===== -->
-	<div id="footer"></div>
+		<!-- ===== FINAL CTA SECTION ===== -->
+		<section class="final-cta"
+			style="background-image: linear-gradient(135deg, rgba(15, 29, 45, 0.75) 0%, rgba(16, 17, 22, 0.75) 100%), url('images/hero-images/hero-landing.png'); background-attachment: fixed; background-size: cover; background-position: center;">
+			<div class="container text-center reveal-scale">
+				<!--CTA Title-->
+				<h2 class="final-cta-title">Ready to Grow?</h2>
+				<!--CTA Text-->
+				<p class="final-cta-text">Let's build something extraordinary together.</p>
+				<!--CTA Button-->
+				<a href="contact.html" class="cta-button final-cta-button">Start Your Project <i
+						class="fi fi-rr-arrow-right" style="font-size: 0.9rem; margin-left: 0.3rem;"></i></a>
+			</div>
+		</section>
 
-	<!-- ===== SCRIPTS ===== -->
-	<script>
-		// Smooth scroll for navigation links
-		document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-			anchor.addEventListener("click", function (e) {
-				e.preventDefault();
-				const target = document.querySelector(this.getAttribute("href"));
-				if (target) {
-					target.scrollIntoView({ behavior: "smooth", block: "start" });
+		<!-- ===== FOOTER SECTION ===== -->
+		<div id="footer"></div>
+
+		<!-- ===== SCRIPTS ===== -->
+		<script>
+			// Smooth scroll for navigation links
+			document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+				anchor.addEventListener("click", function (e) {
+					e.preventDefault();
+					const target = document.querySelector(this.getAttribute("href"));
+					if (target) {
+						target.scrollIntoView({ behavior: "smooth", block: "start" });
+					}
+				});
+			});
+
+			// Form submission handling
+			document
+				.querySelector(".contact-form")
+				?.addEventListener("submit", function (e) {
+					e.preventDefault();
+					alert("Thank you for your message! We'll get back to you soon.");
+					this.reset();
+				});
+
+			// Add scroll effect to navbar
+			window.addEventListener("scroll", function () {
+				const nav = document.querySelector("nav");
+				if (window.scrollY > 100) {
+					nav.style.boxShadow = "0 4px 20px rgba(0,0,0,0.15)";
+				} else {
+					nav.style.boxShadow = "0 2px 10px rgba(0,0,0,0.1)";
 				}
 			});
-		});
 
-		// Form submission handling
-		document
-			.querySelector(".contact-form")
-			?.addEventListener("submit", function (e) {
-				e.preventDefault();
-				alert("Thank you for your message! We'll get back to you soon.");
-				this.reset();
+
+		</script>
+
+		<!-- AOS Init -->
+		<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+		<script>
+			AOS.init({
+				duration: 800,
+				easing: "ease-out-cubic",
+				once: true,
+				offset: 60,
 			});
+		</script>
 
-		// Add scroll effect to navbar
-		window.addEventListener("scroll", function () {
-			const nav = document.querySelector("nav");
-			if (window.scrollY > 100) {
-				nav.style.boxShadow = "0 4px 20px rgba(0,0,0,0.15)";
-			} else {
-				nav.style.boxShadow = "0 2px 10px rgba(0,0,0,0.1)";
-			}
-		});
+		<!-- ===== SCROLL REVEAL ===== -->
+		<script>
+			(function () {
+				const revealEls = document.querySelectorAll(
+					".reveal, .reveal-left, .reveal-right, .reveal-scale"
+				);
+				if (!revealEls.length) return;
 
+				const io = new IntersectionObserver(
+					(entries) => {
+						entries.forEach((entry) => {
+							if (entry.isIntersecting) {
+								entry.target.classList.add("revealed");
+								io.unobserve(entry.target);
+							}
+						});
+					},
+					{ threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+				);
 
-	</script>
+				revealEls.forEach((el) => io.observe(el));
+			})();
+		</script>
 
-	<!-- AOS Init -->
-	<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-	<script>
-		AOS.init({
-			duration: 800,
-			easing: "ease-out-cubic",
-			once: true,
-			offset: 60,
-		});
-	</script>
-
-	<!-- ===== SCROLL REVEAL ===== -->
-	<script>
-		(function () {
-			const revealEls = document.querySelectorAll(
-				".reveal, .reveal-left, .reveal-right, .reveal-scale"
-			);
-			if (!revealEls.length) return;
-
-			const io = new IntersectionObserver(
-				(entries) => {
-					entries.forEach((entry) => {
-						if (entry.isIntersecting) {
-							entry.target.classList.add("revealed");
-							io.unobserve(entry.target);
-						}
-					});
-				},
-				{ threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
-			);
-
-			revealEls.forEach((el) => io.observe(el));
-		})();
-	</script>
-
-	<!-- ===== FOOTER INCLUDE ===== -->
-	<script>
-		fetch("-footer.html")
-			.then((response) => response.text())
-			.then((html) => {
-				const footer = document.getElementById("footer");
-				if (footer) {
-					footer.innerHTML = html;
-				}
-			})
-			.catch((error) => {
-				console.error("Footer load failed:", error);
-			});
-	</script>
+		<!-- ===== FOOTER INCLUDE ===== -->
+		<script>
+			fetch("-footer.html")
+				.then((response) => response.text())
+				.then((html) => {
+					const footer = document.getElementById("footer");
+					if (footer) {
+						footer.innerHTML = html;
+					}
+				})
+				.catch((error) => {
+					console.error("Footer load failed:", error);
+				});
+		</script>
 </body>
 
 </html>
