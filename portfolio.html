@@ -58,37 +58,95 @@
 			}
 		}
 
-		/* 100vh Affiliates Section */
+		/* 100vh Affiliates Section - Refined Brand Aesthetic */
 		.portfolio-affiliates {
 			height: 100vh;
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
-			background: var(--ink);
+			background: #ffffff;
+			/* Brighter background to let blobs pop */
 			overflow: hidden;
 			position: relative;
+			padding: 4rem 0;
+		}
+
+		/* Decorative Blobs */
+		.affiliate-blob {
+			position: absolute;
+			border-radius: 50%;
+			filter: blur(80px);
+			z-index: 1;
+			opacity: 0.15;
+			pointer-events: none;
+		}
+
+		.blob-1 {
+			width: 600px;
+			height: 600px;
+			background: var(--teal);
+			top: -10%;
+			left: -10%;
+		}
+
+		.blob-2 {
+			width: 500px;
+			height: 500px;
+			background: var(--purple);
+			bottom: -5%;
+			right: -5%;
+		}
+
+		.blob-3 {
+			width: 400px;
+			height: 400px;
+			background: var(--orange);
+			top: 20%;
+			right: 10%;
 		}
 
 		.portfolio-affiliates h2 {
-			color: #fff;
+			color: var(--ink);
 			text-align: center;
-			margin-bottom: 4rem;
+			margin-bottom: 5rem;
 			font-family: "Fraunces", serif;
-			font-size: 3.5rem;
+			font-size: 4rem;
+			font-weight: 800;
 			z-index: 2;
+			position: relative;
+		}
+
+		.portfolio-affiliates h2 span.brand-accent {
+			position: relative;
+			z-index: 1;
+		}
+
+		.portfolio-affiliates h2 span.brand-accent::after {
+			content: '';
+			position: absolute;
+			bottom: 0.2rem;
+			left: 0;
+			width: 100%;
+			height: 1.2rem;
+			background: var(--amber);
+			opacity: 0.3;
+			z-index: -1;
+			transform: skewX(-15deg);
 		}
 
 		.portfolio-marquee-row {
 			display: flex;
-			gap: 3rem;
-			padding: 1.5rem 0;
+			gap: 4rem;
+			padding: 2rem 0;
 			white-space: nowrap;
+			z-index: 2;
+			position: relative;
 		}
 
 		.portfolio-marquee-content {
 			display: flex;
-			gap: 3rem;
-			animation: marqueeScroll 30s linear infinite;
+			gap: 4rem;
+			animation: marqueeScroll 40s linear infinite;
 		}
 
 		.portfolio-marquee-row:nth-child(even) .portfolio-marquee-content {
@@ -96,27 +154,55 @@
 		}
 
 		.port-aff-tile {
-			width: 220px;
-			height: 120px;
-			background: rgba(255, 255, 255, 0.05);
-			border-radius: 16px;
+			width: 260px;
+			height: 140px;
+			background: #ffffff;
+			border-radius: 28px;
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			padding: 2rem;
-			transition: all 0.3s ease;
+			padding: 2.5rem;
+			transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+			position: relative;
+			border: 1px solid rgba(0, 0, 0, 0.04);
+			box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+			overflow: hidden;
+		}
+
+		/* Watercolor Ellipse Effect behind tiles */
+		.port-aff-tile::before {
+			content: '';
+			position: absolute;
+			inset: -20%;
+			background: radial-gradient(circle at center, var(--tile-bg, rgba(47, 158, 160, 0.1)), transparent 70%);
+			opacity: 0;
+			transition: opacity 0.4s ease;
+			z-index: 1;
 		}
 
 		.port-aff-tile:hover {
-			background: rgba(255, 255, 255, 0.1);
-			transform: scale(1.1);
+			transform: scale(1.05) translateY(-5px);
+			box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
+			border-color: var(--tile-color, var(--teal));
+		}
+
+		.port-aff-tile:hover::before {
+			opacity: 1;
 		}
 
 		.port-aff-tile img {
 			max-width: 100%;
 			max-height: 100%;
 			object-fit: contain;
-			filter: brightness(0) invert(1) opacity(0.5);
+			position: relative;
+			z-index: 2;
+			filter: grayscale(1) contrast(0.8) opacity(0.6);
+			transition: all 0.4s ease;
+		}
+
+		.port-aff-tile:hover img {
+			filter: grayscale(0) contrast(1) opacity(1);
+			transform: scale(1.1);
 		}
 
 		@keyframes marqueeScroll {
@@ -127,6 +213,26 @@
 			to {
 				transform: translateX(-50%);
 			}
+		}
+
+		/* Decorative Halftone Pattern */
+		.port-aff-tile::after {
+			content: '';
+			position: absolute;
+			width: 60px;
+			height: 60px;
+			background-image: radial-gradient(var(--tile-color, var(--teal)) 2px, transparent 2px);
+			background-size: 8px 8px;
+			opacity: 0;
+			top: -10px;
+			right: -10px;
+			transition: all 0.4s ease;
+			z-index: 1;
+		}
+
+		.port-aff-tile:hover::after {
+			opacity: 0.2;
+			transform: translate(-10px, 10px);
 		}
 
 		/* Consulting Section Redesign */
@@ -713,53 +819,114 @@
 
 	<!-- ===== 100VH AFFILIATES SHOWCASE ===== -->
 	<section class="portfolio-affiliates">
-		<h2 data-aos="fade-up">Trusted By Industry Leaders</h2>
+		<!-- Decorative Background Elements -->
+		<div class="affiliate-blob blob-1"></div>
+		<div class="affiliate-blob blob-2"></div>
+		<div class="affiliate-blob blob-3"></div>
+
+		<div class="container container--full text-center" style="z-index: 5; position: relative;">
+			<div class="category-badge mx-auto mb-4" style="background: rgba(47, 158, 160, 0.1); color: var(--teal);">
+				<i class="fi fi-rr-star icon-float" style="font-size: 1rem; color: var(--teal);"></i>
+				<span>Global Network</span>
+			</div>
+			<h2 data-aos="fade-up">Trusted By <span class="brand-accent">Industry Leaders</span></h2>
+		</div>
 
 		<!-- Row 1 -->
 		<div class="portfolio-marquee-row">
 			<div class="portfolio-marquee-content">
-				<div class="port-aff-tile"><img src="images/affilliates/DORA-logo-virtical circle.png" alt="Affiliate">
+				<div class="port-aff-tile" style="--tile-color: var(--teal); --tile-bg: rgba(47, 158, 160, 0.1);">
+					<img src="images/affilliates/DORA-logo-virtical circle.png" alt="DORA">
 				</div>
-				<div class="port-aff-tile"><img src="images/affilliates/and-logo.png" alt="Affiliate"></div>
-				<div class="port-aff-tile"><img src="images/affilliates/angharadoflynnlim-logo.png" alt="Affiliate">
+				<div class="port-aff-tile" style="--tile-color: var(--purple); --tile-bg: rgba(160, 121, 203, 0.1);">
+					<img src="images/affilliates/and-logo.png" alt="AND">
 				</div>
-				<div class="port-aff-tile"><img src="images/affilliates/atq-logo.png" alt="Affiliate"></div>
-				<div class="port-aff-tile"><img src="images/affilliates/brellock-logo.png" alt="Affiliate"></div>
-				<div class="port-aff-tile"><img src="images/affilliates/drumplings-logo.png" alt="Affiliate"></div>
-				<div class="port-aff-tile"><img src="images/affilliates/drumps-logo.png" alt="Affiliate"></div>
-				<!-- Duplicates -->
-				<div class="port-aff-tile"><img src="images/affilliates/DORA-logo-virtical circle.png" alt="Affiliate">
+				<div class="port-aff-tile" style="--tile-color: var(--orange); --tile-bg: rgba(255, 138, 61, 0.1);">
+					<img src="images/affilliates/angharadoflynnlim-logo.png" alt="Angharad">
 				</div>
-				<div class="port-aff-tile"><img src="images/affilliates/and-logo.png" alt="Affiliate"></div>
-				<div class="port-aff-tile"><img src="images/affilliates/angharadoflynnlim-logo.png" alt="Affiliate">
+				<div class="port-aff-tile" style="--tile-color: var(--teal); --tile-bg: rgba(47, 158, 160, 0.1);">
+					<img src="images/affilliates/atq-logo.png" alt="ATQ">
 				</div>
-				<div class="port-aff-tile"><img src="images/affilliates/atq-logo.png" alt="Affiliate"></div>
-				<div class="port-aff-tile"><img src="images/affilliates/brellock-logo.png" alt="Affiliate"></div>
-				<div class="port-aff-tile"><img src="images/affilliates/drumplings-logo.png" alt="Affiliate"></div>
-				<div class="port-aff-tile"><img src="images/affilliates/drumps-logo.png" alt="Affiliate"></div>
+				<div class="port-aff-tile" style="--tile-color: var(--purple); --tile-bg: rgba(160, 121, 203, 0.1);">
+					<img src="images/affilliates/brellock-logo.png" alt="Brellock">
+				</div>
+				<div class="port-aff-tile" style="--tile-color: var(--orange); --tile-bg: rgba(255, 138, 61, 0.1);">
+					<img src="images/affilliates/drumplings-logo.png" alt="Drumplings">
+				</div>
+				<div class="port-aff-tile" style="--tile-color: var(--amber); --tile-bg: rgba(245, 166, 35, 0.1);">
+					<img src="images/affilliates/drumps-logo.png" alt="Drumps">
+				</div>
+				<!-- Duplicates for seamless loop -->
+				<div class="port-aff-tile" style="--tile-color: var(--teal); --tile-bg: rgba(47, 158, 160, 0.1);">
+					<img src="images/affilliates/DORA-logo-virtical circle.png" alt="DORA">
+				</div>
+				<div class="port-aff-tile" style="--tile-color: var(--purple); --tile-bg: rgba(160, 121, 203, 0.1);">
+					<img src="images/affilliates/and-logo.png" alt="AND">
+				</div>
+				<div class="port-aff-tile" style="--tile-color: var(--orange); --tile-bg: rgba(255, 138, 61, 0.1);">
+					<img src="images/affilliates/angharadoflynnlim-logo.png" alt="Angharad">
+				</div>
+				<div class="port-aff-tile" style="--tile-color: var(--teal); --tile-bg: rgba(47, 158, 160, 0.1);">
+					<img src="images/affilliates/atq-logo.png" alt="ATQ">
+				</div>
+				<div class="port-aff-tile" style="--tile-color: var(--purple); --tile-bg: rgba(160, 121, 203, 0.1);">
+					<img src="images/affilliates/brellock-logo.png" alt="Brellock">
+				</div>
+				<div class="port-aff-tile" style="--tile-color: var(--orange); --tile-bg: rgba(255, 138, 61, 0.1);">
+					<img src="images/affilliates/drumplings-logo.png" alt="Drumplings">
+				</div>
+				<div class="port-aff-tile" style="--tile-color: var(--amber); --tile-bg: rgba(245, 166, 35, 0.1);">
+					<img src="images/affilliates/drumps-logo.png" alt="Drumps">
+				</div>
 			</div>
 		</div>
 
 		<!-- Row 2 -->
 		<div class="portfolio-marquee-row">
 			<div class="portfolio-marquee-content">
-				<div class="port-aff-tile"><img src="images/affilliates/mwm-logo.png" alt="Affiliate"></div>
-				<div class="port-aff-tile"><img src="images/affilliates/preservation logo.png" alt="Affiliate"></div>
-				<div class="port-aff-tile"><img src="images/affilliates/projecta-logo.png" alt="Affiliate"></div>
-				<div class="port-aff-tile"><img src="images/affilliates/supremecourtofwa-logo.PNG" alt="Affiliate">
+				<div class="port-aff-tile" style="--tile-color: var(--purple); --tile-bg: rgba(160, 121, 203, 0.1);">
+					<img src="images/affilliates/mwm-logo.png" alt="MWM">
 				</div>
-				<div class="port-aff-tile"><img src="images/affilliates/tassiedevils-logo.png" alt="Affiliate"></div>
-				<div class="port-aff-tile"><img src="images/affilliates/thegoodroot-logo.png" alt="Affiliate"></div>
-				<div class="port-aff-tile"><img src="images/affilliates/wcepros-logo.png" alt="Affiliate"></div>
-				<!-- Duplicates -->
-				<div class="port-aff-tile"><img src="images/affilliates/mwm-logo.png" alt="Affiliate"></div>
-				<div class="port-aff-tile"><img src="images/affilliates/preservation logo.png" alt="Affiliate"></div>
-				<div class="port-aff-tile"><img src="images/affilliates/projecta-logo.png" alt="Affiliate"></div>
-				<div class="port-aff-tile"><img src="images/affilliates/supremecourtofwa-logo.PNG" alt="Affiliate">
+				<div class="port-aff-tile" style="--tile-color: var(--teal); --tile-bg: rgba(47, 158, 160, 0.1);">
+					<img src="images/affilliates/preservation logo.png" alt="Preservation">
 				</div>
-				<div class="port-aff-tile"><img src="images/affilliates/tassiedevils-logo.png" alt="Affiliate"></div>
-				<div class="port-aff-tile"><img src="images/affilliates/thegoodroot-logo.png" alt="Affiliate"></div>
-				<div class="port-aff-tile"><img src="images/affilliates/wcepros-logo.png" alt="Affiliate"></div>
+				<div class="port-aff-tile" style="--tile-color: var(--orange); --tile-bg: rgba(255, 138, 61, 0.1);">
+					<img src="images/affilliates/projecta-logo.png" alt="Projecta">
+				</div>
+				<div class="port-aff-tile" style="--tile-color: var(--amber); --tile-bg: rgba(245, 166, 35, 0.1);">
+					<img src="images/affilliates/supremecourtofwa-logo.PNG" alt="Supreme Court">
+				</div>
+				<div class="port-aff-tile" style="--tile-color: var(--teal); --tile-bg: rgba(47, 158, 160, 0.1);">
+					<img src="images/affilliates/tassiedevils-logo.png" alt="Tassie Devils">
+				</div>
+				<div class="port-aff-tile" style="--tile-color: var(--purple); --tile-bg: rgba(160, 121, 203, 0.1);">
+					<img src="images/affilliates/thegoodroot-logo.png" alt="The Good Root">
+				</div>
+				<div class="port-aff-tile" style="--tile-color: var(--orange); --tile-bg: rgba(255, 138, 61, 0.1);">
+					<img src="images/affilliates/wcepros-logo.png" alt="WCE Pros">
+				</div>
+				<!-- Duplicates for seamless loop -->
+				<div class="port-aff-tile" style="--tile-color: var(--purple); --tile-bg: rgba(160, 121, 203, 0.1);">
+					<img src="images/affilliates/mwm-logo.png" alt="MWM">
+				</div>
+				<div class="port-aff-tile" style="--tile-color: var(--teal); --tile-bg: rgba(47, 158, 160, 0.1);">
+					<img src="images/affilliates/preservation logo.png" alt="Preservation">
+				</div>
+				<div class="port-aff-tile" style="--tile-color: var(--orange); --tile-bg: rgba(255, 138, 61, 0.1);">
+					<img src="images/affilliates/projecta-logo.png" alt="Projecta">
+				</div>
+				<div class="port-aff-tile" style="--tile-color: var(--amber); --tile-bg: rgba(245, 166, 35, 0.1);">
+					<img src="images/affilliates/supremecourtofwa-logo.PNG" alt="Supreme Court">
+				</div>
+				<div class="port-aff-tile" style="--tile-color: var(--teal); --tile-bg: rgba(47, 158, 160, 0.1);">
+					<img src="images/affilliates/tassiedevils-logo.png" alt="Tassie Devils">
+				</div>
+				<div class="port-aff-tile" style="--tile-color: var(--purple); --tile-bg: rgba(160, 121, 203, 0.1);">
+					<img src="images/affilliates/thegoodroot-logo.png" alt="The Good Root">
+				</div>
+				<div class="port-aff-tile" style="--tile-color: var(--orange); --tile-bg: rgba(255, 138, 61, 0.1);">
+					<img src="images/affilliates/wcepros-logo.png" alt="WCE Pros">
+				</div>
 			</div>
 		</div>
 	</section>
