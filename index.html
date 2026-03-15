@@ -63,16 +63,60 @@
 								<div><strong>AI Strategy</strong><span>Smart automation for real workflows</span></div>
 							</a>
 							<div class="nav-dropdown-divider"></div>
-							<a href="ai-tools.html" class="nav-dropdown-card nav-dropdown-card--dark nav-dropdown-card--full">
+							<a href="ai-tools.html" class="nav-dropdown-card nav-dropdown-card--dark">
 								<i class="fi fi-rr-robot nav-dropdown-icon"></i>
 								<div><strong>AI Tools & Automation</strong><span>Custom agents, chatbots, workflow systems</span></div>
+							</a>
+							<a href="cyber-security.html" class="nav-dropdown-card nav-dropdown-card--maroon">
+								<i class="fi fi-rr-shield-check nav-dropdown-icon"></i>
+								<div><strong>Cyber Security</strong><span>Protection, audits, and compliance</span></div>
 							</a>
 						</div>
 					</div>
 				</li>
-				<li data-color="amber"><a href="work.html">Work</a></li>
-				<li data-color="purple"><a href="process.html">Process</a></li>
-				<li data-color="blue"><a href="about.html">About</a></li>
+				<li data-color="purple"><a href="work.html">Work</a></li>
+				<li class="nav-has-dropdown" data-color="amber">
+					<a href="process.html">
+						Process <i class="bi bi-chevron-down nav-chevron"></i>
+					</a>
+					<div class="nav-dropdown">
+						<div class="nav-dropdown-grid">
+							<a href="process.html#discover" class="nav-dropdown-card">
+								<i class="fi fi-rr-search nav-dropdown-icon"></i>
+								<div><strong>01 Discover</strong><span>Research, goals, and strategy</span></div>
+							</a>
+							<a href="process.html#design" class="nav-dropdown-card">
+								<i class="fi fi-rr-interrogation nav-dropdown-icon"></i>
+								<div><strong>02 Design</strong><span>Wireframes, UI, and branding</span></div>
+							</a>
+							<a href="process.html#build" class="nav-dropdown-card">
+								<i class="fi fi-rr-code-simple nav-dropdown-icon"></i>
+								<div><strong>03 Build</strong><span>Development and optimization</span></div>
+							</a>
+							<a href="process.html#launch" class="nav-dropdown-card">
+								<i class="fi fi-rr-rocket-lunch nav-dropdown-icon"></i>
+								<div><strong>04 Launch</strong><span>Deployment and growth</span></div>
+							</a>
+						</div>
+					</div>
+				</li>
+				<li class="nav-has-dropdown" data-color="blue">
+					<a href="about.html">
+						About <i class="bi bi-chevron-down nav-chevron"></i>
+					</a>
+					<div class="nav-dropdown">
+						<div class="nav-dropdown-grid">
+							<a href="about.html#the-founder" class="nav-dropdown-card">
+								<i class="fi fi-rr-user nav-dropdown-icon"></i>
+								<div><strong>The Founder</strong><span>Meet Tim Daly</span></div>
+							</a>
+							<a href="about.html#values" class="nav-dropdown-card">
+								<i class="fi fi-rr-heart nav-dropdown-icon"></i>
+								<div><strong>Values</strong><span>What drives the creative work</span></div>
+							</a>
+						</div>
+					</div>
+				</li>
 				<li><a href="contact.html" class="nav-cta">Start a Project <i class="bi bi-arrow-right nav-icon"></i></a></li>
 			</ul>
 
@@ -540,13 +584,90 @@
 	</section>
 
 	<!-- ===== FOOTER ===== -->
-	<div id="footer-placeholder"></div>
+	<footer class="site-footer">
+		<div class="container">
+			<div class="footer-grid">
+				<!-- Brand Column -->
+				<div class="footer-brand">
+					<a href="index.html">
+						<img src="images/icons/logo-1300x507.png" alt="The Daly Creative" style="height: 44px; width: auto; margin-bottom: 1.25rem;" />
+					</a>
+					<p>
+						Web design, branding, and AI strategy for ambitious businesses.
+						Based in Fremantle, Western Australia.
+					</p>
+					<div class="footer-socials">
+						<a href="https://www.linkedin.com/in/thetimdaly/" target="_blank" rel="noopener noreferrer"
+							class="footer-social-link" aria-label="LinkedIn">
+							<i class="bi bi-linkedin"></i>
+						</a>
+						<a href="https://www.facebook.com/thedalycreative/" target="_blank" rel="noopener noreferrer"
+							class="footer-social-link" aria-label="Facebook">
+							<i class="bi bi-facebook"></i>
+						</a>
+						<a href="https://www.instagram.com/thedalycreative/" target="_blank" rel="noopener noreferrer"
+							class="footer-social-link" aria-label="Instagram">
+							<i class="bi bi-instagram"></i>
+						</a>
+					</div>
+				</div>
+
+				<!-- Services Column -->
+				<div>
+					<h4 class="footer-heading">Services</h4>
+					<ul class="footer-links">
+						<li><a href="services.html#web-dev">Web Development</a></li>
+						<li><a href="services.html#brand-identity">Brand Identity</a></li>
+						<li><a href="ai-tools.html">AI Tools</a></li>
+						<li><a href="services.html#seo">SEO & Growth</a></li>
+						<li><a href="services.html#training">Training</a></li>
+					</ul>
+				</div>
+
+				<!-- Company Column -->
+				<div>
+					<h4 class="footer-heading">Company</h4>
+					<ul class="footer-links">
+						<li><a href="about.html">About</a></li>
+						<li><a href="work.html">Work</a></li>
+						<li><a href="process.html">Process</a></li>
+						<li><a href="contact.html">Contact</a></li>
+					</ul>
+				</div>
+
+				<!-- Get in Touch Column -->
+				<div>
+					<h4 class="footer-heading">Get in Touch</h4>
+					<ul class="footer-links">
+						<li>
+							<a href="mailto:contact@thetimdaly.com" class="footer-contact-item">
+								<i class="bi bi-envelope"></i> contact@thetimdaly.com
+							</a>
+						</li>
+						<li>
+							<span class="footer-contact-item">
+								<i class="bi bi-geo-alt"></i> Fremantle, WA
+							</span>
+						</li>
+					</ul>
+					<a href="contact.html" class="footer-cta">
+						Start a Project <i class="bi bi-arrow-right"></i>
+					</a>
+				</div>
+			</div>
+
+			<div class="footer-bottom">
+				<p class="footer-copyright">&copy; 2026 The Daly Creative. All rights reserved.</p>
+				<div class="footer-legal">
+					<a href="terms.html">Terms of Service</a>
+					<a href="privacy.html">Privacy Policy</a>
+				</div>
+			</div>
+		</div>
+	</footer>
 
 	<!-- ===== SCRIPTS ===== -->
 	<script>
-		// Footer
-		fetch("-footer.html").then(r => r.text()).then(html => document.getElementById("footer-placeholder").innerHTML = html);
-
 		// Navbar scroll
 		const nav = document.querySelector("nav");
 		window.addEventListener("scroll", () => {
@@ -589,7 +710,6 @@
 				function step(now) {
 					const elapsed = now - start;
 					const progress = Math.min(elapsed / duration, 1);
-					// Ease out cubic
 					const eased = 1 - Math.pow(1 - progress, 3);
 					const current = Math.round(eased * target);
 					el.textContent = current + (progress >= 1 ? suffix : "");
@@ -599,7 +719,6 @@
 			});
 		}
 
-		// Trigger counters when hero proof is visible
 		const proofObserver = new IntersectionObserver((entries) => {
 			entries.forEach(entry => {
 				if (entry.isIntersecting) {
@@ -612,7 +731,7 @@
 		const heroProof = document.querySelector(".hero-proof");
 		if (heroProof) proofObserver.observe(heroProof);
 
-		// Subtle parallax on hero orbs (mouse-driven)
+		// Subtle parallax on hero orbs
 		const orbs = document.querySelectorAll(".hero-orb");
 		if (window.matchMedia("(min-width: 768px)").matches) {
 			document.addEventListener("mousemove", (e) => {
@@ -625,9 +744,9 @@
 			}, { passive: true });
 		}
 
-		// Magnetic button effect on .btn--accent
+		// Magnetic button effect
 		if (window.matchMedia("(min-width: 768px) and (hover: hover)").matches) {
-			document.querySelectorAll(".btn--accent, .nav-cta").forEach(btn => {
+			document.querySelectorAll(".btn--accent, .nav-cta, .footer-cta").forEach(btn => {
 				btn.addEventListener("mousemove", function(e) {
 					const rect = this.getBoundingClientRect();
 					const x = e.clientX - rect.left - rect.width / 2;
